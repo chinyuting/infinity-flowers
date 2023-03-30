@@ -1,19 +1,88 @@
 import { createRouter, createWebHashHistory } from 'vue-router';
-import HomeView from '../views/HomeView.vue';
 
 const routes = [
   {
     path: '/',
-    name: 'home',
-    component: HomeView,
+    component: () => import('../views/FrontView.vue'),
+    children: [
+      {
+        path: '/',
+        name: 'home',
+        component: () => import('../views/Front/HomeView.vue'),
+      },
+      {
+        path: 'products',
+        name: 'products',
+        component: () => import('../views/Front/ProductsView.vue'),
+      },
+      {
+        path: 'products/:productId',
+        name: 'productdetail',
+        component: () => import('../views/Front/ProductDetailView.vue'),
+      },
+      {
+        path: 'cart',
+        name: 'cart',
+        component: () => import('../views/Front/CartView.vue'),
+      },
+      {
+        path: 'favorite',
+        name: 'favorite',
+        component: () => import('../views/Front/FavoriteView.vue'),
+      },
+      {
+        path: 'order',
+        name: 'order',
+        component: () => import('../views/Front/OrderView.vue'),
+      },
+      {
+        path: 'order/:orderid',
+        name: 'ordercheck',
+        component: () => import('../views/Front/OrderCheckView.vue'),
+      },
+      {
+        path: 'order/:orderid/paid',
+        name: 'orderPaid',
+        component: () => import('../views/Front/OrderCompletedView.vue'),
+      },
+      {
+        path: 'orderSearch',
+        name: 'orderSearch',
+        component: () => import('../views/Front/OrderSearchView.vue'),
+      },
+      {
+        path: 'QA',
+        name: 'QA',
+        component: () => import('../views/Front/QAView.vue'),
+      },
+    ],
   },
   {
-    path: '/about',
-    name: 'about',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue'),
+    path: '/login',
+    name: 'login',
+    component: () => import('../views/LoginView.vue'),
+  },
+  {
+    path: '/dashboard',
+    name: 'dashboard',
+    component: () => import('../views/DashBoardView.vue'),
+    children: [
+      {
+        path: 'productmanage',
+        name: 'productmanage',
+        component: () => import('../views/Admin/ProductManage.vue'),
+      },
+      {
+        path: 'ordermanage',
+        name: 'ordermanage',
+        component: () => import('../views/Admin/OrderManage.vue'),
+      },
+      {
+        path: 'couponmanage',
+        name: 'couponmanage',
+        component: () => import('../views/Admin/CouponManage.vue'),
+      },
+    ],
   },
 ];
 

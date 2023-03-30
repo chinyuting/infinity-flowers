@@ -1,0 +1,44 @@
+<template>
+  <div class="modal fade" id="exampleModal"
+  tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" ref="modal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">{{ null }}</h5>
+          <button type="button" class="btn-close"
+          data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body text-center">
+          <span class="text-success p-2">
+            <i class="bi bi-flower3" style="font-size: 2rem;"></i>
+          </span>
+          <h4>Infinity Flower限時優惠</h4>
+          <h3>優惠券代碼 Infiity8</h3>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary"
+          data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-danger">馬上逛逛</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+import Modal from 'bootstrap/js/dist/modal';
+import modalMixin from '@/mixins/ModalMixins';
+
+export default {
+  data() {
+    return {
+      modal: {},
+    };
+  },
+  inject: ['emitter'],
+  mixins: [modalMixin],
+  mounted() {
+    this.modal = new Modal(this.$refs.modal);
+  },
+};
+</script>
