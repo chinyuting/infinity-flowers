@@ -18,7 +18,8 @@
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary"
           data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-danger">馬上逛逛</button>
+          <button type="button" class="btn btn-danger"
+          @click.prevent="goToProduct">馬上逛逛</button>
         </div>
       </div>
     </div>
@@ -34,6 +35,12 @@ export default {
     return {
       modal: {},
     };
+  },
+  methods: {
+    goToProduct() {
+      this.hideModal();
+      this.$router.push('/products');
+    },
   },
   inject: ['emitter'],
   mixins: [modalMixin],
