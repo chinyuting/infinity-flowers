@@ -3,16 +3,18 @@
 <div class="container">
   <div class="row">
     <!-- 側邊分類 -->
-    <div class="side-bar col-2">
-      <ul class="nav flex-column">
+    <div class="side-bar col-lg-2">
+      <ul class="nav d-flex flex-lg-column flex-row">
         <li class="nav-item">
-          <a class="nav-link text-secondary" aria-current="page" href="#"
+          <a class="nav-link  text-secondary rounded-pill" href="#"
+          aria-current="page"
           @click.prevent="category = ''">
-          <i class="bi bi-flower3 text-danger"
-          :style="{visibility: category === '' ? 'visible' : 'hidden'}"></i>全部商品</a>
+            <i class="bi bi-flower3 text-danger"
+            :style="{visibility: category === '' ? 'visible' : 'hidden'}"></i>全部商品
+          </a>
         </li>
         <li class="nav-item" v-for="(item, key) in productCategory" :key="key">
-          <a class="nav-link text-secondary" href="#"
+          <a class="nav-link text-secondary rounded-pill" href="#"
           @click.prevent="category = item">
             <i class="bi bi-flower3 text-danger"
             :style="{visibility: category === item ? 'visible' : 'hidden'}"></i>
@@ -22,7 +24,7 @@
       </ul>
     </div>
     <!-- 商品列表 -->
-    <div class="col-10 row">
+    <div class="col-lg-10 row ms-0">
       <div class="col-sm-12 col-md-6 col-lg-4"
         v-for="(item, key) in filterProduct[pagination.current_page-1]" :key="key">
         <div class="card mt-1 mb-2 mx-auto" style="max-width: 280px;">
