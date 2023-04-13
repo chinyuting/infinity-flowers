@@ -98,7 +98,7 @@
   width: 88%;
 }
 .slogan{
-  width: 280px;
+  width: 290px;
   padding-top: 20%;
 }
 @media only screen and (max-width: 768px){
