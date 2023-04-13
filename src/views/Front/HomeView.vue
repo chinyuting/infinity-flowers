@@ -7,7 +7,7 @@
         <div class="pb-2" style="text-shadow: rgb(226, 213, 196) 2px 0 10px;">scroll</div>
       </div>
     </div>
-    <div class="container-fluid mt-5">
+    <div class="mt-5 container-fluid">
       <div class="on-sale w-100 text-center p-5 rounded-3">
         <h2>限時優惠 <span class="text-danger fw-bolder">８折</span></h2>
         <button class="btn btn-light" @click.prevent="openModel">點擊領取優惠券</button>
@@ -26,10 +26,13 @@
           <img src="@/assets/AboutUs.jpg" alt="" class="homepic">
         </div>
       </div>
-      <div class="mt-3 mb-3">
-        <h3><i class="bi bi-flower3 text-danger"></i>新品上市</h3>
-        <div class="row">
-          <div class="col-sm-12 col-md-6 col-lg-4"
+      <!-- 新品上市 -->
+      <div class="mt-3 mb-3 row newItem-bg">
+        <div class="col-md-3 newItem mt-md-0 mt-3">
+          <h1 class="text-center"><i class="bi bi-flower3 text-danger"></i>新品上市</h1>
+        </div>
+        <div class="row col-md-9 px-0">
+          <div class="col-sm-12 col-md-4 px-0"
             v-for="(item, key) in newProductList" :key="key">
             <div class="card mt-1 mb-2 mx-auto" style="max-width: 280px;">
               <a href="#" class="text-decoration-none"
@@ -39,8 +42,11 @@
                   <img :src="item.imageUrl" alt=""
                     class="card-img-top d-block align-middle h-100 w-auto mx-auto">
                 </div>
-                <div class="card-body text-dark">
-                  <h5 class="card-title">{{ item.title }}</h5>
+                <div class="card-body text-dark overflow-hidden">
+                  <h5 class="card-title" :title="item.title"
+                    style="max-width: 225px; text-overflow: ellipsis; white-space: nowrap;">
+                    {{ item.title }}
+                  </h5>
                   <a href="#" class="btn btn-secondary w-100">查看商品</a>
                 </div>
               </a>
@@ -115,6 +121,17 @@
   0% { transform:translateY(0px);}
   50% {transform:translateY(-15px);}
   100% {transform:translateY(0px);}
+}
+.newItem-bg {
+  background:linear-gradient(135deg,rgba(231, 152, 152, 0.6) 30%,#e9ecef );
+  /* linear-gradient(135deg,#e9ecef 40%, rgba(231, 152, 152, 1)) */
+}
+.newItem{
+  color: rgb(247, 248, 249);
+  line-height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 </style>
 <script>
