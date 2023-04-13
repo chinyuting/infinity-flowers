@@ -194,7 +194,7 @@ export default {
       const tempData = this.allProductList.filter((item) => item.category.match(this.category));
       const resultData = [];
       // eslint-disable-next-line
-      this.pagination.total_pages = parseInt(tempData.length / 10, 10) + 1;
+      this.pagination.total_pages = tempData.length % 10 === 0? parseInt(tempData.length / 10, 10) : parseInt(tempData.length / 10, 10)+1;
       if (this.pagination.current_page > this.pagination.total_pages) {
         // eslint-disable-next-line
         this.pagination.current_page = 1;
