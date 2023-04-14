@@ -27,7 +27,7 @@
         </div>
       </div>
       <!-- 新品上市 -->
-      <div class="mt-3 mb-3 row newItem-bg">
+      <div class="mt-3 mb-3 row newItem-bg py-2">
         <div class="col-md-3 newItem mt-md-0 mt-3">
           <h1 class="text-center"><i class="bi bi-flower3 text-danger"></i>新品上市</h1>
         </div>
@@ -42,10 +42,14 @@
                   <img :src="item.imageUrl" alt=""
                     class="card-img-top d-block align-middle h-100 w-auto mx-auto">
                 </div>
-                <div class="card-body text-dark overflow-hidden">
-                  <h5 class="card-title" :title="item.title"
-                    style="max-width: 225px; text-overflow: ellipsis; white-space: nowrap;">
-                    {{ item.title }}
+                <div class="card-body text-dark">
+                  <!-- 商品名稱 -->
+                  <h5 class="overflow-hidden">
+                    <div class="card-title overflow-hidden"
+                      style="max-width: 225px; text-overflow: ellipsis; white-space: nowrap;"
+                      :title="item.title">
+                      {{ item.title }}
+                    </div>
                   </h5>
                   <a href="#" class="btn btn-secondary w-100">查看商品</a>
                 </div>
