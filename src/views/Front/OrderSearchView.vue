@@ -1,7 +1,7 @@
 <template>
 <LoadingOverlay :active="isLoading"></LoadingOverlay>
 <div class="container">
-  <p>請輸入訂購人Email查詢訂單</p>
+  <h5>請輸入訂購人Email查詢訂單</h5>
   <v-form v-slot="{ errors }">
     <div class="input-group mb-3">
       <v-field type="text" class="form-control" placeholder="訂購人Email"
@@ -15,7 +15,10 @@
   </v-form>
   <div v-if="searchstate && filterOrder.length===0">
     <div class="position-absolute bottom-50 start-50 translate-middle text-center">
-      <h2>查無資料</h2>
+      <h2>
+        <i class="bi bi-flower3 text-danger"></i>
+        查無資料
+      </h2>
     </div>
   </div>
   <div v-else-if="searchstate && filterOrder.length!==0">
