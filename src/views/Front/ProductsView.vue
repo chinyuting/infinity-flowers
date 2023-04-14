@@ -40,7 +40,7 @@
             </div>
             <div class="card-body text-dark">
               <div>
-                <h5 class="row">
+                <h5 class="row overflow-hidden">
                   <!-- 商品名稱 -->
                   <div class="card-title col-10 overflow-hidden"
                   style="max-width: 225px; text-overflow: ellipsis; white-space: nowrap;"
@@ -61,8 +61,10 @@
               <!-- 商品資訊 -->
               <p class="card-text">
                 <span class="text-decoration-line-through fs-6"
-                v-if="item.origin_price !== item.price"> NT${{ item.origin_price }}</span>
-                <span class="fs-5"> NT${{ item.price }}</span>
+                v-if="item.origin_price !== item.price">
+                NT${{ $filters.currency(item.origin_price) }}
+              </span>
+                <span class="fs-5"> NT${{ $filters.currency(item.price) }}</span>
               </p>
             </div>
           </a>
