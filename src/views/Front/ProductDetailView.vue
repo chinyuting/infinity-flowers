@@ -39,6 +39,7 @@
       <h1 class="col-10 overflow-hidden">{{ product.title }}</h1>
       <p>{{ product.description }}</p>
       <p style="white-space: pre-line">{{ product.content }}</p>
+      <!-- 商品數量 -->
       <div class="input-group">
         <button class="btn btn-outline-secondary" type="button"
           @click.prevent="refreshqty(-1)"
@@ -50,22 +51,34 @@
           @click.prevent="refreshqty(1)">+
         </button>
       </div>
+      <div>
+        <h3 class="text-end">
+          <span v-if="product.origin_price !== product.price"
+          class="text-decoration-line-through fs-6">
+            NT${{ $filters.currency(product.origin_price) }}
+          </span>
+          <span>NT${{ $filters.currency(product.price) }}</span>
+          / {{ product.unit }}
+        </h3>
+      </div>
       <!-- 加入收藏 -->
-      <button type="button" @click.prevent="updateFavorite(item)"
-        class="btn btn-danger mt-2 me-2">
-        <span v-if="idList.every((id) => productId !== id)">
-          <i class="bi bi-heart" title="加入收藏"></i> 加入收藏
-        </span>
-        <span v-else><i class="bi bi-heart-fill" title="加入收藏"></i> 取消收藏</span>
-      </button>
-      <button type="button" @click.prevent="addCart"
-        class="btn btn-danger mt-2" :disabled="loadingStatus">
-        <div class="spinner-border spinner-border-sm text-light" role="status"
-          v-if="loadingStatus">
-          <span class="visually-hidden">Loading...</span>
-        </div>
-        <i class="bi bi-cart-plus-fill" v-else></i> 加入購物車
-      </button>
+      <div class="text-end">
+        <button type="button" @click.prevent="updateFavorite(item)"
+          class="btn btn-danger mt-2 me-2">
+          <span v-if="idList.every((id) => productId !== id)">
+            <i class="bi bi-heart" title="加入收藏"></i> 加入收藏
+          </span>
+          <span v-else><i class="bi bi-heart-fill" title="加入收藏"></i> 取消收藏</span>
+        </button>
+        <button type="button" @click.prevent="addCart"
+          class="btn btn-danger mt-2" :disabled="loadingStatus">
+          <div class="spinner-border spinner-border-sm text-light" role="status"
+            v-if="loadingStatus">
+            <span class="visually-hidden">Loading...</span>
+          </div>
+          <i class="bi bi-cart-plus-fill" v-else></i> 加入購物車
+        </button>
+      </div>
       <hr>
       <!-- 產品說明與保養 -->
       <div>
