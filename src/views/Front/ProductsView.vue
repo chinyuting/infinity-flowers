@@ -29,14 +29,15 @@
         v-for="(item, key) in filterProduct[pagination.current_page-1]" :key="key">
         <div class="card mt-1 mb-2 mx-auto" style="max-width: 280px;">
           <a class="productcard" href="#" @click.prevent="goForDetail(item.id)">
-            <!-- 商品類別標示 商品圖片 -->
+            <!-- 商品類別標示 -->
             <div class="overflow-hidden text-light position-relative border-bottom"
             style="height: 345px;">
               <div class="position-absolute bg-secondary px-2 bottom-0 end-0 rounded">
                 <p class="card-text">{{ item.category }}</p>
               </div>
+              <!-- 商品圖片 -->
               <img :src="item.imageUrl" alt=""
-              class="card-img-top d-block align-middle h-100 w-auto mx-auto">
+              class="card-img-top d-block align-middle w-100 h-100 w-auto mx-auto">
             </div>
             <div class="card-body text-dark">
               <div>
@@ -202,10 +203,10 @@ export default {
         this.pagination.current_page = 1;
       }
       tempData.forEach((item, i) => {
-        if (i % 10 === 0) {
+        if (i % 9 === 0) {
           resultData.push([]);
         }
-        const pagenum = parseInt(i / 10, 10);
+        const pagenum = parseInt(i / 9, 9);
         resultData[pagenum].push(item);
       });
       return resultData;
