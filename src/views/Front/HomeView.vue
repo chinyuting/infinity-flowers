@@ -50,6 +50,15 @@
             </h3>
           </div>
       </div>
+      <div class="w-100 text-center my-5 p-2">
+        <h3 class="p-3 fst-italic fw-lighter">讓永生花，成為你心中永恆的美麗。</h3>
+        <button class="btn btn-danger mt-3">
+          <router-link to="/products" @click.prevent="hideModal"
+            class="text-light text-decoration-none">
+            馬上逛逛
+          </router-link>
+        </button>
+      </div>
       <!-- 新品上市 -->
       <div class="mt-4 row newItem-bg py-2">
         <div class="col-lg-3 newItem mt-md-0 py-md-2">
