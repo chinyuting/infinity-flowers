@@ -39,7 +39,7 @@
                     </div>
                     <span v-else><i class="bi bi-dash"></i></span>
                   </button>
-                  <input type="text" class="form-control" placeholder="Recipient's username"
+                  <input type="text" class="form-control" placeholder="請輸入數量"
                   aria-label="qty" v-model="item.qty"
                   @change.prevent="refreshCart(item, item.qty)">
                   <button class="btn btn-outline-secondary" type="button"

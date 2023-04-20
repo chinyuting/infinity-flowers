@@ -29,7 +29,7 @@
                     <button class="btn btn-outline-secondary" type="button"
                     @click.prevent="refreshCart(item, item.qty-1)"
                     :disabled="item.qty === 1">-</button>
-                    <input type="number" class="form-control" placeholder="qty"
+                    <input type="number" class="form-control" placeholder="請輸入數量"
                     aria-label="qty" v-model="item.qty"
                     @change.prevent="refreshCart(item, item.qty)">
                     <button class="btn btn-outline-secondary" type="button"
