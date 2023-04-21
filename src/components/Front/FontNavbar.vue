@@ -9,7 +9,8 @@
     <button class="navbar-toggler" type="button"
       data-bs-toggle="collapse" data-bs-target=".FontnavbarNav"
       aria-controls="FontnavbarNav" aria-expanded="false"
-      aria-label="Toggle navigation">
+      aria-label="Toggle navigation" ref="navbarToggler"
+      @blur="closeNav()">
       <span class="navbar-toggler-icon"></span>
     </button>
     <!-- nav list -->
@@ -56,9 +57,6 @@
               <i class="bi bi-heart" style="font-size: 1.5rem"></i>{{ null }}
             </a>
           </span>
-          <!-- <span class="notice"
-            :style="{visibility: favoriteLength !== 0 ? 'visible' : 'hidden'}">
-            {{ favoriteLength }}</span> -->
         </li>
         <li class="nav-item">
           <span>
@@ -121,6 +119,9 @@ export default {
     },
     pageChange(page) {
       this.pageNow = page;
+    },
+    closeNav() {
+      this.$refs.navbarToggler.click();
     },
   },
   mixins: [mixinCart],
