@@ -34,7 +34,7 @@
           <td>
             <button type="button" class="btn btn-outline-secondary"
               @click.prevent="openModal(item)">編輯</button>
-            <button type="button" class="btn btn-outline-danger ms-1"
+            <button type="button" class="btn btn-outline-danger ms-md-1"
             @click.prevent="openCheckModal(item);">刪除</button>
           </td>
         </tr>
