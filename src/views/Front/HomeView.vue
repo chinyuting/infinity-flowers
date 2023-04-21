@@ -1,4 +1,5 @@
 <template>
+  <LoadingOverlay :active="isLoading"></LoadingOverlay>
   <!-- banner -->
   <div class="home">
     <div class="backgroundclip display-1 image-cover text-center row align-items-center">
@@ -193,10 +194,12 @@ export default {
   inject: ['emitter'],
   methods: {
     getNewProducts() {
+      this.isLoading = true;
       const api = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/products/all`;
       this.$http.get(api)
         .then((res) => {
           this.newProductList = res.data.products.slice(-3);
+          this.isLoading = false;
         });
     },
     goForDetail(id) {
