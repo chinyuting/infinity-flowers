@@ -1,6 +1,6 @@
 <template>
   <div class="toast" role="alert" aria-live="assertive" aria-atomic="true" ref="toast">
-    <div class="toast-header">
+    <div class="toast-header rounded">
       <span :class="`text-${msg.style}`" class="p-2">
         <i class="bi bi-flower3" style="font-size: 2rem;"></i>
       </span>
@@ -24,7 +24,7 @@ export default {
   mounted() {
     const toastEl = this.$refs.toast;
     const toast = new Toast(toastEl, {
-      delay: 6000,
+      delay: 80000,
     });
     toast.show();
   },
