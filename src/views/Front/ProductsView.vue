@@ -89,8 +89,8 @@
 
 <script>
 import Pagination from '@/components/PaginationComponent.vue';
-import mixinCart from '@/mixins/GetCarts';
-import mixinFavorite from '@/mixins/GetFavorites';
+import cartMixin from '@/mixins/GetCarts';
+import favoriteMixin from '@/mixins/GetFavorites';
 
 export default {
   data() {
@@ -203,7 +203,7 @@ export default {
       return resultData;
     },
   },
-  mixins: [mixinCart, mixinFavorite],
+  mixins: [cartMixin, favoriteMixin],
   created() {
     this.getProducts();
     this.getFavorite();

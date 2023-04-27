@@ -165,7 +165,7 @@
 
 <script>
 import OrderNav from '@/components/Front/OrderNav.vue';
-import mixinCart from '@/mixins/GetCarts';
+import cartMixin from '@/mixins/GetCarts';
 
 export default {
   data() {
@@ -255,7 +255,7 @@ export default {
       this.$router.push('/cart');
     },
   },
-  mixins: [mixinCart],
+  mixins: [cartMixin],
   created() {
     this.getCarts();
     // this.addCoupon();

@@ -94,8 +94,8 @@
 </template>
 
 <script>
-import mixinCart from '@/mixins/GetCarts';
-import mixinFavorite from '@/mixins/GetFavorites';
+import cartMixin from '@/mixins/GetCarts';
+import favoriteMixin from '@/mixins/GetFavorites';
 
 export default {
   data() {
@@ -165,7 +165,7 @@ export default {
       this.product_qty += (number);
     },
   },
-  mixins: [mixinCart, mixinFavorite],
+  mixins: [cartMixin, favoriteMixin],
   created() {
     this.getProductDetails();
     this.getFavorite();
