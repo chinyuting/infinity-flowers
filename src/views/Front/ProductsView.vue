@@ -32,12 +32,12 @@
             <!-- 商品類別標示 -->
             <div class="overflow-hidden text-light position-relative border-bottom"
             style="height: 345px;">
-              <div class="position-absolute bg-secondary px-2 bottom-0 end-0 rounded">
+              <div class="position-absolute bg-secondary px-2 bottom-0 end-0 rounded m-1">
                 <p class="card-text">{{ item.category }}</p>
               </div>
               <!-- 商品圖片 -->
               <img :src="item.imageUrl" :alt="item.title"
-              class="card-img-top d-block align-middle w-100 h-100 w-auto mx-auto">
+              class="card-img-top d-block align-middle w-100 h-100 w-auto mx-auto rounded">
             </div>
             <div class="card-body text-dark">
               <div>
