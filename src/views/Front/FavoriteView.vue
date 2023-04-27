@@ -18,7 +18,8 @@
               <div class="position-absolute bg-secondary px-2 bottom-0 end-0 rounded">
                 <p class="card-text">{{ item.category }}</p>
               </div>
-              <img :src="item.imageUrl" class="card-img-top d-block mx-auto align-middle" alt="">
+              <img :src="item.imageUrl" :alt="item.title"
+              class="card-img-top d-block mx-auto align-middle">
             </div>
             <div class="card-body text-dark">
               <!-- 加入收藏 -->

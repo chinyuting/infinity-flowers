@@ -19,7 +19,7 @@
         </div>
         <div v-if="product.imagesUrl">
           <div class="carousel-item" v-for="(imgUrl, key) in product.imagesUrl" :key="key">
-            <img :src="imgUrl" alt="" class="d-block w-100">
+            <img :src="imgUrl" :alt="product.title" class="d-block w-100">
           </div>
         </div>
       </div>

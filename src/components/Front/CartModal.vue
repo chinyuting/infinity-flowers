@@ -23,7 +23,8 @@
           <div class="card mb-1" v-for="(item, key) in CartList.carts" :key="'cart'+key">
             <div class="d-flex">
               <div class="cartcard-img me-1 ps-0">
-                <img :src="item.product.imageUrl" class="card-img-top" alt="...">
+                <img :src="item.product.imageUrl" class="card-img-top"
+                :alt="item.product.title">
               </div>
               <div class="col-6 m-auto">
                 <h5 class="card-title">{{ item.product.title }}</h5>

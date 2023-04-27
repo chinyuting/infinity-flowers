@@ -3,7 +3,7 @@
   <div class="container-fluid">
     <!-- logo -->
     <a class="navbar-brand" href="#">
-      <img alt="" src="@/assets/logo.png" width="100">{{ null }}
+      <img alt="Infinity Flowers logo" src="@/assets/logo.png" width="100">{{ null }}
     </a>
      <!-- toggle -->
     <button class="navbar-toggler" type="button"

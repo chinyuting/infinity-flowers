@@ -27,7 +27,7 @@
                   @change="uploadFile" ref="fileInput">
                 </label>
               </div>
-              <img class="img-fluid" alt="" :src="tempProduct.imageUrl">
+              <img class="img-fluid" :alt="tempProduct.title" :src="tempProduct.imageUrl">
               <!-- 延伸技巧，多圖 -->
               <div class="mt-5">
                 <div class="mb-3 input-group">
@@ -49,16 +49,22 @@
                     {{ url }}
                   </div>
                   <div>
-                    <button class="btn btn-outline-primary" @click="showImages(url)">
-                      <span v-if="url === isShowurl && isShow">隱藏</span>
-                      <span v-else>顯示</span>
+                    <button class="btn btn-outline-primary" @click="showImages(url, key)"
+                    v-if="url === isShowurl &&isShow===true">
+                      <span>隱藏</span>
+                    </button>
+                    <button class="btn btn-outline-primary" @click="showImages(url, key)"
+                    v-else>
+                      <span>顯示</span>
                     </button>
                     <button class="btn btn-outline-danger me-2" @click="deleteImages(url)">
                       刪除</button>
                   </div>
                   <div>
-                    <img :src="url" alt="" class="img-fluid" v-if="url === isShowurl && isShow"
-                    onerror="this.onerror=null;this.src='http://example.com/existent-image.jpg';">
+                    <img :src="url" :alt="tempProduct.title+key"
+                    class="img-fluid"
+                    v-if="url === isShowurl && isShow">
+                    <!--onerror="this.onerror=null;this.src='http://example.com/existent-image.jpg';"  -->
                     <!-- <span>圖片連結錯誤無法顯示</span> -->
                   </div>
                 </div>

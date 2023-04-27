@@ -7,9 +7,6 @@
         <i class="bi bi-flower3 text-success"></i>
         <span>已完成付款</span>
       </h3>
-      <!-- <div>
-        <img src="@/assets/logo.png" alt="" style="width: 100px;">
-      </div> -->
       <button type="button" class="btn btn-secondary m-2 w-25"
       @click.prevent="this.$router.push('/')">回到首頁</button>
       <button type="button" class="btn btn-danger m-2 w-25"

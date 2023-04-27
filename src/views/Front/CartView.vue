@@ -20,7 +20,7 @@
                 class="col-1 btn btn-light border-0 text-danger">
                 <i class="bi bi-x-lg"></i>
               </button>
-              <img :src="item.product.imageUrl" alt="" class="col-4">
+              <img :src="item.product.imageUrl" :alt="item.product.title" class="col-4">
               <div class="col-7 align-items-center">
                 <div class="">
                   <p>{{ item.product.title }}</p>

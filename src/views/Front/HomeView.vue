@@ -23,7 +23,8 @@
       </div>
       <div class="slogan-bg row">
           <div class="col-md-6 p-0 order-1">
-            <img src="@/assets/bouquet.jpg" alt="" style="width:85%; display:block; margin:auto;"
+            <img src="@/assets/bouquet.jpg" alt="bouquet"
+            style="width:85%; display:block; margin:auto;"
             class="rounded-3">
           </div>
           <div class="col-md-6 text-light order-2">
@@ -38,7 +39,8 @@
       </div>
       <div class="slogan-bg row mt-5">
           <div class="col-md-6 p-0 order-md-2">
-            <img src="@/assets/AboutUs.jpg" alt="" style="width:85%; display:block; margin:auto;"
+            <img src="@/assets/AboutUs.jpg" alt="making-bouquet"
+            style="width:85%; display:block; margin:auto;"
             class="rounded-3">
           </div>
           <div class="col-md-6 align-middle text-light order-md-1">
@@ -74,7 +76,7 @@
                <!-- 商品圖片 -->
                 <div class="overflow-hidden text-light position-relative border-bottom"
                   style="height: 345px;">
-                  <img :src="item.imageUrl" alt=""
+                  <img :src="item.imageUrl" :alt="item.title"
                     class="card-img-top d-block align-middle h-100 w-auto mx-auto">
                 </div>
                 <div class="card-body text-dark">

@@ -13,7 +13,7 @@
       <error-message name="email" class="invalid-feedback"></error-message>
     </div>
   </v-form>
-  <div v-if="searchstate && filterOrder.length===0">
+  <div v-if="searchstate && filterOrder.length === 0">
     <div class="position-absolute bottom-50 start-50 translate-middle text-center">
       <h2>
         <i class="bi bi-flower3 text-danger"></i>
