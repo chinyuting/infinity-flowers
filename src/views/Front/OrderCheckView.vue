@@ -72,13 +72,7 @@
   </div>
 </div>
 </template>
-<style>
-@media only screen and (max-width: 768px){
-  .orderNav{
-    display: none;
-  }
-}
-</style>
+
 <script>
 import OrderNav from '@/components/Front/OrderNav.vue';
 
@@ -132,3 +126,11 @@ export default {
   },
 };
 </script>
+
+<style>
+@media only screen and (max-width: 768px){
+  .orderNav{
+    display: none;
+  }
+}
+</style>

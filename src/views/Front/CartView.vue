@@ -62,19 +62,7 @@
   </div>
 </div>
 </template>
-<style>
-.orderNavDetail{
-  display: none;
-}
-@media only screen and (max-width: 768px){
-  .orderNav{
-    display: none;
-  }
-  .orderNavDetail{
-    display: block;
-  }
-}
-</style>
+
 <script>
 import OrderNav from '@/components/Front/OrderNav.vue';
 import cartMixin from '@/mixins/GetCarts';
@@ -148,3 +136,17 @@ export default {
   },
 };
 </script>
+
+<style>
+.orderNavDetail{
+  display: none;
+}
+@media only screen and (max-width: 768px){
+  .orderNav{
+    display: none;
+  }
+  .orderNavDetail{
+    display: block;
+  }
+}
+</style>

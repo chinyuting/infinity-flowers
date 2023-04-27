@@ -97,6 +97,59 @@
   </div>
   <Onsalemodal ref="sale"></Onsalemodal>
 </template>
+
+<script>
+import Onsalemodal from '@/components/Front/OnsaleModal.vue';
+
+export default {
+  data() {
+    return {
+      newProductList: [],
+    };
+  },
+  components: {
+    Onsalemodal,
+  },
+  inject: ['emitter'],
+  methods: {
+    getNewProducts() {
+      this.isLoading = true;
+      const api = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/products/all`;
+      this.$http.get(api)
+        .then((res) => {
+          this.newProductList = res.data.products.slice(-3);
+          this.isLoading = false;
+        });
+    },
+    goForDetail(id) {
+      this.$router.push(`/products/${id}`);
+    },
+    openModel() {
+      this.copyCode();
+      this.$refs.sale.showModal();
+    },
+    goMart() {
+      this.$router.push('/products');
+    },
+    copyCode() {
+      navigator.clipboard.writeText('Infinity8');
+      this.emitter.emit('push-message', {
+        style: 'success',
+        title: '已複製優惠代碼',
+      });
+    },
+  },
+  created() {
+    this.getNewProducts();
+  },
+  mounted() {
+    this.emitter.emit('page-change', {
+      data: 'home',
+    });
+  },
+};
+</script>
+
 <style>
 .home{
   margin-top: 70px;
@@ -178,55 +231,3 @@
   align-items: center;
 }
 </style>
-
-<script>
-import Onsalemodal from '@/components/Front/OnsaleModal.vue';
-
-export default {
-  data() {
-    return {
-      newProductList: [],
-    };
-  },
-  components: {
-    Onsalemodal,
-  },
-  inject: ['emitter'],
-  methods: {
-    getNewProducts() {
-      this.isLoading = true;
-      const api = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/products/all`;
-      this.$http.get(api)
-        .then((res) => {
-          this.newProductList = res.data.products.slice(-3);
-          this.isLoading = false;
-        });
-    },
-    goForDetail(id) {
-      this.$router.push(`/products/${id}`);
-    },
-    openModel() {
-      this.copyCode();
-      this.$refs.sale.showModal();
-    },
-    goMart() {
-      this.$router.push('/products');
-    },
-    copyCode() {
-      navigator.clipboard.writeText('Infinity8');
-      this.emitter.emit('push-message', {
-        style: 'success',
-        title: '已複製優惠代碼',
-      });
-    },
-  },
-  created() {
-    this.getNewProducts();
-  },
-  mounted() {
-    this.emitter.emit('page-change', {
-      data: 'home',
-    });
-  },
-};
-</script>

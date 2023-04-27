@@ -3,6 +3,19 @@
   <routerView></routerView>
   <Footer></Footer>
 </template>
+
+<script>
+import NavBar from '@/components/Front/FontNavbar.vue';
+import Footer from '@/components/Front/FontFooter.vue';
+
+export default {
+  components: {
+    NavBar,
+    Footer,
+  },
+};
+</script>
+
 <style>
 body {
   height: 100%;
@@ -18,14 +31,3 @@ body {
     );
   }
 </style>
-<script>
-import NavBar from '@/components/Front/FontNavbar.vue';
-import Footer from '@/components/Front/FontFooter.vue';
-
-export default {
-  components: {
-    NavBar,
-    Footer,
-  },
-};
-</script>

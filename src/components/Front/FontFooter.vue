@@ -6,6 +6,7 @@
     </div>
   </footer>
 </template>
+
 <style>
 .font-footer {
   width: 100%;

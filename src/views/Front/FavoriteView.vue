@@ -47,19 +47,11 @@
         </div>
       </div>
     </div>
-    <!-- <Pagination :pages="pagination" @emit-page="getFavoriteProducts"></Pagination> -->
   </div>
 </div>
 </template>
 
-<style>
-.productcard{
-  text-decoration: none;
-}
-</style>
-
 <script>
-// import Pagination from '@/components/PaginationComponent.vue';
 import mixinCart from '@/mixins/GetCarts';
 import mixinFavorite from '@/mixins/GetFavorites';
 
@@ -142,3 +134,9 @@ export default {
   },
 };
 </script>
+
+<style>
+.productcard{
+  text-decoration: none;
+}
+</style>

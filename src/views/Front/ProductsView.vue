@@ -36,7 +36,7 @@
                 <p class="card-text">{{ item.category }}</p>
               </div>
               <!-- 商品圖片 -->
-              <img :src="item.imageUrl" alt=""
+              <img :src="item.imageUrl" :alt="item.title"
               class="card-img-top d-block align-middle w-100 h-100 w-auto mx-auto">
             </div>
             <div class="card-body text-dark">
@@ -86,15 +86,6 @@
 </div>
   <Pagination :pages="pagination" @emit-page="getProducts" class="mt-2"></Pagination>
 </template>
-
-<style>
-.productcard{
-  text-decoration: none;
-}
-.product-card:nth-child(3n-1){
-  margin: 0 auto;
-}
-</style>
 
 <script>
 import Pagination from '@/components/PaginationComponent.vue';
@@ -225,3 +216,12 @@ export default {
   },
 };
 </script>
+
+<style>
+.productcard{
+  text-decoration: none;
+}
+.product-card:nth-child(3n-1){
+  margin: 0 auto;
+}
+</style>

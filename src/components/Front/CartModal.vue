@@ -69,30 +69,7 @@
     </div>
   </div>
 </template>
-<style>
-.cartmodal{
-  --bs-modal-width:435px;
-}
-.cartmodal-dialog {
-  margin: 0%;
-  position: absolute;
-  top: 0px;
-  right: 0px;
-  bottom: 0;
-  z-index: 10040;
-  overflow: auto;
-  overflow-y: auto;
-  height: 100%;
-}
-.cartmodal-content{
-  height: 100%;
-  border: 0;
-  border-radius: 0;
-}
-.cartcard-img{
-  width: 40%;
-}
-</style>
+
 <script>
 import Modal from 'bootstrap/js/dist/modal';
 import cartMixin from '@/mixins/GetCarts';
@@ -163,3 +140,28 @@ export default {
   },
 };
 </script>
+
+<style>
+.cartmodal{
+  --bs-modal-width:435px;
+}
+.cartmodal-dialog {
+  margin: 0%;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 0;
+  z-index: 10040;
+  overflow: auto;
+  overflow-y: auto;
+  height: 100%;
+}
+.cartmodal-content{
+  height: 100%;
+  border: 0;
+  border-radius: 0;
+}
+.cartcard-img{
+  width: 40%;
+}
+</style>

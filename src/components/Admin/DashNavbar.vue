@@ -49,15 +49,7 @@
   </nav>
   <checkModal ref="checkModal" :dataStatus="'logout'" @logout-confirmed="logout"></checkModal>
 </template>
-<style>
-.homenav-active{
-  color: rgba(231, 152, 152, 1);
-  font-weight: 700;
-}
-.nav-link:focus{
-  color: rgba(231, 152, 152, 1);
-}
-</style>
+
 <script>
 import checkModal from './DoubleCheckModal.vue';
 
@@ -93,3 +85,13 @@ export default {
   },
 };
 </script>
+
+<style>
+.homenav-active{
+  color: rgba(231, 152, 152, 1);
+  font-weight: 700;
+}
+.nav-link:focus{
+  color: rgba(231, 152, 152, 1);
+}
+</style>

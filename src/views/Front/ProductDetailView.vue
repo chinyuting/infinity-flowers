@@ -15,7 +15,7 @@
     data-bs-ride="carousel">
       <div class="carousel-inner">
         <div class="carousel-item active">
-          <img :src="product.imageUrl" class="d-block w-100" alt="...">
+          <img :src="product.imageUrl" class="d-block w-100" :alt="product.title">
         </div>
         <div v-if="product.imagesUrl">
           <div class="carousel-item" v-for="(imgUrl, key) in product.imagesUrl" :key="key">
@@ -92,15 +92,7 @@
   </div>
 </div>
 </template>
-<style>
-.breadcrumb-link{
-  text-decoration: none;
-  color: #6c757d;
-}
-.breadcrumb-link:hover{
-  color:rgba(231, 152, 152, 1);
-}
-</style>
+
 <script>
 import mixinCart from '@/mixins/GetCarts';
 import mixinFavorite from '@/mixins/GetFavorites';
@@ -180,3 +172,13 @@ export default {
   },
 };
 </script>
+
+<style>
+.breadcrumb-link{
+  text-decoration: none;
+  color: #6c757d;
+}
+.breadcrumb-link:hover{
+  color:rgba(231, 152, 152, 1);
+}
+</style>

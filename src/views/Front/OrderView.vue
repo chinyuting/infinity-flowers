@@ -162,23 +162,7 @@
   </v-form>
 </div>
 </template>
-<style>
-  .input-required::before{
-    content: "*";
-    color: red;
-  }
-  .orderNavDetail{
-    display: none;
-  }
-  @media only screen and (max-width: 768px){
-    .orderNav{
-      display: none;
-    }
-    .orderNavDetail{
-      display: block;
-    }
-  }
-</style>
+
 <script>
 import OrderNav from '@/components/Front/OrderNav.vue';
 import mixinCart from '@/mixins/GetCarts';
@@ -278,3 +262,21 @@ export default {
   },
 };
 </script>
+
+<style>
+  .input-required::before{
+    content: "*";
+    color: red;
+  }
+  .orderNavDetail{
+    display: none;
+  }
+  @media only screen and (max-width: 768px){
+    .orderNav{
+      display: none;
+    }
+    .orderNavDetail{
+      display: block;
+    }
+  }
+</style>

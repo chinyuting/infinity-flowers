@@ -43,6 +43,7 @@
     @delete-confirmed="deleteProduct"></checkModal>
   <Pagination :pages="pagination" @emit-page="getProducts"></Pagination>
 </template>
+
 <script>
 import ProductModal from '@/components/Admin/ProductModal.vue';
 import checkModal from '@/components/Admin/DoubleCheckModal.vue';

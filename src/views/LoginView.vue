@@ -5,7 +5,7 @@
       @submit.prevent="logIn">
         <div class="col-md-6 bg-light p-5 rounded-3" style="margin-top:20%">
           <button class="btn btn-lg btn-light btn-block" type="button">
-            <router-link class="nav-link active" aria-current="page" href="#"
+            <router-link class="nav-link active" aria-current="page"
             to="/"><i class="bi bi-arrow-left"></i>回到官網</router-link>
           </button>
           <div class="text-center">
@@ -45,13 +45,7 @@
     </div>
   </div>
 </template>
-<style>
-.login {
-  height: calc(100vh);
-  margin-top:-90px ;
-  background: url(@/assets/LoginBg.png)no-repeat center / cover;;
-}
-</style>
+
 <script>
 export default {
   data() {
@@ -80,3 +74,11 @@ export default {
   },
 };
 </script>
+
+<style>
+.login {
+  height: calc(100vh);
+  margin-top:-90px ;
+  background: url(@/assets/LoginBg.png)no-repeat center / cover;;
+}
+</style>

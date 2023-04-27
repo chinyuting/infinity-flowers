@@ -33,23 +33,6 @@
 </div>
 </template>
 
-<!-- <style>
-.ordernav {
-  position: relative;
-}
-.ordernav::after{
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 0;
-  transform: translateY(-50%);
-  width: 80px;
-  height: 80px;
-  background-color: rgba(0, 0, 0, 0);
-  border: 2px solid rgb(234, 166, 166);
-  border-radius: 40% 60% 60% 40% / 40% 40% 60% 60%;
-}
-</style> -->
 <script>
 export default {
   data() {

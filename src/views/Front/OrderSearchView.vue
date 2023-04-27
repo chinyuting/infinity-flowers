@@ -59,34 +59,7 @@
   </div>
 </div>
 </template>
-<style>
-@media only screen and (max-width: 768px){
-  .searchThead {
-    display: none;
-  }
-  .searchTbody tr{
-    display: block;
-    border: 1px solid rgba(231, 152, 152, 1);
-    margin: 10px 0;
-    border-radius: 5pt;
-    background-color: #fff;
-  }
-  .searchTbody td {
-    display: block;
-    text-align: left;
-    padding: 5px 1rem 5px 1rem;
-    border: none;
-    color: black;
-  }
-  .searchTbody td::before {
-    border: none;
-    color: rgba(231, 152, 152, 1);
-    content: attr(data-th);
-    font-weight: bold;
-    display: block;
-  }
-}
-</style>
+
 <script>
 export default {
   data() {
@@ -133,3 +106,32 @@ export default {
   },
 };
 </script>
+
+<style>
+@media only screen and (max-width: 768px){
+  .searchThead {
+    display: none;
+  }
+  .searchTbody tr{
+    display: block;
+    border: 1px solid rgba(231, 152, 152, 1);
+    margin: 10px 0;
+    border-radius: 5pt;
+    background-color: #fff;
+  }
+  .searchTbody td {
+    display: block;
+    text-align: left;
+    padding: 5px 1rem 5px 1rem;
+    border: none;
+    color: black;
+  }
+  .searchTbody td::before {
+    border: none;
+    color: rgba(231, 152, 152, 1);
+    content: attr(data-th);
+    font-weight: bold;
+    display: block;
+  }
+}
+</style>

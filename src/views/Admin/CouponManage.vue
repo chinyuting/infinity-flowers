@@ -43,6 +43,7 @@
   @delete-confirmed="deleteCoupon"></checkModal>
   <Pagination :pages="pagination" @emit-page="getCoupon"></Pagination>
 </template>
+
 <script>
 import CouponModal from '@/components/Admin/CouponModal.vue';
 import checkModal from '@/components/Admin/DoubleCheckModal.vue';

@@ -74,29 +74,6 @@
   <Cart ref="cart"></Cart>
 </template>
 
-<style>
-.notice{
-  height:16px;
-  width:16px;
-  border-radius:16px;
-  display:inline-block;
-  text-align:center;
-  font-size:0.1em;
-  color:#fff;
-  background:red;
-  position: relative;
-  top: -8px;
-  right: 8px;
-}
-.homenav-active{
-  color: rgba(231, 152, 152, 1);
-  font-weight: 700;
-}
-.nav-link:focus{
-  color: rgba(231, 152, 152, 1);
-}
-</style>
-
 <script>
 import Cart from '@/components/Front/CartModal.vue';
 import mixinCart from '@/mixins/GetCarts';
@@ -139,3 +116,26 @@ export default {
   },
 };
 </script>
+
+<style>
+.notice{
+  height:16px;
+  width:16px;
+  border-radius:16px;
+  display:inline-block;
+  text-align:center;
+  font-size:0.1em;
+  color:#fff;
+  background:red;
+  position: relative;
+  top: -8px;
+  right: 8px;
+}
+.homenav-active{
+  color: rgba(231, 152, 152, 1);
+  font-weight: 700;
+}
+.nav-link:focus{
+  color: rgba(231, 152, 152, 1);
+}
+</style>

@@ -49,6 +49,7 @@
   @delete-confirmed="deleteOrder"></checkModal>
   <Pagination :pages="pagination" @emit-page="getOrder"></Pagination>
 </template>
+
 <script>
 import OrderModal from '@/components/Admin/OrderModal.vue';
 import checkModal from '@/components/Admin/DoubleCheckModal.vue';

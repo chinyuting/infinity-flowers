@@ -4,11 +4,7 @@
     <routerView></routerView>
   </div>
 </template>
-<style>
-.container{
-  margin-top:90px ;
-}
-</style>
+
 <script>
 import NavBar from '@/components/Admin/DashNavbar.vue';
 
@@ -39,3 +35,9 @@ export default {
   },
 };
 </script>
+
+<style>
+.container{
+  margin-top:90px ;
+}
+</style>
