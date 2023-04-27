@@ -76,7 +76,7 @@
 
 <script>
 import Cart from '@/components/Front/CartModal.vue';
-import mixinCart from '@/mixins/GetCarts';
+import cartMixin from '@/mixins/GetCarts';
 
 export default {
   data() {
@@ -84,7 +84,7 @@ export default {
       cartLength: 0,
       favoriteLength: 0,
       pageNow: '',
-      openNav: true,
+      navOpen: true,
     };
   },
   components: {
@@ -99,16 +99,16 @@ export default {
       this.pageNow = page;
     },
     closeNav() {
-      if (this.openNav === true) {
+      if (this.navOpen === true) {
         this.$refs.navbarToggler.click();
-        this.openNav = false;
+        this.navOpens = false;
       }
     },
     openNav() {
-      this.openNav = true;
+      this.navOpen = true;
     },
   },
-  mixins: [mixinCart],
+  mixins: [cartMixin],
   created() {
     this.getCarts();
   },
