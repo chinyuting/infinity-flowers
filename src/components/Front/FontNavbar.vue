@@ -10,7 +10,7 @@
       data-bs-toggle="collapse" data-bs-target=".FontnavbarNav"
       aria-controls="FontnavbarNav" aria-expanded="false"
       aria-label="Toggle navigation" ref="navbarToggler"
-      @blur="closeNav()">
+      @blur="closeNav" @click.prevent="openNav">
       <span class="navbar-toggler-icon"></span>
     </button>
     <!-- nav list -->
@@ -84,6 +84,7 @@ export default {
       cartLength: 0,
       favoriteLength: 0,
       pageNow: '',
+      openNav: true,
     };
   },
   components: {
@@ -98,7 +99,13 @@ export default {
       this.pageNow = page;
     },
     closeNav() {
-      this.$refs.navbarToggler.click();
+      if (this.openNav === true) {
+        this.$refs.navbarToggler.click();
+        this.openNav = false;
+      }
+    },
+    openNav() {
+      this.openNav = true;
     },
   },
   mixins: [mixinCart],
