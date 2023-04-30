@@ -8,9 +8,9 @@
         <span>已完成付款</span>
       </h3>
       <button type="button" class="btn btn-secondary m-2 w-25"
-      @click.prevent="this.$router.push('/')">回到首頁</button>
+      @click.prevent="$router.push('/')">回到首頁</button>
       <button type="button" class="btn btn-danger m-2 w-25"
-      @click.prevent="this.$router.push('/products')">繼續逛逛</button>
+      @click.prevent="$router.push('/products')">繼續逛逛</button>
     </div>
   </div>
 </template>

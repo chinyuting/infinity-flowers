@@ -65,7 +65,7 @@
     </div>
     <div class="row justify-content-center ms-0 me-0">
       <button class="btn btn-secondary mt-3 col-5 me-1"
-        @click.prevent="this.$router.push('/')">稍後進行付款</button>
+        @click.prevent="$router.push('/')">稍後進行付款</button>
       <button class="btn btn-danger mt-3 col-5 ms-1" @click.prevent="payOrder">確認付款</button>
     </div>
   </div>
