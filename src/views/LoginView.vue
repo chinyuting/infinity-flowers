@@ -79,6 +79,6 @@ export default {
 .login {
   height: calc(100vh);
   margin-top:-90px ;
-  background: url(@/assets/LoginBg.png)no-repeat center / cover;;
+  background: url(@/assets/images/LoginBg.png)no-repeat center / cover;;
 }
 </style>

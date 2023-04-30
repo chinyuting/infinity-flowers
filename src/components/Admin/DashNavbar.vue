@@ -2,7 +2,7 @@
   <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
     <div class="container-fluid">
       <a class="navbar-brand" href="#" @click.prevent="goToFirstPage">
-        <img alt="Infinity Flowers logo" src="@/assets/logo.png" width="100">{{ null }}
+        <img alt="Infinity Flowers logo" src="@/assets/images/logo.png" width="100">{{ null }}
       </a>
       <button class="navbar-toggler" type="button"
         data-bs-toggle="collapse" data-bs-target=".DashnavbarNav"

@@ -23,7 +23,7 @@
       </div>
       <div class="slogan-bg row">
           <div class="col-md-6 p-0 order-1">
-            <img src="@/assets/bouquet.jpg" alt="bouquet"
+            <img src="@/assets/images/bouquet.jpg" alt="bouquet"
             style="width:85%; display:block; margin:auto;"
             class="rounded-3">
           </div>
@@ -39,7 +39,7 @@
       </div>
       <div class="slogan-bg row mt-5">
         <div class="col-md-6 p-0 order-md-2">
-          <img src="@/assets/AboutUs.jpg" alt="making-bouquet"
+          <img src="@/assets/images/AboutUs.jpg" alt="making-bouquet"
           style="width:85%; display:block; margin:auto;"
           class="rounded-3">
         </div>
@@ -163,7 +163,7 @@ export default {
   background-position:center;
   height: calc(100vh - 70px);
   background-clip: border-box;
-  background-image: url(@/assets/banner.png);
+  background-image: url(@/assets/images/banner.png);
   background-repeat: no-repeat;
   background-size: cover;
   color: rgb(247, 248, 249);
@@ -182,7 +182,7 @@ export default {
   text-shadow: rgb(226, 213, 196) 2px 0 10px;
 }
 .on-sale{
-  background: url(@/assets/LoginBg.png);
+  background: url(@/assets/images/LoginBg.png);
   background-repeat: no-repeat;
   background-size: cover;
   background-position:center;
