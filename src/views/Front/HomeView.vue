@@ -5,7 +5,7 @@
     <div class="backgroundclip display-1 image-cover text-center row align-items-center">
       <span>Infinity Flowers</span>
       <span class="fs-3 position-absolute"
-      style="bottom:30%; font-weight:400; opacity:.8"
+      style="bottom:30%; font-weight:550;"
       >Beauty that lasts a lifetime</span>
       <div class="fs-6 position-absolute bottom-0 scroll-notice">
         <div class="pb-2" style="text-shadow: rgb(226, 213, 196) 2px 0 10px;">scroll</div>
