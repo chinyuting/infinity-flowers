@@ -15,7 +15,7 @@
       </thead>
       <tbody>
         <tr v-for="(item, key) in orderList" :key="key" class="align-middle">
-          <th scope="row">{{ this.$filters.date(item.create_at) }}</th>
+          <th scope="row">{{ $filters.date(item.create_at) }}</th>
           <td>
             <ul class="mb-0">
               <li v-for="(product, i) in item.products" :key="i">

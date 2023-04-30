@@ -4,7 +4,7 @@
   class="position-absolute bottom-50 start-50 translate-middle text-center">
     <h2 class="text-nowrap">尚未收藏任何產品</h2>
     <button type="button" class="btn btn-danger mt-2"
-    @click.prevent="this.$router.push('/products')">馬上逛逛</button>
+    @click.prevent="$router.push('/products')">馬上逛逛</button>
   </div>
   <div v-else>
     <div class="row">
