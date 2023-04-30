@@ -64,8 +64,6 @@
                     <img :src="url" :alt="tempProduct.title+key"
                     class="img-fluid"
                     v-if="url === isShowurl && isShow">
-                    <!--onerror="this.onerror=null;this.src='http://example.com/existent-image.jpg';"  -->
-                    <!-- <span>圖片連結錯誤無法顯示</span> -->
                   </div>
                 </div>
               </div>

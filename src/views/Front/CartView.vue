@@ -57,7 +57,7 @@
       class="position-absolute bottom-50 start-50 translate-middle text-center">
       <h2>購物車沒有東西</h2>
       <button type="button" class="btn btn-danger mt-2"
-        @click.prevent="this.$router.push('/products')">馬上逛逛</button>
+        @click.prevent="$router.push('/products')">馬上逛逛</button>
     </div>
   </div>
 </div>

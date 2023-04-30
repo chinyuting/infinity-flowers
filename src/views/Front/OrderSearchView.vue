@@ -35,7 +35,7 @@
       <tbody v-for="(item, key) in filterOrder" :key="key" class="searchTbody">
         <tr class="align-middle">
           <td scope="row" data-th="建立日期" class="fw-bolder">
-            {{ this.$filters.date(item.create_at) }}</td>
+            {{ $filters.date(item.create_at) }}</td>
           <td data-th="商品項目">
             <ul>
               <li v-for="(product, i) in item.products" :key="i">

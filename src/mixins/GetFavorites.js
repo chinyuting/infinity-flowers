@@ -8,10 +8,6 @@ export default {
       } else {
         this.idList = [];
       }
-      // this.emitter.emit('push-notice', {
-      //   data: this.idList.length,
-      //   category: 'favorite',
-      // });
     },
   },
 };

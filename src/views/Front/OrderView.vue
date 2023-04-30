@@ -37,7 +37,7 @@
               <span class="input-group-text input-required" id="basic-addon1">訂購人電話</span>
               <v-field type="text" class="form-control" name="訂購人電話"
               placeholder="Tel" aria-label="Tel" aria-describedby="basic-addon1"
-              v-model="form.user.tel" @click="this.tel = '訂購人'"
+              v-model="form.user.tel" @click="tel = '訂購人'"
               :class="{ 'is-invalid': errors['訂購人電話'] }" :rules="isPhone"></v-field>
               <error-message name="訂購人電話" class="invalid-feedback"></error-message>
             </div>
@@ -75,7 +75,7 @@
               <v-field type="text" class="form-control" name="收件人電話"
               placeholder="Tel" aria-label="Tel" aria-describedby="basic-addon1"
               v-model="form.addressee.tel" :disabled=" sameData"
-              @click="this.tel = '收件人'"
+              @click="tel = '收件人'"
               :class="{ 'is-invalid': errors['收件人電話'] }" :rules="isPhone"></v-field>
               <error-message name="收件人電話" class="invalid-feedback"></error-message>
             </div>
@@ -258,7 +258,6 @@ export default {
   mixins: [cartMixin],
   created() {
     this.getCarts();
-    // this.addCoupon();
   },
 };
 </script>
