@@ -1,7 +1,7 @@
 <template>
   <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#/dashboard/productmanage">
+      <a class="navbar-brand" href="#" @click.prevent="goToFirstPage">
         <img alt="Infinity Flowers logo" src="@/assets/logo.png" width="100">{{ null }}
       </a>
       <button class="navbar-toggler" type="button"
@@ -76,6 +76,9 @@ export default {
     },
     openModal() {
       this.$refs.checkModal.showModal();
+    },
+    goToFirstPage() {
+      this.$router.push('/dashboard/productmanage');
     },
   },
   mounted() {

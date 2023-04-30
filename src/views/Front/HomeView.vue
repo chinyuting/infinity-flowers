@@ -88,7 +88,7 @@
                       {{ item.title }}
                     </div>
                   </h5>
-                  <a href="#" class="btn btn-secondary w-100">查看商品</a>
+                  <button class="btn btn-secondary w-100">查看商品</button>
                 </div>
               </a>
             </div>

@@ -53,14 +53,14 @@
       <ul class="navbar-nav me-3 mb-2 mb-lg-0 flex-row">
         <li class="nav-item" style="margin-right:16px;">
           <span>
-            <a href="#/favorite" title="收藏">
+            <a href="#" title="收藏" @click.prevent="goToFavorites">
               <i class="bi bi-heart" style="font-size: 1.5rem"></i>{{ null }}
             </a>
           </span>
         </li>
         <li class="nav-item">
           <span>
-            <a @click.prevent="openCart" href="#" title="購物車">
+            <a href="#" title="購物車" @click.prevent="openCart">
               <i class="bi bi-cart3" style="font-size: 1.5rem"></i>{{ null }}
             </a>
           </span>
@@ -94,6 +94,9 @@ export default {
   methods: {
     openCart() {
       this.$refs.cart.showModal();
+    },
+    goToFavorites() {
+      this.$router.push('/favorite');
     },
     pageChange(page) {
       this.pageNow = page;
