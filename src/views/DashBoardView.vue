@@ -1,16 +1,16 @@
 <template>
-  <NavBar></NavBar>
+  <DashNavbar />
   <div class="container">
-    <routerView></routerView>
+    <routerView />
   </div>
 </template>
 
 <script>
-import NavBar from '@/components/Admin/DashNavbar.vue';
+import DashNavbar from '@/components/Admin/DashNavbar.vue';
 
 export default {
   components: {
-    NavBar,
+    DashNavbar,
   },
   inject: ['emitter'],
   created() {

@@ -1,6 +1,6 @@
 <template>
 <div class="container">
-  <OrderNav :PageName="pageName" class="orderNav"></OrderNav>
+  <OrderNav :PageName="pageName" class="orderNav" />
   <h3 class="orderNavDetail">
     <i class="bi bi-flower3 text-success"></i>
     <span>建立訂單</span>

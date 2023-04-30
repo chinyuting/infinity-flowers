@@ -71,11 +71,11 @@
     </div>
   </div>
 </nav>
-  <Cart ref="cart"></Cart>
+  <CartModal ref="cart" />
 </template>
 
 <script>
-import Cart from '@/components/Front/CartModal.vue';
+import CartModal from '@/components/Front/CartModal.vue';
 import cartMixin from '@/mixins/GetCarts';
 
 export default {
@@ -88,7 +88,7 @@ export default {
     };
   },
   components: {
-    Cart,
+    CartModal,
   },
   inject: ['emitter'],
   methods: {

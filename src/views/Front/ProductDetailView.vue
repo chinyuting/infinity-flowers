@@ -1,5 +1,5 @@
 <template>
-  <LoadingOverlay :active="isLoading"></LoadingOverlay>
+  <LoadingOverlay :active="isLoading" />
   <!-- 麵包屑 -->
 <div class="container">
   <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">

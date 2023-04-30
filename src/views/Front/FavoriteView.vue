@@ -54,7 +54,7 @@
 
 <script>
 import cartMixin from '@/mixins/GetCarts';
-import favoriteMixin from '@/mixins/GetFavorites';
+import favoritesMixin from '@/mixins/GetFavorites';
 
 export default {
   data() {
@@ -120,7 +120,7 @@ export default {
       this.$router.push(`/products/${id}`);
     },
   },
-  mixins: [cartMixin, favoriteMixin],
+  mixins: [cartMixin, favoritesMixin],
   created() {
     this.getFavoriteProducts();
     this.getFavorite();

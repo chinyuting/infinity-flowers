@@ -1,5 +1,5 @@
 <template>
-  <LoadingOverlay :active="isLoading"></LoadingOverlay>
+  <LoadingOverlay :active="isLoading" />
   <div>
     <button type="button" class="btn btn-secondary w-100"
     @click="openModal(true)">+新增商品</button>
@@ -38,15 +38,15 @@
   <ProductModal
   ref="productModal" :ProductItem="tempProduct"
   @update-product="updateProduct"
-  @cancel-update="getProducts(pagination.current_page)"></ProductModal>
-  <checkModal ref="checkModal" :dataStatus="tempProduct" :fromPage="'Product'"
-    @delete-confirmed="deleteProduct"></checkModal>
-  <Pagination :pages="pagination" @emit-page="getProducts"></Pagination>
+  @cancel-update="getProducts(pagination.current_page)" />
+  <DoubleCheckModal ref="checkModal" :dataStatus="tempProduct" :fromPage="'Product'"
+    @delete-confirmed="deleteProduct" />
+  <Pagination :pages="pagination" @emit-page="getProducts" />
 </template>
 
 <script>
 import ProductModal from '@/components/Admin/ProductModal.vue';
-import checkModal from '@/components/Admin/DoubleCheckModal.vue';
+import DoubleCheckModal from '@/components/Admin/DoubleCheckModal.vue';
 import Pagination from '@/components/PaginationComponent.vue';
 
 export default {
@@ -61,7 +61,7 @@ export default {
   },
   components: {
     ProductModal,
-    checkModal,
+    DoubleCheckModal,
     Pagination,
   },
   inject: ['emitter'],

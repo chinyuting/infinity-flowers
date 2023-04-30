@@ -1,5 +1,5 @@
 <template>
-<LoadingOverlay :active="isLoading"></LoadingOverlay>
+<LoadingOverlay :active="isLoading" />
 <div class="container">
   <h5>請輸入訂購人Email查詢訂單</h5>
   <v-form v-slot="{ errors }">

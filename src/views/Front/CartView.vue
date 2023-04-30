@@ -1,7 +1,7 @@
 <template>
-<LoadingOverlay :active="isLoading"></LoadingOverlay>
+<LoadingOverlay :active="isLoading" />
 <div class="container">
-  <OrderNav :PageName="pageName" class="orderNav"></OrderNav>
+  <OrderNav :PageName="pageName" class="orderNav" />
   <h3 class="orderNavDetail">
     <i class="bi bi-flower3 text-success"></i>
     <span>購物車</span>

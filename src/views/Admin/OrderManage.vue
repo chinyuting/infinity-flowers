@@ -1,5 +1,5 @@
 <template>
-  <LoadingOverlay :active="isLoading"></LoadingOverlay>
+  <LoadingOverlay :active="isLoading" />
   <div>
     <table class="table mt-3 table-hover">
       <thead>
@@ -43,16 +43,15 @@
   </div>
   <OrderModal
     ref="orderModal" :orderItem="tempOrder"
-    @update-order="updateOrder">
-  </OrderModal>
-  <checkModal ref="checkModal" :dataStatus="tempOrder" :fromPage="'Order'"
-  @delete-confirmed="deleteOrder"></checkModal>
-  <Pagination :pages="pagination" @emit-page="getOrder"></Pagination>
+    @update-order="updateOrder" />
+  <DoubleCheckModal ref="checkModal" :dataStatus="tempOrder" :fromPage="'Order'"
+  @delete-confirmed="deleteOrder" />
+  <Pagination :pages="pagination" @emit-page="getOrder" />
 </template>
 
 <script>
 import OrderModal from '@/components/Admin/OrderModal.vue';
-import checkModal from '@/components/Admin/DoubleCheckModal.vue';
+import DoubleCheckModal from '@/components/Admin/DoubleCheckModal.vue';
 import Pagination from '@/components/PaginationComponent.vue';
 
 export default {
@@ -66,7 +65,7 @@ export default {
   },
   components: {
     OrderModal,
-    checkModal,
+    DoubleCheckModal,
     Pagination,
   },
   inject: ['emitter'],

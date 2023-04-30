@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <OrderNav :PageName="pageName" class="orderNav"></OrderNav>
+    <OrderNav :PageName="pageName" class="orderNav" />
     <div
     class="position-absolute bottom-50 start-50 translate-middle text-center w-100">
       <h3>

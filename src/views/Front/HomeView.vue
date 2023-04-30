@@ -1,5 +1,5 @@
 <template>
-  <LoadingOverlay :active="isLoading"></LoadingOverlay>
+  <LoadingOverlay :active="isLoading" />
   <!-- banner -->
   <div class="home">
     <div class="backgroundclip display-1 image-cover text-center row align-items-center">
@@ -38,20 +38,20 @@
           </div>
       </div>
       <div class="slogan-bg row mt-5">
-          <div class="col-md-6 p-0 order-md-2">
-            <img src="@/assets/AboutUs.jpg" alt="making-bouquet"
-            style="width:85%; display:block; margin:auto;"
-            class="rounded-3">
-          </div>
-          <div class="col-md-6 align-middle text-light order-md-1">
-            <h4 class="fst-italic text-danger slogan-title">
-              不再只是一時的歡愉體驗...
-            </h4>
-            <h3 class="fst-italic text-center w-100 slogan-content">
-              用永生花，<br>
-              為每個特別的時刻留下永恆的回憶
-            </h3>
-          </div>
+        <div class="col-md-6 p-0 order-md-2">
+          <img src="@/assets/AboutUs.jpg" alt="making-bouquet"
+          style="width:85%; display:block; margin:auto;"
+          class="rounded-3">
+        </div>
+        <div class="col-md-6 align-middle text-light order-md-1">
+          <h4 class="fst-italic text-danger slogan-title">
+            不再只是一時的歡愉體驗...
+          </h4>
+          <h3 class="fst-italic text-center w-100 slogan-content">
+            用永生花，<br>
+            為每個特別的時刻留下永恆的回憶
+          </h3>
+        </div>
       </div>
       <div class="w-100 text-center my-5 p-2">
         <h3 class="p-3 fst-italic fw-lighter">讓永生花，成為你心中永恆的美麗。</h3>
@@ -97,11 +97,11 @@
       </div>
     </div>
   </div>
-  <Onsalemodal ref="sale"></Onsalemodal>
+  <OnsaleModal ref="sale" />
 </template>
 
 <script>
-import Onsalemodal from '@/components/Front/OnsaleModal.vue';
+import OnsaleModal from '@/components/Front/OnsaleModal.vue';
 
 export default {
   data() {
@@ -110,7 +110,7 @@ export default {
     };
   },
   components: {
-    Onsalemodal,
+    OnsaleModal,
   },
   inject: ['emitter'],
   methods: {

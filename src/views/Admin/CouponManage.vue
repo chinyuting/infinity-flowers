@@ -1,5 +1,5 @@
 <template>
-  <LoadingOverlay :active="isLoading"></LoadingOverlay>
+  <LoadingOverlay :active="isLoading" />
   <div>
     <button type="button" class="btn btn-secondary w-100"
     @click.prevent="openModal(true)">+新增優惠券</button>
@@ -38,15 +38,15 @@
   </div>
   <CouponModal
   ref="couponModal" :CouponItem="tempCoupon"
-  @update-coupon="updateCoupon"></CouponModal>
-  <checkModal ref="checkModal" :dataStatus="tempCoupon" :fromPage="'Coupon'"
-  @delete-confirmed="deleteCoupon"></checkModal>
-  <Pagination :pages="pagination" @emit-page="getCoupon"></Pagination>
+  @update-coupon="updateCoupon" />
+  <DoubleCheckModal ref="checkModal" :dataStatus="tempCoupon" :fromPage="'Coupon'"
+  @delete-confirmed="deleteCoupon" />
+  <Pagination :pages="pagination" @emit-page="getCoupon" />
 </template>
 
 <script>
 import CouponModal from '@/components/Admin/CouponModal.vue';
-import checkModal from '@/components/Admin/DoubleCheckModal.vue';
+import DoubleCheckModal from '@/components/Admin/DoubleCheckModal.vue';
 import Pagination from '@/components/PaginationComponent.vue';
 
 export default {
@@ -61,7 +61,7 @@ export default {
   },
   components: {
     CouponModal,
-    checkModal,
+    DoubleCheckModal,
     Pagination,
   },
   inject: ['emitter'],

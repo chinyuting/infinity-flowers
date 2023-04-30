@@ -47,11 +47,11 @@
       </div>
     </div>
   </nav>
-  <checkModal ref="checkModal" :dataStatus="'logout'" @logout-confirmed="logout"></checkModal>
+  <DoubleCheckModal ref="checkModal" :dataStatus="'logout'" @logout-confirmed="logout" />
 </template>
 
 <script>
-import checkModal from './DoubleCheckModal.vue';
+import DoubleCheckModal from './DoubleCheckModal.vue';
 
 export default {
   data() {
@@ -60,7 +60,7 @@ export default {
     };
   },
   components: {
-    checkModal,
+    DoubleCheckModal,
   },
   inject: ['emitter'],
   methods: {

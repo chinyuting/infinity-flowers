@@ -1,17 +1,17 @@
 <template>
-  <NavBar></NavBar>
-  <routerView></routerView>
-  <Footer></Footer>
+  <FontNavbar />
+  <router-view/>
+  <FontFooter />
 </template>
 
 <script>
-import NavBar from '@/components/Front/FontNavbar.vue';
-import Footer from '@/components/Front/FontFooter.vue';
+import FontNavbar from '@/components/Front/FontNavbar.vue';
+import FontFooter from '@/components/Front/FontFooter.vue';
 
 export default {
   components: {
-    NavBar,
-    Footer,
+    FontNavbar,
+    FontFooter,
   },
 };
 </script>

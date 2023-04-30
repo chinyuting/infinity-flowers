@@ -1,7 +1,7 @@
 <template>
 <LoadingOverlay :active="isLoading"></LoadingOverlay>
 <div class="container">
-  <OrderNav :PageName="pageName" class="orderNav"></OrderNav>
+  <OrderNav :PageName="pageName" class="orderNav" />
   <h3>
     <i class="bi bi-flower3 text-success"></i>
     <span>訂單已建立</span>
@@ -62,7 +62,6 @@
           </tr>
         </tbody>
       </table>
-        <!-- <button class="btn btn-danger w-100 mt-2" @click.prevent="payOrder">確認付款</button> -->
     </div>
     <div class="row justify-content-center ms-0 me-0">
       <button class="btn btn-secondary mt-3 col-5 me-1"

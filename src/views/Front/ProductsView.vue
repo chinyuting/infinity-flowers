@@ -1,5 +1,5 @@
 <template>
-  <LoadingOverlay :active="isLoading"></LoadingOverlay>
+  <LoadingOverlay :active="isLoading" />
 <div class="container">
   <div class="row">
     <!-- 側邊分類 -->
@@ -84,7 +84,7 @@
     </div>
   </div>
 </div>
-  <Pagination :pages="pagination" @emit-page="getProducts" class="mt-2"></Pagination>
+  <Pagination :pages="pagination" @emit-page="getProducts" class="mt-2" />
 </template>
 
 <script>
