@@ -2,14 +2,15 @@
 <LoadingOverlay :active="isLoading" />
 <div class="container">
   <h5>請輸入訂購人Email查詢訂單</h5>
-  <v-form v-slot="{ errors }">
+  <v-form v-slot="{ errors }"  @submit="searchOrder">
     <div class="input-group mb-3">
       <v-field type="text" class="form-control" placeholder="訂購人Email"
       aria-label="email" name="email" rules="email"
       :class="{ 'is-invalid' : errors['email'] }"
-      aria-describedby="button-addon2" v-model="searchEmail"></v-field>
-      <button class="btn btn-outline-secondary" type="button" id="button-addon2"
-      @click="searchOrder">查詢</button>
+      aria-describedby="button-addon2" v-model="searchEmail"
+      @keyup.enter="searchOrder"></v-field>
+      <button class="btn btn-outline-secondary" type="submit" id="button-addon2"
+      >查詢</button>
       <error-message name="email" class="invalid-feedback"></error-message>
     </div>
   </v-form>
