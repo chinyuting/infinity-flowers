@@ -154,14 +154,14 @@ export default {
 
 <style>
 .home{
-  margin-top: 70px;
+  margin-top: 60px;
   padding: 0;
 }
 .backgroundclip{
   margin: 0;
   width: 100%;
   background-position:center;
-  height: calc(100vh - 70px);
+  height: calc(100vh - 60px);
   background-clip: border-box;
   background-image: url(@/assets/images/banner.png);
   background-repeat: no-repeat;
