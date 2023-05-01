@@ -2,7 +2,7 @@
   <LoadingOverlay :active="isLoading" />
   <!-- banner -->
   <div class="home">
-    <div class="backgroundclip display-1 image-cover text-center row align-items-center">
+    <div class="backgroundclip display-1 text-center row align-items-center">
       <span>Infinity Flowers</span>
       <span class="fs-3 position-absolute"
       style="bottom:30%; font-weight:550;"
