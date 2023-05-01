@@ -49,8 +49,7 @@
         </li>
       </ul>
     </div>
-    <div class="navbar align-middle member-function" style="flex-grow:0;">
-      <!-- position-absolute  me-lg-3 mb-lg-2 mb-lg-0-->
+    <div class="navbar align-middle member-function me-lg-3" style="flex-grow:0;">
       <ul class="navbar-nav flex-row">
         <li class="nav-item" style="margin-right:16px;">
           <span>
