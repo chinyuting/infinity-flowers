@@ -16,9 +16,9 @@
   </v-form>
   <div v-if="searchstate && filterOrder.length === 0">
     <div class="position-absolute bottom-50 start-50 translate-middle text-center">
+      <p>訂購人Email : {{ email }}</p>
       <h2>
-        <i class="bi bi-flower3 text-danger"></i>
-        查無資料
+        <i class="bi bi-flower3 text-danger"></i>查無資料
       </h2>
     </div>
   </div>
@@ -71,6 +71,7 @@ export default {
       filterOrder: {},
       searchstate: false,
       isLoading: false,
+      email: '',
     };
   },
   inject: ['emitter'],
@@ -95,6 +96,7 @@ export default {
       this.searchstate = true;
       this.filterOrder = this.OrderList.filter((item) => item.user.email === this.searchEmail);
       this.isLoading = false;
+      this.email = this.searchEmail;
     },
   },
   created() {
