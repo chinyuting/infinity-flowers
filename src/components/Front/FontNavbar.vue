@@ -2,7 +2,7 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
   <div class="container-fluid">
     <!-- logo -->
-    <a class="navbar-brand" href="#">
+    <a class="navbar-bran" href="#">
       <img alt="Infinity Flowers logo" src="@/assets/images/logo.png" width="100">{{ null }}
     </a>
      <!-- toggle -->
@@ -49,8 +49,9 @@
         </li>
       </ul>
     </div>
-    <div class="collapse navbar-collapse FontnavbarNav" style="flex-grow:0;">
-      <ul class="navbar-nav me-3 mb-2 mb-lg-0 flex-row">
+    <div class="navbar align-middle member-function" style="flex-grow:0;">
+      <!-- position-absolute  me-lg-3 mb-lg-2 mb-lg-0-->
+      <ul class="navbar-nav flex-row">
         <li class="nav-item" style="margin-right:16px;">
           <span>
             <a href="#" title="收藏" @click.prevent="goToFavorites">
@@ -147,5 +148,12 @@ export default {
 }
 .nav-link:focus{
   color: rgba(231, 152, 152, 1);
+}
+@media only screen and (max-width: 991px) {
+  .member-function {
+    position: absolute;
+    right: 85px;
+    top: 5px;
+  }
 }
 </style>
