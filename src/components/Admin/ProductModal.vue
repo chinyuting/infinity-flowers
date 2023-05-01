@@ -202,12 +202,13 @@ export default {
               style: 'success',
               title: '上傳成功',
             });
-          } else {
-            this.emitter.emit('push-message', {
-              style: 'danger',
-              title: '上傳失敗',
-            });
           }
+        })
+        .catch(() => {
+          this.emitter.emit('push-message', {
+            style: 'danger',
+            title: '上傳失敗',
+          });
         });
     },
     addNewImgs() {
