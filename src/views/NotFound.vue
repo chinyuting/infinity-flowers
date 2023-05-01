@@ -1,6 +1,23 @@
 <template>
-    Not Found
-    <button class="btn btn-danger">回到首頁</button>
+    <div class="PageNotFound text-center row align-items-center">
+        <div class="PageNotFoundText display-1">
+            <p>404</p>
+            <p>Page Not Found</p>
+            <button class="btn btn-secondary"
+            @click.prevent="$router.push('/')">回到 INFINITY FLOWERS 首頁</button>
+        </div>
+    </div>
 </template>
 
-<script></script>
+<style>
+.PageNotFound{
+    height: calc(100vh);
+    background: url(@/assets/images/PageNotFound.jpg)no-repeat center / cover;
+    color: rgb(247, 248, 249);
+    background-position:center;
+    text-transform: uppercase;
+}
+.PageNotFoundText{
+    font-weight: 700;
+}
+</style>
