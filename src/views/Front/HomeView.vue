@@ -3,22 +3,22 @@
   <!-- banner -->
   <div class="home">
     <div class="backgroundclip display-1 text-center row align-items-center">
-      <span style="text-shadow: white 0.1em 0.1em 0.2em;"
-      >Infinity Flowers</span>
-      <span class="fs-3 position-absolute"
-      style="bottom:30%; font-weight:550; text-shadow: #2A1B18 0.1em 0.1em 0.2em;
-      color: rgb(247, 248, 249);"
-      >Beauty that lasts a lifetime</span>
+      <span>Infinity Flowers</span>
+      <span class="fs-3 position-absolute banner-slogan">
+        Beauty that lasts a lifetime
+      </span>
       <div class="fs-6 position-absolute bottom-0 scroll-notice">
-        <div class="pb-2" style="text-shadow: rgb(226, 213, 196) 2px 0 10px;
-        color: rgb(247, 248, 249);">scroll</div>
+        <div class="pb-2">scroll</div>
       </div>
     </div>
     <!-- 限時優惠 -->
     <div class="mt-5 container-fluid">
       <div class="on-sale w-100 text-center p-5 rounded-3">
-        <h2>限時優惠 <span class="text-danger fw-bolder">８折</span></h2>
-        <button class="btn btn-light" @click.prevent="openModel">點擊領取優惠券</button>
+        <h2>
+          限時優惠
+          <span class="text-danger fw-bolder">８折</span>
+        </h2>
+        <button class="btn btn-danger btn-lg" @click.prevent="openModel">點擊領取優惠券</button>
       </div>
     <!-- 標語 -->
       <div class="w-100 text-center">
@@ -27,10 +27,9 @@
       <div class="slogan-bg row">
           <div class="col-md-6 p-0 order-1">
             <img src="@/assets/images/bouquet.jpg" alt="bouquet"
-            style="width:85%; display:block; margin:auto;"
             class="rounded-3">
           </div>
-          <div class="col-md-6 order-2" style="color:#2A1B18;">
+          <div class="col-md-6 order-2">
             <h4 class="fst-italic text-danger slogan-title">
               不再只是曇花一現...
             </h4>
@@ -43,11 +42,10 @@
       <div class="slogan-bg row mt-5">
         <div class="col-md-6 p-0 order-md-2">
           <img src="@/assets/images/AboutUs.jpg" alt="making-bouquet"
-          style="width:85%; display:block; margin:auto;"
           class="rounded-3">
         </div>
-        <div class="col-md-6 align-middle order-md-1" style="color:#2A1B18;">
-          <h4 class="fst-italic text-danger slogan-title">
+        <div class="col-md-6 align-middle order-md-1">
+          <h4 class="fst-italic text-danger slogan-title ms-3">
             不再只是一時的歡愉體驗...
           </h4>
           <h3 class="fst-italic text-center w-100 slogan-content">
@@ -58,7 +56,7 @@
       </div>
       <div class="w-100 text-center my-5 p-2">
         <h3 class="p-3 fst-italic fw-lighter">讓永生花，成為你心中永恆的美麗。</h3>
-        <button class="btn btn-danger mt-3">
+        <button class="btn btn-danger mt-3 btn-lg">
           <router-link to="/products"
             class="text-light text-decoration-none">
             馬上逛逛
@@ -68,27 +66,25 @@
       <!-- 新品上市 -->
       <div class="mt-4 row newItem-bg py-2">
         <div class="col-lg-3 newItem mt-md-0 py-md-2">
-          <h1 class="text-center" style="color:#2A1B18;">
+          <h1 class="text-center">
             <i class="bi bi-flower3 text-danger"></i>新品上市
           </h1>
         </div>
         <div class="row col-lg-9 px-0 mx-auto">
           <div class="col-sm-12 col-md-4"
             v-for="(item, key) in newProductList" :key="key">
-            <div class="card mt-1 mb-2 mx-auto" style="max-width: 280px;">
+            <div class="card mt-1 mb-2 mx-auto product-card">
               <a href="#" class="text-decoration-none"
               @click.prevent="goForDetail(item.id)">
                <!-- 商品圖片 -->
-                <div class="overflow-hidden text-light position-relative border-bottom"
-                  style="height: 345px;">
+                <div class="overflow-hidden text-light position-relative border-bottom product-pic">
                   <img :src="item.imageUrl" :alt="item.title"
                     class="card-img-top d-block align-middle h-100 w-auto mx-auto">
                 </div>
                 <div class="card-body text-dark">
                   <!-- 商品名稱 -->
                   <h5 class="overflow-hidden">
-                    <div class="card-title overflow-hidden"
-                      style="max-width: 225px; text-overflow: ellipsis; white-space: nowrap;"
+                    <div class="card-title overflow-hidden product-name"
                       :title="item.title">
                       {{ item.title }}
                     </div>
@@ -161,6 +157,8 @@ export default {
 .home{
   margin-top: 60px;
   padding: 0;
+  color:#4F332D;
+  font-weight: bold;
 }
 .backgroundclip{
   margin: 0;
@@ -171,10 +169,19 @@ export default {
   background-image: url(@/assets/images/banner.png);
   background-repeat: no-repeat;
   background-size: cover;
-  color:#4F332D;
-  /* color: rgb(247, 248, 249); */
+  text-shadow: 0 0 6px white, 0 0 6px white, 0 0 6px white, 0 0 6px white;
+  /* font-weight: bold; */
   font-weight: 700;
   text-transform: uppercase;
+}
+.banner-slogan{
+  bottom:30%;
+  font-weight:550;
+}
+.slogan-bg img{
+  width:85%;
+  display:block;
+  margin:auto;
 }
 .scroll-notice {
   animation:move 3s infinite both;
@@ -182,10 +189,9 @@ export default {
 .scroll-notice::after{
   display: inline-block;
   content: "";
-  width: 3px;
+  width: 2.5px;
   height: 70px;
   background-color: rgb(247, 248, 249);
-  text-shadow: rgb(226, 213, 196) 2px 0 10px;
 }
 .on-sale{
   background: url(@/assets/images/LoginBg.png);
@@ -207,6 +213,20 @@ export default {
   linear-gradient(transparent 20%,rgba(231, 152, 152, .7) 20%,
   rgba(231, 152, 152, .7) 80%, transparent 80%);
 }
+.newItem h1{
+  color:#2A1B18;
+}
+.product-card {
+  max-width: 276px;
+}
+.product-pic {
+  height: 345px;
+}
+.product-name{
+  max-width: 225px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
 @media only screen and (max-width: 768px){
   .homepic{
     width: 100%;
@@ -218,7 +238,8 @@ export default {
     z-index: 5;
   }
   .slogan-content{
-    color: rgba(231, 152, 152, 1);
+    /* color: rgba(231, 152, 152, 1); */
+    color: #4F332D;
     margin-top: 20px;
     z-index: 5;
   }
@@ -232,7 +253,6 @@ export default {
   background:linear-gradient(135deg,rgba(231, 152, 152, 0.7) 30%,#e9ecef );
 }
 .newItem{
-  color: rgb(247, 248, 249);
   line-height: 100%;
   display: flex;
   justify-content: center;
