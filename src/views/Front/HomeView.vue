@@ -3,12 +3,15 @@
   <!-- banner -->
   <div class="home">
     <div class="backgroundclip display-1 text-center row align-items-center">
-      <span>Infinity Flowers</span>
+      <span style="text-shadow: white 0.1em 0.1em 0.2em;"
+      >Infinity Flowers</span>
       <span class="fs-3 position-absolute"
-      style="bottom:30%; font-weight:550;"
+      style="bottom:30%; font-weight:550; text-shadow: #2A1B18 0.1em 0.1em 0.2em;
+      color: rgb(247, 248, 249);"
       >Beauty that lasts a lifetime</span>
       <div class="fs-6 position-absolute bottom-0 scroll-notice">
-        <div class="pb-2" style="text-shadow: rgb(226, 213, 196) 2px 0 10px;">scroll</div>
+        <div class="pb-2" style="text-shadow: rgb(226, 213, 196) 2px 0 10px;
+        color: rgb(247, 248, 249);">scroll</div>
       </div>
     </div>
     <!-- 限時優惠 -->
@@ -27,7 +30,7 @@
             style="width:85%; display:block; margin:auto;"
             class="rounded-3">
           </div>
-          <div class="col-md-6 text-light order-2">
+          <div class="col-md-6 order-2" style="color:#2A1B18;">
             <h4 class="fst-italic text-danger slogan-title">
               不再只是曇花一現...
             </h4>
@@ -43,7 +46,7 @@
           style="width:85%; display:block; margin:auto;"
           class="rounded-3">
         </div>
-        <div class="col-md-6 align-middle text-light order-md-1">
+        <div class="col-md-6 align-middle order-md-1" style="color:#2A1B18;">
           <h4 class="fst-italic text-danger slogan-title">
             不再只是一時的歡愉體驗...
           </h4>
@@ -65,7 +68,9 @@
       <!-- 新品上市 -->
       <div class="mt-4 row newItem-bg py-2">
         <div class="col-lg-3 newItem mt-md-0 py-md-2">
-          <h1 class="text-center"><i class="bi bi-flower3 text-danger"></i>新品上市</h1>
+          <h1 class="text-center" style="color:#2A1B18;">
+            <i class="bi bi-flower3 text-danger"></i>新品上市
+          </h1>
         </div>
         <div class="row col-lg-9 px-0 mx-auto">
           <div class="col-sm-12 col-md-4"
@@ -166,7 +171,8 @@ export default {
   background-image: url(@/assets/images/banner.png);
   background-repeat: no-repeat;
   background-size: cover;
-  color: rgb(247, 248, 249);
+  color:#4F332D;
+  /* color: rgb(247, 248, 249); */
   font-weight: 700;
   text-transform: uppercase;
 }
