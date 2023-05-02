@@ -43,25 +43,25 @@
           </router-link>
         </li>
         <li class="nav-item">
-          <router-link to="/dashboard/productmanage" class="nav-link">
+          <router-link to="/dashboard/productmanage" class="nav-link homenav-item">
             管理員登入
           </router-link>
         </li>
       </ul>
     </div>
-    <div class="navbar align-middle member-function me-lg-3" style="flex-grow:0;">
+    <div class="navbar align-middle member-function me-lg-3">
       <ul class="navbar-nav flex-row">
-        <li class="nav-item" style="margin-right:16px;">
+        <li class="nav-item member-item">
           <span>
             <a href="#" title="收藏" @click.prevent="goToFavorites">
-              <i class="bi bi-heart" style="font-size: 1.5rem"></i>{{ null }}
+              <i class="bi bi-heart nav-icon"></i>{{ null }}
             </a>
           </span>
         </li>
         <li class="nav-item">
           <span>
             <a href="#" title="購物車" @click.prevent="openCart">
-              <i class="bi bi-cart3" style="font-size: 1.5rem"></i>{{ null }}
+              <i class="bi bi-cart3 nav-icon"></i>{{ null }}
             </a>
           </span>
           <span class="notice" :style="{visibility: cartLength !== 0 ? 'visible' : 'hidden'}">
@@ -141,12 +141,27 @@ export default {
   top: -8px;
   right: 8px;
 }
+.homenav-item{
+  color: #4F332D;
+}
+.homenav-item:hover{
+  border-bottom: #4F332D 1px solid;
+}
 .homenav-active{
   color: rgba(231, 152, 152, 1);
   font-weight: 700;
 }
 .nav-link:focus{
   color: rgba(231, 152, 152, 1);
+}
+.nav-icon {
+  font-size: 1.5rem;
+}
+.member-function {
+  flex-grow:0;
+}
+.member-function .nav-item{
+  margin-right:16px;
 }
 @media only screen and (max-width: 991px) {
   .member-function {
