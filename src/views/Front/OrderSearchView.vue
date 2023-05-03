@@ -1,7 +1,7 @@
 <template>
 <LoadingOverlay :active="isLoading" />
 <div class="container">
-  <h5>請輸入訂購人Email查詢訂單</h5>
+  <h5 class="text-deep">請輸入訂購人Email查詢訂單</h5>
   <v-form v-slot="{ errors }"  @submit="searchOrder">
     <div class="input-group mb-3">
       <v-field type="text" class="form-control" placeholder="訂購人Email"
@@ -15,7 +15,7 @@
     </div>
   </v-form>
   <div v-if="searchstate && filterOrder.length === 0">
-    <div class="position-absolute bottom-50 start-50 translate-middle text-center">
+    <div class="position-absolute bottom-50 start-50 translate-middle text-center text-deep">
       <p>訂購人Email : {{ email }}</p>
       <h2>
         <i class="bi bi-flower3 text-danger"></i>查無資料
@@ -111,6 +111,9 @@ export default {
 </script>
 
 <style>
+.text-deep {
+  color:#2A1B18;
+}
 @media only screen and (max-width: 768px){
   .searchThead {
     display: none;
