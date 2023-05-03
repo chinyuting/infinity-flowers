@@ -1,16 +1,16 @@
 <template>
 <div class="container">
   <div class="accordion" id="accordionExample">
-    <h1>付款問題</h1>
+    <h2>付款問題</h2>
     <div class="accordion-item">
-      <h2 class="accordion-header" id="headingOne">
-        <button class="accordion-button" type="button" @click="changeCollapse('One')"
+      <p class="accordion-header" id="headingOne">
+        <button class="accordion-button fs-5" type="button" @click="changeCollapse('One')"
         data-bs-toggle="collapse" data-bs-target="#collapseOne"
         aria-expanded="true" aria-controls="collapseOne"
         :class="{ collapsed: id!=='One' }">
         Q1: 請問付款方式有哪些？
         </button>
-      </h2>
+      </p>
       <div id="collapseOne" class="accordion-collapse collapse"
       :class="{show: id==='One'}"
       aria-labelledby="headingOne" data-bs-parent="#accordionExample">
@@ -27,14 +27,14 @@
     </div>
 
     <div class="accordion-item">
-      <h2 class="accordion-header" id="headingTwo">
-        <button class="accordion-button" type="button"  @click="changeCollapse('Two')"
+      <p class="accordion-header" id="headingTwo">
+        <button class="accordion-button fs-5" type="button"  @click="changeCollapse('Two')"
         data-bs-toggle="collapse" data-bs-target="#collapseTwo"
         aria-expanded="false" aria-controls="collapseTwo"
         :class="{ collapsed: id!=='Two' }">
           Q2: 為什麼我的付款失敗了呢？
         </button>
-      </h2>
+      </p>
       <div id="collapseTwo" class="accordion-collapse collapse"
       aria-labelledby="headingTwo" data-bs-parent="#accordionExample"
       :class="{show: id==='Two'}">
@@ -47,16 +47,16 @@
     </div>
   </div>
   <div class="accordion mt-4" id="accordionExample">
-    <h1>配送問題</h1>
+    <h2>配送問題</h2>
     <div class="accordion-item">
-      <h2 class="accordion-header" id="headingThree">
-        <button class="accordion-button" type="button"  @click="changeCollapse('Three')"
+      <p class="accordion-header" id="headingThree">
+        <button class="accordion-button fs-5" type="button"  @click="changeCollapse('Three')"
         data-bs-toggle="collapse" data-bs-target="#collapseThree"
         aria-expanded="true" aria-controls="collapseThree"
         :class="{ collapsed: id!=='Three' }">
           Q1: 請問有送到外島嗎？
         </button>
-      </h2>
+      </p>
       <div id="collapseThree" class="accordion-collapse collapse"
       aria-labelledby="headingThree" data-bs-parent="#accordionExample"
       :class="{show: id==='Three'}">
@@ -67,16 +67,16 @@
     </div>
   </div>
   <div class="accordion mt-4" id="accordionExample">
-    <h1>商品問題</h1>
+    <h2>商品問題</h2>
     <div class="accordion-item">
-      <h2 class="accordion-header" id="headingFour">
-        <button class="accordion-button" type="button"  @click="changeCollapse('Four')"
+      <p class="accordion-header" id="headingFour">
+        <button class="accordion-button fs-5" type="button"  @click="changeCollapse('Four')"
         data-bs-toggle="collapse" data-bs-target="#collapseFour"
         aria-expanded="false" aria-controls="collapseFour"
         :class="{ collapsed: id!=='Four' }">
           Q1: 請問有辦法客製花禮嗎？
         </button>
-      </h2>
+      </p>
       <div id="collapseFour" class="accordion-collapse collapse"
       aria-labelledby="headingFour" data-bs-parent="#accordionExample"
       :class="{show: id==='Four'}">
@@ -109,3 +109,20 @@ export default {
   },
 };
 </script>
+
+<style>
+.accordion {
+  color:#4F332D;
+}
+.accordion-button:focus{
+  border-color:rgb(231, 152, 152);
+}
+.accordion-button:not(.collapsed){
+  background-color:rgba(231, 152, 152, .7);
+  color:#2A1B18;
+  box-shadow: 0 0 0 0.25rem rgba(231, 152, 152, 0.25);
+}
+.accordion-button:not(.collapsed)::after {
+  background-image:var(--bs-accordion-btn-icon);
+}
+</style>
