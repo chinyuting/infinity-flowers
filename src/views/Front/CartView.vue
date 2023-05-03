@@ -47,7 +47,7 @@
             <h4>數量 {{ cartqty }} 個</h4>
             <hr>
             <h3>總價 NT${{ CartList.total }}</h3>
-            <button type="submit" class="btn btn-success w-100 mt-2"
+            <button type="submit" class="btn w-100 mt-2 cart-confirm"
               @click="toOrder">確認購買</button>
           </div>
         </div>
@@ -140,6 +140,15 @@ export default {
 <style>
 .orderNavDetail{
   display: none;
+}
+.cart-confirm{
+  background-color: rgb(231, 152, 152);
+  color: #2A1B18;
+  font-weight: 500;
+}
+.cart-confirm:hover{
+  background-color: #2A1B18;
+  color: rgb(231, 152, 152);
 }
 @media only screen and (max-width: 768px){
   .orderNav{
