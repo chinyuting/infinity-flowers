@@ -143,9 +143,22 @@ export default {
 }
 .homenav-item{
   color: #4F332D;
+  position: relative;
 }
-.homenav-item:hover{
-  border-bottom: #4F332D 1px solid;
+.homenav-item::after{
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background-color: #4F332D;
+  transition: all .3s linear;
+}
+.homenav-item:hover::after{
+  width: 100%;
+  /* border-bottom: #4F332D 1px solid;
+  animation:show 2s; */
 }
 .homenav-active{
   color: rgba(231, 152, 152, 1);
@@ -169,5 +182,9 @@ export default {
     right: 85px;
     top: 5px;
   }
+}
+@keyframes show{
+  0% { length:0%;}
+  100% {length:100%;}
 }
 </style>
