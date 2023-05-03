@@ -4,20 +4,20 @@
   <div class="row">
     <!-- 側邊分類 -->
     <div class="side-bar col-lg-2">
-      <ul class="nav d-flex flex-lg-column flex-row ">
+      <ul class="nav d-flex flex-lg-column flex-row">
         <li class="nav-item">
-          <a class="nav-link  text-secondary rounded-pill" href="#"
+          <a class="nav-link text-deep rounded-pill" href="#"
           aria-current="page"
           @click.prevent="category = ''">
-            <i class="bi bi-flower3 text-danger"
-            :style="{visibility: category === '' ? 'visible' : 'hidden'}"></i> 全部商品
+            <i class="bi bi-flower3 text-pastel"
+            :class="category === '' ? 'category-visible' : 'category-hide'"></i> 全部商品
           </a>
         </li>
         <li class="nav-item" v-for="(item, key) in productCategory" :key="key">
-          <a class="nav-link text-secondary rounded-pill" href="#"
+          <a class="nav-link text-deep rounded-pill product-category" href="#"
           @click.prevent="category = item">
-            <i class="bi bi-flower3 text-danger"
-            :style="{visibility: category === item ? 'visible' : 'hidden'}"></i>
+            <i class="bi bi-flower3 text-pastel"
+            :class="category === item ? 'category-visible' : 'category-hide'"></i>
             {{ item }}
           </a>
         </li>
@@ -27,24 +27,22 @@
     <div class="col-lg-10 row ms-0">
       <div class="col-sm-12 col-md-6 col-lg-4"
         v-for="(item, key) in filterProduct[pagination.current_page-1]" :key="key">
-        <div class="card mt-1 mb-2 mx-auto" style="max-width: 276px;">
-          <a class="productcard" href="#" @click.prevent="goForDetail(item.id)">
-            <!-- 商品類別標示 -->
-            <div class="overflow-hidden text-light position-relative border-bottom"
-            style="height: 345px;">
+        <div class="card mt-1 mb-2 mx-auto productcard">
+          <a class="productcard-content" href="#" @click.prevent="goForDetail(item.id)">
+            <div class="overflow-hidden text-light position-relative border-bottom productcard-pic">
+              <!-- 商品類別標示 -->
               <div class="position-absolute bg-secondary px-2 bottom-0 end-0 rounded m-1">
                 <p class="card-text">{{ item.category }}</p>
               </div>
               <!-- 商品圖片 -->
               <img :src="item.imageUrl" :alt="item.title"
-              class="card-img-top d-block align-middle w-100 h-100 w-auto mx-auto rounded">
+              class="card-img-top d-block align-middle w-100 h-100 w-auto mx-auto">
             </div>
             <div class="card-body text-dark">
               <div>
                 <h5 class="row overflow-hidden">
                   <!-- 商品名稱 -->
-                  <div class="card-title col-10 overflow-hidden"
-                  style="max-width: 225px; text-overflow: ellipsis; white-space: nowrap;"
+                  <div class="card-title col-10 overflow-hidden productcard-title"
                   :title="item.title">
                     {{ item.title }}
                   </div>
@@ -70,8 +68,7 @@
             </div>
           </a>
           <div class="card-footer">
-            <a href="#" class="btn btn-danger w-100" @click.prevent="addCart(item)"
-            style="z-index: 5">
+            <a href="#" class="btn btn-danger w-100" @click.prevent="addCart(item)">
               <div class="spinner-border spinner-border-sm text-light" role="status"
                 v-if="loadingStatus && item.id === tempCartId">
                 <span class="visually-hidden">Loading...</span>
@@ -218,6 +215,21 @@ export default {
 </script>
 
 <style>
+.text-deep {
+  color:#2A1B18;
+}
+.text-deep:hover{
+  color:rgba(231, 152, 152, 1);
+}
+.text-pastel {
+  color:rgba(231, 152, 152, 1);
+}
+.category-visible{
+  visibility:visible;
+}
+.category-hide{
+  visibility:hidden;
+}
 .add-favorite{
   font-size: 20px;
   transition: font-size .5s;
@@ -226,9 +238,27 @@ export default {
   font-size: 23px;
 }
 .productcard{
+  max-width: 276px;
+}
+.productcard-content{
   text-decoration: none;
 }
-.product-card:nth-child(3n-1){
+.productcard-pic img{
+  transition: all 1s;
+}
+.productcard-content:hover .productcard-pic img{
+  transform: scale(1.1);
+}
+.productcard-pic{
+  height: 345px;
+}
+.productcard-content .card-title{
+  max-width: 225px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.product-card-content:nth-child(3n-1){
   margin: 0 auto;
 }
+
 </style>
