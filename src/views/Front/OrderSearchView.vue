@@ -1,7 +1,7 @@
 <template>
 <LoadingOverlay :active="isLoading" />
 <div class="container">
-  <h5 class="text-deep">請輸入訂購人Email查詢訂單</h5>
+  <h5 class="search-text">請輸入訂購人Email查詢訂單</h5>
   <v-form v-slot="{ errors }"  @submit="searchOrder">
     <div class="input-group mb-3">
       <v-field type="text" class="form-control" placeholder="訂購人Email"
@@ -111,7 +111,7 @@ export default {
 </script>
 
 <style>
-.text-deep {
+.search-text {
   color:#2A1B18;
 }
 @media only screen and (max-width: 768px){
