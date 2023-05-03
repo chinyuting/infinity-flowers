@@ -30,7 +30,7 @@
             class="rounded-3">
           </div>
           <div class="col-md-6 order-2">
-            <h4 class="fst-italic text-danger slogan-title">
+            <h4 class="fst-italic slogan-title">
               不再只是曇花一現...
             </h4>
             <h3 class="fst-italic text-center w-100 slogan-content">
@@ -45,7 +45,7 @@
           class="rounded-3">
         </div>
         <div class="col-md-6 align-middle order-md-1">
-          <h4 class="fst-italic text-danger slogan-title ms-3">
+          <h4 class="fst-italic slogan-title ms-lg-3">
             不再只是一時的歡愉體驗...
           </h4>
           <h3 class="fst-italic text-center w-100 slogan-content">
@@ -70,7 +70,7 @@
             <i class="bi bi-flower3 text-danger"></i>新品上市
           </h1>
         </div>
-        <div class="row col-lg-9 px-0 mx-auto">
+        <div class="row col-lg-9 px-0 mx-auto justify-content-evenly">
           <div class="col-sm-12 col-md-4"
             v-for="(item, key) in newProductList" :key="key">
             <div class="card mt-1 mb-2 mx-auto product-card">
@@ -160,6 +160,7 @@ export default {
   color:#4F332D;
   font-weight: bold;
 }
+/* banner */
 .backgroundclip{
   margin: 0;
   width: 100%;
@@ -170,18 +171,12 @@ export default {
   background-repeat: no-repeat;
   background-size: cover;
   text-shadow: 0 0 6px white, 0 0 6px white, 0 0 6px white, 0 0 6px white;
-  /* font-weight: bold; */
   font-weight: 700;
   text-transform: uppercase;
 }
 .banner-slogan{
   bottom:30%;
   font-weight:550;
-}
-.slogan-bg img{
-  width:85%;
-  display:block;
-  margin:auto;
 }
 .scroll-notice {
   animation:move 3s infinite both;
@@ -193,15 +188,19 @@ export default {
   height: 70px;
   background-color: rgb(247, 248, 249);
 }
+/* 優惠訊息 */
 .on-sale{
   background: url(@/assets/images/LoginBg.png);
   background-repeat: no-repeat;
   background-size: cover;
   background-position:center;
 }
+/* slogan */
 .slogan-title{
   position: absolute;
+  width: 30%;
   padding-top: 1%;
+  color:rgb(231, 152, 152);
 }
 .slogan-content {
   position: relative;
@@ -213,8 +212,23 @@ export default {
   linear-gradient(transparent 20%,rgba(231, 152, 152, .7) 20%,
   rgba(231, 152, 152, .7) 80%, transparent 80%);
 }
+.slogan-bg img{
+  width:85%;
+  display:block;
+  margin:auto;
+}
+/* 新品上市 */
+.newItem{
+  line-height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .newItem h1{
   color:#2A1B18;
+}
+.newItem-bg {
+  background:linear-gradient(135deg,rgba(231, 152, 152, 0.7) 30%,#e9ecef );
 }
 .product-card {
   max-width: 276px;
@@ -234,13 +248,21 @@ export default {
     padding: 0;
     position: relative;
   }
+  .slogan-bg {
+    background:
+    linear-gradient(transparent 15%,rgba(231, 152, 152, 1) 15%,
+  rgba(231, 152, 152, 1) 85%, transparent 85%);
+  }
   .slogan-title{
-    z-index: 5;
+    background:rgba(231, 152, 152, 1);
+    width: 100%;
+    color: white;
+    left:0;
+    padding:10px;
   }
   .slogan-content{
-    /* color: rgba(231, 152, 152, 1); */
     color: #4F332D;
-    margin-top: 20px;
+    margin-top: 30px;
     z-index: 5;
   }
 }
@@ -248,14 +270,5 @@ export default {
   0% { transform:translateY(0px);}
   50% {transform:translateY(-15px);}
   100% {transform:translateY(0px);}
-}
-.newItem-bg {
-  background:linear-gradient(135deg,rgba(231, 152, 152, 0.7) 30%,#e9ecef );
-}
-.newItem{
-  line-height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 </style>
