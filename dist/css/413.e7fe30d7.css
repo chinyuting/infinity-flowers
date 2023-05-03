@@ -1,0 +1,1 @@
+.accordion{color:#4f332d}.accordion-button:focus{border-color:#e79898}.accordion-button:not(.collapsed){background-color:hsla(0,62%,75%,.7);color:#2a1b18;box-shadow:0 0 0 .25rem hsla(0,62%,75%,.25)}.accordion-button:not(.collapsed):after{background-image:var(--bs-accordion-btn-icon)}
