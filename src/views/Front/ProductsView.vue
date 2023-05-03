@@ -27,7 +27,7 @@
     <div class="col-lg-10 row ms-0">
       <div class="col-sm-12 col-md-6 col-lg-4"
         v-for="(item, key) in filterProduct[pagination.current_page-1]" :key="key">
-        <div class="card mt-1 mb-2 mx-auto" style="max-width: 280px;">
+        <div class="card mt-1 mb-2 mx-auto" style="max-width: 276px;">
           <a class="productcard" href="#" @click.prevent="goForDetail(item.id)">
             <!-- 商品類別標示 -->
             <div class="overflow-hidden text-light position-relative border-bottom"
