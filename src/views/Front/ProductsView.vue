@@ -49,7 +49,7 @@
                     {{ item.title }}
                   </div>
                   <!-- 加入收藏 -->
-                  <div class="mw-25 text-end col-2">
+                  <div class="mw-25 text-end col-2 add-favorite">
                     <a href="#" @click.stop.prevent="updateFavorite(item)">
                       <i class="bi bi-heart text-danger" title="加入收藏"
                       v-if="idList.every((id) => item.id !== id)"></i>
@@ -218,6 +218,13 @@ export default {
 </script>
 
 <style>
+.add-favorite{
+  font-size: 20px;
+  transition: font-size .5s;
+}
+.add-favorite:hover{
+  font-size: 23px;
+}
 .productcard{
   text-decoration: none;
 }
