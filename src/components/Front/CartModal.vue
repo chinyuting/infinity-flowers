@@ -63,8 +63,11 @@
             </div>
           </div>
         </div>
-        <div class="modal-footer" v-if="cartLength !== 0 ">
-          <a class="btn w-100 text-center" href="#" @click.prevent="toCartView">前往購物車</a>
+        <div class="modal-footer p-0 b-0" v-if="cartLength !== 0 ">
+          <a class="btn text-center cart-btn w-100 m-0 b-0"
+          href="#" @click.prevent="toCartView">
+            前往購物車
+          </a>
         </div>
       </div>
     </div>
@@ -164,5 +167,18 @@ export default {
 }
 .cartcard-img{
   width: 40%;
+}
+.cart-btn{
+  border-radius: 0%;
+  color: #2A1B18;
+  font-size: large;
+  font-weight: 700;
+  background-color: rgb(231, 152, 152);
+  height: 60px;
+  padding: 16px;
+}
+.cart-btn:hover{
+  color: rgb(231, 152, 152);
+  background-color: #2A1B18;
 }
 </style>

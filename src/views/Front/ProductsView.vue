@@ -5,16 +5,18 @@
     <!-- 側邊分類 -->
     <div class="side-bar col-lg-2">
       <ul class="nav d-flex flex-lg-column flex-row">
-        <li class="nav-item">
-          <a class="nav-link text-deep rounded-pill" href="#"
+        <li class="nav-item product-category">
+          <a class="nav-link rounded-pill" href="#"
+          :class="category === '' ? 'text-pastel' : 'text-deep'"
           aria-current="page"
           @click.prevent="category = ''">
             <i class="bi bi-flower3 text-pastel"
             :class="category === '' ? 'category-visible' : 'category-hide'"></i> 全部商品
           </a>
         </li>
-        <li class="nav-item" v-for="(item, key) in productCategory" :key="key">
+        <li class="nav-item product-category" v-for="(item, key) in productCategory" :key="key">
           <a class="nav-link text-deep rounded-pill product-category" href="#"
+          :class="category === item ? 'text-pastel' : 'text-deep'"
           @click.prevent="category = item">
             <i class="bi bi-flower3 text-pastel"
             :class="category === item ? 'category-visible' : 'category-hide'"></i>
@@ -81,7 +83,7 @@
     </div>
   </div>
 </div>
-  <Pagination :pages="pagination" @emit-page="getProducts" class="mt-2" />
+  <Pagination :pages="pagination" @emit-page="getProducts" class="my-4" />
 </template>
 
 <script>
@@ -218,7 +220,7 @@ export default {
 .text-deep {
   color:#2A1B18;
 }
-.text-deep:hover{
+.product-category:hover{
   color:rgba(231, 152, 152, 1);
 }
 .text-pastel {
@@ -260,5 +262,4 @@ export default {
 .product-card-content:nth-child(3n-1){
   margin: 0 auto;
 }
-
 </style>
