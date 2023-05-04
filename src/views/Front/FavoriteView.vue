@@ -16,7 +16,7 @@
           <a class="productcard-content" href="#" @click.prevent="goForDetail(item.id)">
             <div class="overflow-hidden text-light position-relative productcard-pic">
               <!-- 商品類別標示 -->
-              <div class="position-absolute bg-secondary px-2 bottom-0 end-0 rounded m-1">
+              <div class="position-absolute bg-secondary px-2 bottom-0 end-0 rounded m-2">
                 <p class="card-text">{{ item.category }}</p>
               </div>
               <!-- 商品圖片 -->
@@ -174,6 +174,7 @@ export default {
 }
 .productcard-pic{
   height: 345px;
+  border-radius: 0.375rem 0.375rem 0 0;
 }
 .productcard-content .card-title{
   max-width: 225px;

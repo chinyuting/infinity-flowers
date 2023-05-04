@@ -243,6 +243,7 @@ export default {
 }
 .newItemt-pic {
   height: 345px;
+  border-radius: 0.375rem 0.375rem 0 0;
 }
 .newItem-name{
   max-width: 225px;
