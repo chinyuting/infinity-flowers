@@ -96,6 +96,12 @@ export default {
           if (res.data.success) {
             this.getCarts();
           }
+        })
+        .catch((err) => {
+          this.emitter.emit('push-message', {
+            style: 'danger',
+            title: err.response.data,
+          });
         });
     },
     deleteCart(id) {
@@ -109,6 +115,12 @@ export default {
               title: res.data.message,
             });
           }
+        })
+        .catch((err) => {
+          this.emitter.emit('push-message', {
+            style: 'danger',
+            title: err.response.data,
+          });
         });
     },
     deleteAllCart() {
@@ -122,6 +134,12 @@ export default {
               title: res.data.message,
             });
           }
+        })
+        .catch((err) => {
+          this.emitter.emit('push-message', {
+            style: 'danger',
+            title: err.response.data,
+          });
         });
     },
   },

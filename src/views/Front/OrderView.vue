@@ -226,6 +226,12 @@ export default {
             this.$router.push(`/order/${res.data.orderId}`);
             this.getCarts();
           }
+        })
+        .catch((err) => {
+          this.emitter.emit('push-message', {
+            style: 'danger',
+            title: err.response.data,
+          });
         });
     },
     addCoupon() {
@@ -249,6 +255,13 @@ export default {
               title: res.data.message,
             });
           }
+        })
+        .catch((err) => {
+          this.coupon.couponState = false;
+          this.emitter.emit('push-message', {
+            style: 'danger',
+            title: err.response.data,
+          });
         });
     },
     goCart() {

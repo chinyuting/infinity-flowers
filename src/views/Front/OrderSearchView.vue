@@ -86,6 +86,13 @@ export default {
             this.pagination = res.data.pagination;
             this.isLoading = false;
           }
+        })
+        .catch((err) => {
+          this.isLoading = false;
+          this.emitter.emit('push-message', {
+            style: 'danger',
+            title: err.response.data,
+          });
         });
     },
     payOrder(id) {

@@ -72,6 +72,12 @@ export default {
             this.$router.push('/login');
             this.$refs.checkModal.hideModal();
           }
+        })
+        .catch((err) => {
+          this.emitter.emit('push-message', {
+            style: 'danger',
+            title: err.response.data,
+          });
         });
     },
     openModal() {

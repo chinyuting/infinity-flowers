@@ -111,6 +111,13 @@ export default {
             this.getCarts();
             this.loadingStatus = false;
           }
+        })
+        .catch((err) => {
+          this.loadingStatus = false;
+          this.emitter.emit('push-message', {
+            style: 'danger',
+            title: err.response.data,
+          });
         });
     },
     deleteCart(id) {
@@ -123,6 +130,13 @@ export default {
           this.emitter.emit('push-message', {
             style: 'danger',
             title: res.data.message,
+          });
+        })
+        .catch((err) => {
+          this.loadingStatus = false;
+          this.emitter.emit('push-message', {
+            style: 'danger',
+            title: err.response.data,
           });
         });
     },

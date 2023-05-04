@@ -116,6 +116,12 @@ export default {
             this.getOrder();
             this.$router.push(`/order/${this.orderId}/paid`);
           }
+        })
+        .catch((err) => {
+          this.emitter.emit('push-message', {
+            style: 'danger',
+            title: err.response.data,
+          });
         });
     },
   },

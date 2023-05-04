@@ -74,6 +74,13 @@ export default {
           this.productList = res.data.products;
           this.pagination = res.data.pagination;
           this.isLoading = false;
+        })
+        .catch((err) => {
+          this.isLoading = false;
+          this.emitter.emit('push-message', {
+            style: 'danger',
+            title: err.response.data,
+          });
         });
     },
     deleteProduct(item) {
@@ -90,6 +97,13 @@ export default {
               title: res.data.message,
             });
           }
+        })
+        .catch((err) => {
+          this.isLoading = false;
+          this.emitter.emit('push-message', {
+            style: 'danger',
+            title: err.response.data,
+          });
         });
     },
     openModal(isNew, item) {
@@ -133,6 +147,13 @@ export default {
               content: res.data.message.join('、'),
             });
           }
+        })
+        .catch((err) => {
+          this.isLoading = false;
+          this.emitter.emit('push-message', {
+            style: 'danger',
+            title: err.response.data,
+          });
         });
     },
   },

@@ -1,4 +1,5 @@
 <template>
+  <LoadingOverlay :active="isLoading" />
 <div class="container">
   <div v-if="favoriteList.length === 0 "
   class="position-absolute bottom-50 start-50 translate-middle text-center">
@@ -70,15 +71,18 @@ export default {
       page: 1,
       productCategory: [],
       idList: [],
+      isLoading: false,
     };
   },
   inject: ['emitter'],
   methods: {
     getFavoriteProducts() {
+      this.isLoading = true;
       const api = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/products/all`;
       this.$http.get(api)
         .then((res) => {
           if (res.data.success) {
+            this.isLoading = false;
             const productList = res.data.products;
             this.pagination = res.data.pagination;
             const category = [];
@@ -92,9 +96,17 @@ export default {
             this.productCategory = category.filter((element, index, arr) => arr.indexOf(element)
             === index);
           }
+        })
+        .catch((err) => {
+          this.isLoading = false;
+          this.emitter.emit('push-message', {
+            style: 'danger',
+            title: err.response.data,
+          });
         });
     },
     addCart(item) {
+      this.isLoading = true;
       const api = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/cart`;
       const cart = {
         product_id: item.id,
@@ -103,6 +115,7 @@ export default {
       this.$http.post(api, { data: cart })
         .then((res) => {
           if (res.data.success) {
+            this.isLoading = false;
             this.getFavoriteProducts();
             this.getCarts();
             this.emitter.emit('push-message', {
@@ -110,6 +123,13 @@ export default {
               title: res.data.message,
             });
           }
+        })
+        .catch((err) => {
+          this.isLoading = false;
+          this.emitter.emit('push-message', {
+            style: 'danger',
+            title: err.response.data,
+          });
         });
     },
     removefavorite(item) {

@@ -119,6 +119,13 @@ export default {
             this.product = res.data.product;
             this.isLoading = false;
           }
+        })
+        .catch((err) => {
+          this.isLoading = false;
+          this.emitter.emit('push-message', {
+            style: 'danger',
+            title: err.response.data,
+          });
         });
     },
     updateFavorite() {
@@ -159,6 +166,13 @@ export default {
               title: res.data.message,
             });
           }
+        })
+        .catch((err) => {
+          this.isLoading = false;
+          this.emitter.emit('push-message', {
+            style: 'danger',
+            title: err.response.data,
+          });
         });
     },
     refreshqty(number) {

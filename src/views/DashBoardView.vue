@@ -24,6 +24,10 @@ export default {
         .then((res) => {
           if (!res.data.success) {
             this.$router.push('/login');
+            this.emitter.emit('push-message', {
+              style: 'danger',
+              title: '登入失敗',
+            });
           } else {
             this.emitter.emit('push-message', {
               style: 'success',

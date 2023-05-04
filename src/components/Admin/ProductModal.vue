@@ -196,17 +196,24 @@ export default {
       this.$http.post(api, formData)
         .then((res) => {
           if (res.data.success) {
+            this.$refs.fileInput.value = '';
             this.tempProduct.imageUrl = res.data.imageUrl;
             this.emitter.emit('push-message', {
               style: 'success',
               title: '上傳成功',
             });
+          } else {
+            this.$refs.fileInput.value = '';
+            this.emitter.emit('push-message', {
+              style: 'danger',
+              title: '上傳失敗',
+            });
           }
         })
-        .catch(() => {
+        .catch((err) => {
           this.emitter.emit('push-message', {
             style: 'danger',
-            title: '上傳失敗',
+            title: err.response.data,
           });
         });
     },

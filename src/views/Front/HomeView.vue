@@ -123,6 +123,13 @@ export default {
         .then((res) => {
           this.newProductList = res.data.products.slice(-3);
           this.isLoading = false;
+        })
+        .catch((err) => {
+          this.isLoading = false;
+          this.emitter.emit('push-message', {
+            style: 'danger',
+            title: err.response.data,
+          });
         });
     },
     goForDetail(id) {

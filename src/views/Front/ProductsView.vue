@@ -121,6 +121,13 @@ export default {
             this.pagination = res.data.pagination;
             this.isLoading = false;
           }
+        })
+        .catch((err) => {
+          this.isLoading = false;
+          this.emitter.emit('push-message', {
+            style: 'danger',
+            title: `${err.response.data.message}`,
+          });
         });
     },
     getCategory() {
@@ -136,6 +143,12 @@ export default {
             this.productCategory = category.filter((element, index, arr) => arr.indexOf(element)
             === index);
           }
+        })
+        .catch((err) => {
+          this.emitter.emit('push-message', {
+            style: 'danger',
+            title: `${err.response.data.message}`,
+          });
         });
     },
     addCart(item) {
@@ -157,6 +170,13 @@ export default {
             this.getCarts();
             this.loadingStatus = false;
           }
+        })
+        .catch((err) => {
+          this.loadingStatus = false;
+          this.emitter.emit('push-message', {
+            style: 'danger',
+            title: `${err.response.data.message}`,
+          });
         });
     },
     updateFavorite(item) {
