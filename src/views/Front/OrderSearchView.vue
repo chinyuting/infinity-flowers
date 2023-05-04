@@ -51,7 +51,7 @@
             <span v-else class="text-danger">未付款</span>
           </td>
           <td>
-            <button class="btn btn-danger w-100" :disabled="item.is_paid"
+            <button class="btn w-100 button-lightcolor" :disabled="item.is_paid"
             @click.prevent="payOrder(item.id)">前往付款</button>
           </td>
         </tr>
@@ -118,9 +118,6 @@ export default {
 </script>
 
 <style>
-.search-text {
-  color:#2A1B18;
-}
 @media only screen and (max-width: 768px){
   .searchThead {
     display: none;

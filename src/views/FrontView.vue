@@ -27,10 +27,34 @@ body {
 .enphasis {
   background-image: linear-gradient(
     rgba(0, 0, 0, 0)70%,
-    rgba(234, 166, 166)70%
+    rgba(231, 152, 152)70%
   );
 }
 .icon-size{
   font-size: 2rem;
+}
+.text-deepcolor{
+  color:#2A1B18;
+}
+.text-lightcolor{
+  color:rgb(231, 152, 152);
+}
+.button-deepcolor{
+  background-color: rgb(42, 27, 24);
+  color: rgb(231, 152, 152);
+  font-weight: 500;
+}
+.button-deepcolor:hover{
+  background-color: rgba(42, 27, 24, .8);
+  color: rgb(231, 152, 152);
+}
+.button-lightcolor{
+  background-color: rgb(231, 152, 152);
+  color: #2A1B18;
+  font-weight: 500;
+}
+.button-lightcolor:hover{
+  background-color: rgba(231, 152, 152, .8);
+  color: #2A1B18;
 }
 </style>

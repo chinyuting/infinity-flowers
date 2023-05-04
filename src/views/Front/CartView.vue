@@ -3,8 +3,8 @@
 <div class="container">
   <OrderNav :PageName="pageName" class="orderNav" />
   <h3 class="orderNavDetail">
-    <i class="bi bi-flower3 text-success"></i>
-    <span>購物車</span>
+    <i class="bi bi-flower3 text-lightcolor"></i>
+    <span class="text-deepcolor">購物車</span>
   </h3>
   <div>
     <!-- 購物車 -->
@@ -47,7 +47,7 @@
             <h4>數量 {{ cartqty }} 個</h4>
             <hr>
             <h3>總價 NT${{ CartList.total }}</h3>
-            <button type="submit" class="btn w-100 mt-2 cart-confirm"
+            <button type="submit" class="btn w-100 mt-2 button-lightcolor btn-lg"
             @click="toOrder">確認購買</button>
           </div>
         </div>
@@ -56,7 +56,7 @@
     <div v-else
     class="position-absolute bottom-50 start-50 translate-middle text-center">
       <h2>購物車沒有東西</h2>
-      <button type="button" class="btn btn-danger mt-2"
+      <button type="button" class="btn button-lightcolor mt-2"
       @click.prevent="$router.push('/products')">馬上逛逛</button>
     </div>
   </div>
@@ -158,15 +158,6 @@ export default {
 <style>
 .orderNavDetail{
   display: none;
-}
-.cart-confirm{
-  background-color: rgb(231, 152, 152);
-  color: #2A1B18;
-  font-weight: 500;
-}
-.cart-confirm:hover{
-  background-color: #2A1B18;
-  color: rgb(231, 152, 152);
 }
 .qty-input{
   width: 100px;

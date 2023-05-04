@@ -2,8 +2,8 @@
 <div class="container">
   <OrderNav :PageName="pageName" class="orderNav" />
   <h3 class="orderNavDetail">
-    <i class="bi bi-flower3 text-success"></i>
-    <span>建立訂單</span>
+    <i class="bi bi-flower3 text-lightcolor"></i>
+    <span class="text-deepcolor">建立訂單</span>
   </h3>
   <button class="btn btn-light" type="button"
     @click.prevent="goCart">
@@ -157,7 +157,7 @@
             <span>套用優惠券</span>
           </button>
       </div>
-      <button type="submit" class="btn btn-success w-100 mt-2">確認訂單</button>
+      <button type="submit" class="btn w-100 mt-2 button-lightcolor">確認訂單</button>
     </div>
   </v-form>
 </div>
@@ -276,16 +276,16 @@ export default {
 </script>
 
 <style>
-  .input-required::before{
-    content: "*";
-    color: red;
-  }
-  .orderNavDetail{
-    display: none;
-  }
-  .price-label{
-    width: 65px;
-  }
+.input-required::before{
+  content: "*";
+  color: red;
+}
+.orderNavDetail{
+  display: none;
+}
+.price-label{
+  width: 65px;
+}
   @media only screen and (max-width: 768px){
     .orderNav{
       display: none;

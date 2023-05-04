@@ -3,8 +3,8 @@
 <div class="container">
   <OrderNav :PageName="pageName" class="orderNav" />
   <h3>
-    <i class="bi bi-flower3 text-success"></i>
-    <span>訂單已建立</span>
+    <i class="bi bi-flower3 text-lightcolor"></i>
+    <span class="text-deepcolor">訂單已建立</span>
   </h3>
   <div class="row mb-3 ">
     <div class="col-md-7 mt-2">
@@ -28,8 +28,8 @@
         </tbody>
         <tfoot>
           <td colspan="1"></td>
-          <td colspan="1">總價</td>
-          <td>{{ orderList.total }}</td>
+          <td colspan="1" class="fs-5">總價</td>
+          <td class="fs-5">{{ orderList.total }}</td>
         </tfoot>
       </table>
     </div>
@@ -64,9 +64,9 @@
       </table>
     </div>
     <div class="row justify-content-center ms-0 me-0">
-      <button class="btn btn-secondary mt-3 col-5 me-1"
+      <button class="btn mt-3 col-5 me-1 button-deepcolor"
         @click.prevent="$router.push('/')">稍後進行付款</button>
-      <button class="btn btn-danger mt-3 col-5 ms-1" @click.prevent="payOrder">確認付款</button>
+      <button class="btn mt-3 col-5 ms-1 button-lightcolor" @click.prevent="payOrder">確認付款</button>
     </div>
   </div>
 </div>
