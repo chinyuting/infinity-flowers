@@ -2,7 +2,7 @@
   <LoadingOverlay :active="isLoading" />
   <!-- 麵包屑 -->
 <div class="container">
-  <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+  <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
       <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">首頁</a></li>
       <li class="breadcrumb-item"><a href="#/products" class="breadcrumb-link">產品</a></li>
@@ -38,7 +38,7 @@
     <div class="col-md-7">
       <h1 class="col-10 overflow-hidden">{{ product.title }}</h1>
       <p>{{ product.description }}</p>
-      <p style="white-space: pre-line">{{ product.content }}</p>
+      <p class="detail-content">{{ product.content }}</p>
       <!-- 商品數量 -->
       <div class="input-group">
         <button class="btn btn-outline-secondary" type="button"
@@ -180,5 +180,11 @@ export default {
 }
 .breadcrumb-link:hover{
   color:rgba(231, 152, 152, 1);
+}
+.breadcrumb-item + .breadcrumb-item::before{
+  content:var(--bs-breadcrumb-divider, '>');
+}
+.detail-content{
+  white-space: pre-line;
 }
 </style>

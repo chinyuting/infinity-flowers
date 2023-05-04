@@ -133,14 +133,14 @@
       </table>
       <!-- 價格 -->
       <h5 class="text-end">
-        <span class="d-inline-block" style="width:65px;">總價</span>
+        <span class="d-inline-block price-label">總價</span>
         <span class="w-25 d-inline-block">
           {{ CartList.total }}
         </span>
       </h5>
       <h5 v-if="CartList.final_total !== CartList.total"
         class="text-success text-end">
-        <span class="d-inline-block" style="width:65px;">優惠價</span>
+        <span class="d-inline-block price-label">優惠價</span>
         <span class="w-25 d-inline-block">
           {{ parseInt(CartList.final_total) }}
         </span>
@@ -269,6 +269,9 @@ export default {
   }
   .orderNavDetail{
     display: none;
+  }
+  .price-label{
+    width: 65px;
   }
   @media only screen and (max-width: 768px){
     .orderNav{

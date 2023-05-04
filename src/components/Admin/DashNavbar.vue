@@ -13,35 +13,35 @@
       <div class="collapse navbar-collapse DashnavbarNav">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0 justify-content-center">
           <li class="nav-item">
-            <router-link to="/dashboard/productmanage" class="nav-link"
-            :class="pageNow === 'productmanage' ? 'homenav-active' : ''">
+            <router-link to="/dashboard/productmanage" class="nav-link dashnav-item"
+            :class="pageNow === 'productmanage' ? 'dashnav-active' : ''">
               產品管理
             </router-link>
           </li>
           <li class="nav-item">
-            <router-link to="/dashboard/ordermanage" class="nav-link"
-            :class="pageNow === 'ordermanage' ? 'homenav-active' : ''">
+            <router-link to="/dashboard/ordermanage" class="nav-link dashnav-item"
+            :class="pageNow === 'ordermanage' ? 'dashnav-active' : ''">
               訂單管理
             </router-link>
           </li>
           <li class="nav-item">
-            <router-link to="/dashboard/couponmanage" class="nav-link"
-            :class="pageNow === 'couponmanage' ? 'homenav-active' : ''">
+            <router-link to="/dashboard/couponmanage" class="nav-link dashnav-item"
+            :class="pageNow === 'couponmanage' ? 'dashnav-active' : ''">
               優惠券管理
             </router-link>
           </li>
         </ul>
       </div>
-      <div class="collapse navbar-collapse DashnavbarNav" style="flex-grow:0;">
+      <div class="collapse navbar-collapse DashnavbarNav dash-function">
         <ul class="navbar-nav me-3 mb-2 mb-lg-0">
           <li class="nav-item">
-            <router-link to="/" class="nav-link">
+            <router-link to="/" class="nav-link dashnav-item">
               回到官網
             </router-link>
           </li>
           <li class="nav-item">
             <a @click.prevent="openModal"
-            class="nav-link" href="#">登出</a>
+            class="nav-link dashnav-item" href="#">登出</a>
           </li>
         </ul>
       </div>
@@ -80,8 +80,12 @@ export default {
     goToFirstPage() {
       this.$router.push('/dashboard/productmanage');
     },
+    pageChange(page) {
+      this.pageNow = page;
+    },
   },
   mounted() {
+    this.pageChange('productmanage');
     this.emitter.on('dash-change', (data) => {
       this.pageNow = data.data;
     });
@@ -90,11 +94,33 @@ export default {
 </script>
 
 <style>
-.homenav-active{
-  color: rgba(231, 152, 152, 1);
+.dashnav-active{
+  color: rgba(231, 152, 152, 1) !important;
   font-weight: 700;
 }
 .nav-link:focus{
   color: rgba(231, 152, 152, 1);
+}
+.dashnav-item{
+  color: #4F332D;
+  position: relative;
+}
+.dashnav-item::after{
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background-color: #4F332D;
+  transition: all .3s linear;
+}
+.dashnav-item:hover::after{
+  width: 100%;
+  /* border-bottom: #4F332D 1px solid;
+  animation:show 2s; */
+}
+.dash-function{
+  flex-grow:0;
 }
 </style>

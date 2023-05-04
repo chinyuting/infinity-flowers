@@ -1,11 +1,10 @@
 <template>
   <button @click.prevent="topFunction"
-  style="width: 45px; height:45px; display: none;"
-  :style="{display: isTop ? 'block' : 'none'}"
-  class="btn btn-danger rounded-circle position-fixed bottom-0 end-0 m-3"
+  class="btn btn-danger rounded-circle position-fixed bottom-0 end-0 m-3 totop-btn"
+  :class="isTop ? 'totop-display-block' : 'totop-display-none'"
   title="Go to top">
-    <i class="bi bi-arrow-up-short position-absolute top-50 start-50 translate-middle"
-    style="font-size: 2rem;"></i>
+    <i class="bi bi-arrow-up-short position-absolute top-50 start-50 translate-middle
+    icon-size"></i>
   </button>
 </template>
 
@@ -35,3 +34,16 @@ export default {
   },
 };
 </script>
+
+<style>
+.totop-btn{
+  width: 45px;
+  height:45px;
+}
+.totop-display-block{
+  display: block !important;
+}
+.totop-display-none{
+  display: none !important;
+}
+</style>

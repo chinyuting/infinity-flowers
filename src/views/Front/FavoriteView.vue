@@ -11,27 +11,33 @@
     <!-- 商品列表 -->
       <div class="col-sm-12 col-md-6 col-lg-4"
         v-for="(item, key) in favoriteList" :key="key">
-        <div class="card mt-1 mb-2 mx-auto" style="max-width: 280px;">
-          <a class="productcard" href="#" @click.prevent="goForDetail(item.id)">
-          <!-- 商品圖片 -->
-            <div class="overflow-hidden text-light position-relative" style="height: 345px;">
-              <div class="position-absolute bg-secondary px-2 bottom-0 end-0 rounded">
+        <div class="card mt-1 mb-2 mx-auto productcard" >
+          <a class="productcard-content" href="#" @click.prevent="goForDetail(item.id)">
+            <div class="overflow-hidden text-light position-relative productcard-pic">
+              <!-- 商品類別標示 -->
+              <div class="position-absolute bg-secondary px-2 bottom-0 end-0 rounded m-1">
                 <p class="card-text">{{ item.category }}</p>
               </div>
+              <!-- 商品圖片 -->
               <img :src="item.imageUrl" :alt="item.title"
               class="card-img-top d-block mx-auto align-middle">
             </div>
             <div class="card-body text-dark">
-              <!-- 加入收藏 -->
-              <h5 class="card-title">{{ item.title }}
-                <span>
+              <!-- 商品名稱 -->
+              <h5 class="row overflow-hidden">
+                <div class="card-title col-10 overflow-hidden productcard-title"
+                  :title="item.title">
+                    {{ item.title }}
+                  </div>
+                <!-- 加入收藏 -->
+                <div class="mw-25 text-end col-2 add-favorite">
                   <a href="#" @click.stop.prevent="removefavorite(item)">
                     <i class="bi bi-heart text-danger"
                     v-if="idList.every((id) => item.id !== id)"></i>
                     <i class="bi bi-heart-fill text-danger"
                     v-else></i>{{ null }}
                   </a>
-                </span>
+                </div>
               </h5>
               <!-- 商品資訊 -->
               <p class="card-text">
@@ -42,8 +48,8 @@
             </div>
           </a>
           <div class="card-footer">
-            <a href="#" class="btn btn-danger" @click.prevent="addCart(item)"
-            style="z-index: 5">加入購物車</a>
+            <a href="#" class="btn btn-danger w-100"
+            @click.prevent="addCart(item)">加入購物車</a>
           </div>
         </div>
       </div>
@@ -135,6 +141,33 @@ export default {
 
 <style>
 .productcard{
+  max-width: 276px;
+}
+.productcard-content{
   text-decoration: none;
+}
+.productcard-pic img{
+  transition: all 1s;
+}
+.productcard-content:hover .productcard-pic img{
+  transform: scale(1.1);
+}
+.productcard-pic{
+  height: 345px;
+}
+.productcard-content .card-title{
+  max-width: 225px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.product-card-content:nth-child(3n-1){
+  margin: 0 auto;
+}
+.add-favorite{
+  font-size: 20px;
+  transition: font-size .5s;
+}
+.add-favorite:hover{
+  font-size: 23px;
 }
 </style>

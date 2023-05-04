@@ -25,9 +25,12 @@ body {
   min-height: calc(100vh - 170px);
 }
 .enphasis {
-    background-image: linear-gradient(
-      rgba(0, 0, 0, 0)70%,
-      rgba(234, 166, 166)70%
-    );
-  }
+  background-image: linear-gradient(
+    rgba(0, 0, 0, 0)70%,
+    rgba(234, 166, 166)70%
+  );
+}
+.icon-size{
+  font-size: 2rem;
+}
 </style>

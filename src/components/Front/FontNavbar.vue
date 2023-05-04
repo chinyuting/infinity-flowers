@@ -64,7 +64,7 @@
               <i class="bi bi-cart3 nav-icon"></i>{{ null }}
             </a>
           </span>
-          <span class="notice" :style="{visibility: cartLength !== 0 ? 'visible' : 'hidden'}">
+          <span class="notice" :class="cartLength !== 0 ? 'cart-visible' : 'cart-hide'">
             {{ cartLength }}</span>
         </li>
       </ul>
@@ -175,6 +175,12 @@ export default {
 }
 .member-function .nav-item{
   margin-right:16px;
+}
+.cart-visible{
+  visibility:visible;
+}
+.cart-hide{
+  visibility:hidden;
 }
 @media only screen and (max-width: 991px) {
   .member-function {

@@ -9,15 +9,15 @@
           data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body text-center">
-          <span class="text-success p-2">
-            <i class="bi bi-flower3" style="font-size: 2rem;"></i>
+          <span class="p-2 onsale-icon">
+            <i class="bi bi-flower3 icon-size"></i>
           </span>
           <h4>Infinity Flower限時優惠</h4>
           <h3>優惠券代碼 Infiity8</h3>
         </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary"
-          data-bs-dismiss="modal">Close</button>
+        <div class="modal-footer mx-auto">
+          <!-- <button type="button" class="btn btn-secondary close-btn"
+          data-bs-dismiss="modal">關閉</button> -->
           <button type="button" class="btn btn-danger"
           @click.prevent="goToProduct">馬上逛逛</button>
         </div>
@@ -49,3 +49,9 @@ export default {
   },
 };
 </script>
+
+<style>
+.onsale-icon{
+  color: rgb(231, 152, 152);
+}
+</style>

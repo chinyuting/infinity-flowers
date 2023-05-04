@@ -44,8 +44,7 @@
                   </button>
                 </div>
                 <div v-for="(url, key) in tempProduct.imagesUrl" :key="key">
-                  <div style="max-width: 225px; text-overflow: ellipsis; white-space: nowrap;"
-                    class="overflow-hidden">
+                  <div class="overflow-hidden product-pic">
                     {{ url }}
                   </div>
                   <div>
@@ -231,3 +230,11 @@ export default {
   },
 };
 </script>
+
+<style>
+  .product-pic{
+    max-width: 225px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+</style>
