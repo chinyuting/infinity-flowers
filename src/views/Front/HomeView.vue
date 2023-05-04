@@ -73,18 +73,19 @@
         <div class="row col-lg-9 px-0 mx-auto justify-content-evenly">
           <div class="col-sm-12 col-md-4"
             v-for="(item, key) in newProductList" :key="key">
-            <div class="card mt-1 mb-2 mx-auto product-card">
+            <div class="card mt-1 mb-2 mx-auto newItem-card">
               <a href="#" class="text-decoration-none"
               @click.prevent="goForDetail(item.id)">
                <!-- 商品圖片 -->
-                <div class="overflow-hidden text-light position-relative border-bottom product-pic">
+                <div
+                class="overflow-hidden text-light position-relative border-bottom newItemt-pic">
                   <img :src="item.imageUrl" :alt="item.title"
                     class="card-img-top d-block align-middle h-100 w-auto mx-auto">
                 </div>
                 <div class="card-body text-dark">
                   <!-- 商品名稱 -->
                   <h5 class="overflow-hidden">
-                    <div class="card-title overflow-hidden product-name"
+                    <div class="card-title overflow-hidden newItem-name"
                       :title="item.title">
                       {{ item.title }}
                     </div>
@@ -230,13 +231,13 @@ export default {
 .newItem-bg {
   background:linear-gradient(135deg,rgba(231, 152, 152, 0.7) 30%,#e9ecef );
 }
-.product-card {
+.newItem-card {
   max-width: 276px;
 }
-.product-pic {
+.newItemt-pic {
   height: 345px;
 }
-.product-name{
+.newItem-name{
   max-width: 225px;
   text-overflow: ellipsis;
   white-space: nowrap;
