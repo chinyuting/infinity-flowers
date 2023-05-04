@@ -64,7 +64,7 @@
       </button>
     </div>
     <!-- 新品上市 -->
-    <div class="mt-4 row newItem-bg py-2">
+    <div class="mt-4 row newItem-bg py-5">
       <div class="col-lg-3 newItem mt-md-0 py-md-2">
         <h1 class="text-center mt-lg-0 mt-4">
           <i class="bi bi-flower3 text-danger"></i>新品上市
