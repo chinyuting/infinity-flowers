@@ -151,8 +151,8 @@
           placeholder="輸入優惠代碼" aria-label="Coupon" aria-describedby="basic-addon1"
           v-model="coupon.couponCode">
           <button class="btn btn-outline-secondary"
-            type="button" id="button-addon2"
-            @click.prevent="addCoupon">
+          type="button" id="button-addon2"
+          @click.prevent="addCoupon">
             <i class="bi bi-flower3 text-warning"></i>
             <span>套用優惠券</span>
           </button>

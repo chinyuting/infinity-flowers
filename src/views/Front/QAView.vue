@@ -32,16 +32,16 @@
         data-bs-toggle="collapse" data-bs-target="#collapseTwo"
         aria-expanded="false" aria-controls="collapseTwo"
         :class="{ collapsed: id!=='Two' }">
-          Q2: 為什麼我的付款失敗了呢？
+        Q2: 為什麼我的付款失敗了呢？
         </button>
       </p>
       <div id="collapseTwo" class="accordion-collapse collapse"
       aria-labelledby="headingTwo" data-bs-parent="#accordionExample"
       :class="{show: id==='Two'}">
         <div class="accordion-body">
-          有可能是匯款金額錯誤或是超過付款時間，付款時間說明如下：<br>
-          信用卡(VISA、Mastercard、JCB)<br>
-          付款時效：立即
+        有可能是匯款金額錯誤或是超過付款時間，付款時間說明如下：<br>
+        信用卡(VISA、Mastercard、JCB)<br>
+        付款時效：立即
         </div>
       </div>
     </div>
@@ -54,14 +54,14 @@
         data-bs-toggle="collapse" data-bs-target="#collapseThree"
         aria-expanded="true" aria-controls="collapseThree"
         :class="{ collapsed: id!=='Three' }">
-          Q1: 請問有送到外島嗎？
+        Q1: 請問有送到外島嗎？
         </button>
       </p>
       <div id="collapseThree" class="accordion-collapse collapse"
       aria-labelledby="headingThree" data-bs-parent="#accordionExample"
       :class="{show: id==='Three'}">
         <div class="accordion-body">
-          目前不開放外島配送的服務，若有需要請聯繫客服人員，評估後才有辦法給予答覆。
+        目前不開放外島配送的服務，若有需要請聯繫客服人員，評估後才有辦法給予答覆。
         </div>
       </div>
     </div>
@@ -74,14 +74,14 @@
         data-bs-toggle="collapse" data-bs-target="#collapseFour"
         aria-expanded="false" aria-controls="collapseFour"
         :class="{ collapsed: id!=='Four' }">
-          Q1: 請問有辦法客製花禮嗎？
+        Q1: 請問有辦法客製花禮嗎？
         </button>
       </p>
       <div id="collapseFour" class="accordion-collapse collapse"
       aria-labelledby="headingFour" data-bs-parent="#accordionExample"
       :class="{show: id==='Four'}">
         <div class="accordion-body">
-          目前沒有提供客製服務。
+        目前沒有提供客製服務。
         </div>
       </div>
     </div>

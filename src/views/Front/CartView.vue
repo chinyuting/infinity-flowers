@@ -17,7 +17,7 @@
           <div class="card-body" v-for="(item, key) in CartList.carts" :key="key">
             <blockquote class="blockquote mb-0 row">
               <button type="button" @click.prevent="deleteCart(item.id)"
-                class="col-1 btn btn-light border-0 text-danger">
+              class="col-1 btn btn-light border-0 text-danger">
                 <i class="bi bi-x-lg"></i>
               </button>
               <img :src="item.product.imageUrl" :alt="item.product.title" class="col-4">
@@ -48,16 +48,16 @@
             <hr>
             <h3>總價 NT${{ CartList.total }}</h3>
             <button type="submit" class="btn w-100 mt-2 cart-confirm"
-              @click="toOrder">確認購買</button>
+            @click="toOrder">確認購買</button>
           </div>
         </div>
       </div>
     </div>
     <div v-else
-      class="position-absolute bottom-50 start-50 translate-middle text-center">
+    class="position-absolute bottom-50 start-50 translate-middle text-center">
       <h2>購物車沒有東西</h2>
       <button type="button" class="btn btn-danger mt-2"
-        @click.prevent="$router.push('/products')">馬上逛逛</button>
+      @click.prevent="$router.push('/products')">馬上逛逛</button>
     </div>
   </div>
 </div>

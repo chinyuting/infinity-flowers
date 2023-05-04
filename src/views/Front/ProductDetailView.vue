@@ -1,5 +1,5 @@
 <template>
-  <LoadingOverlay :active="isLoading" />
+<LoadingOverlay :active="isLoading" />
   <!-- 麵包屑 -->
 <div class="container">
   <nav aria-label="breadcrumb">
@@ -42,13 +42,13 @@
       <!-- 商品數量 -->
       <div class="input-group">
         <button class="btn btn-outline-secondary" type="button"
-          @click.prevent="refreshqty(-1)"
-          :disabled="product_qty === 1">-
+        @click.prevent="refreshqty(-1)"
+        :disabled="product_qty === 1">-
         </button>
         <input type="number" class="form-control" placeholder="Recipient's username"
-          aria-label="qty" v-model="product_qty">
+        aria-label="qty" v-model="product_qty">
         <button class="btn btn-outline-secondary" type="button"
-          @click.prevent="refreshqty(1)">+
+        @click.prevent="refreshqty(1)">+
         </button>
       </div>
       <div>
@@ -58,7 +58,7 @@
             NT${{ $filters.currency(product.origin_price) }}
           </span>
           <span>NT${{ $filters.currency(product.price) }}</span>
-          / {{ product.unit }}
+            / {{ product.unit }}
         </h3>
       </div>
       <!-- 加入收藏 -->
@@ -73,7 +73,7 @@
         <button type="button" @click.prevent="addCart"
           class="btn btn-danger mt-2" :disabled="loadingStatus">
           <div class="spinner-border spinner-border-sm text-light" role="status"
-            v-if="loadingStatus">
+          v-if="loadingStatus">
             <span class="visually-hidden">Loading...</span>
           </div>
           <i class="bi bi-cart-plus-fill" v-else></i> 加入購物車

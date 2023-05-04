@@ -1,77 +1,77 @@
 <template>
-  <LoadingOverlay :active="isLoading"></LoadingOverlay>
-  <div class="modal fade cartmodal" id="exampleModal" tabindex="-1"
-  aria-labelledby="exampleModalLabel" aria-hidden="true"
-  ref="modal">
-    <div class="modal-dialog modal-dialog-scrollable cartmodal-dialog">
-      <div class="modal-content cartmodal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">購物車</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal"
-          aria-label="Close"></button>
-        </div>
-        <div class="modal-body p-5 text-center" v-if="cartLength == 0 ">
-          <h3>購物車目前沒有東西</h3> <br>
-          <button class="btn btn-danger mt-3">
-            <router-link to="/products" @click.prevent="hideModal"
-              class="text-light text-decoration-none">
-              馬上逛逛
-            </router-link>
-          </button>
-        </div>
-        <div class="modal-body" v-else>
-          <div class="card mb-1" v-for="(item, key) in CartList.carts" :key="'cart'+key">
-            <div class="d-flex">
-              <div class="cartcard-img me-1 ps-0">
-                <img :src="item.product.imageUrl" class="card-img-top"
-                :alt="item.product.title">
-              </div>
-              <div class="col-6 m-auto">
-                <h5 class="card-title">{{ item.product.title }}</h5>
-                <!-- 數輛調整 -->
-                <div class="input-group">
-                  <button class="btn btn-outline-secondary" type="button"
-                    @click.prevent="refreshCart(item, item.qty-1)"
-                    :disabled="item.qty === 1 ||
-                    (loadingStatus && item.product_id === updateCartId)">
-                    <div class="spinner-border spinner-border-sm text-light" role="status"
-                      v-if="loadingStatus && item.product_id === updateCartId">
-                      <span class="visually-hidden">Loading...</span>
-                    </div>
-                    <span v-else><i class="bi bi-dash"></i></span>
-                  </button>
-                  <input type="text" class="form-control" placeholder="請輸入數量"
-                  aria-label="qty" v-model="item.qty"
-                  @change.prevent="refreshCart(item, item.qty)">
-                  <button class="btn btn-outline-secondary" type="button"
-                    @click.prevent="refreshCart(item, item.qty+1)"
-                    :disabled="loadingStatus && item.product_id === updateCartId">
-                    <div class="spinner-border spinner-border-sm text-light" role="status"
-                      v-if="loadingStatus && item.product_id === updateCartId">
-                      <span class="visually-hidden">Loading...</span>
-                    </div>
-                    <span v-else><i class="bi bi-plus"></i></span>
-                  </button>
-                </div>
-                <!-- 刪除按鈕 -->
-                <button class="btn btn-outline-danger w-50 mt-2 text-center"
-                title="刪除此項商品"
-                @click.prevent="deleteCart(item.id)">
-                  <i class="bi bi-trash3-fill"></i>
+<LoadingOverlay :active="isLoading"></LoadingOverlay>
+<div class="modal fade cartmodal" id="exampleModal" tabindex="-1"
+aria-labelledby="exampleModalLabel" aria-hidden="true"
+ref="modal">
+  <div class="modal-dialog modal-dialog-scrollable cartmodal-dialog">
+    <div class="modal-content cartmodal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">購物車</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"
+        aria-label="Close"></button>
+      </div>
+      <div class="modal-body p-5 text-center" v-if="cartLength == 0 ">
+        <h3>購物車目前沒有東西</h3> <br>
+        <button class="btn btn-danger mt-3">
+          <router-link to="/products" @click.prevent="hideModal"
+          class="text-light text-decoration-none">
+            馬上逛逛
+          </router-link>
+        </button>
+      </div>
+      <div class="modal-body" v-else>
+        <div class="card mb-1" v-for="(item, key) in CartList.carts" :key="'cart'+key">
+          <div class="d-flex">
+            <div class="cartcard-img me-1 ps-0">
+              <img :src="item.product.imageUrl" class="card-img-top"
+              :alt="item.product.title">
+            </div>
+            <div class="col-6 m-auto">
+              <h5 class="card-title">{{ item.product.title }}</h5>
+              <!-- 數輛調整 -->
+              <div class="input-group">
+                <button class="btn btn-outline-secondary" type="button"
+                @click.prevent="refreshCart(item, item.qty-1)"
+                :disabled="item.qty === 1 ||
+                (loadingStatus && item.product_id === updateCartId)">
+                  <div class="spinner-border spinner-border-sm text-light" role="status"
+                  v-if="loadingStatus && item.product_id === updateCartId">
+                    <span class="visually-hidden">Loading...</span>
+                  </div>
+                  <span v-else><i class="bi bi-dash"></i></span>
+                </button>
+                <input type="text" class="form-control" placeholder="請輸入數量"
+                aria-label="qty" v-model="item.qty"
+                @change.prevent="refreshCart(item, item.qty)">
+                <button class="btn btn-outline-secondary" type="button"
+                @click.prevent="refreshCart(item, item.qty+1)"
+                :disabled="loadingStatus && item.product_id === updateCartId">
+                  <div class="spinner-border spinner-border-sm text-light" role="status"
+                  v-if="loadingStatus && item.product_id === updateCartId">
+                    <span class="visually-hidden">Loading...</span>
+                  </div>
+                  <span v-else><i class="bi bi-plus"></i></span>
                 </button>
               </div>
+              <!-- 刪除按鈕 -->
+              <button class="btn btn-outline-danger w-50 mt-2 text-center"
+              title="刪除此項商品"
+              @click.prevent="deleteCart(item.id)">
+                <i class="bi bi-trash3-fill"></i>
+              </button>
             </div>
           </div>
         </div>
-        <div class="modal-footer p-0 b-0" v-if="cartLength !== 0 ">
-          <a class="btn text-center cart-btn w-100 m-0 b-0"
-          href="#" @click.prevent="toCartView">
-            前往購物車
-          </a>
-        </div>
+      </div>
+      <div class="modal-footer p-0 b-0" v-if="cartLength !== 0 ">
+        <a class="btn text-center cart-btn w-100 m-0 b-0"
+        href="#" @click.prevent="toCartView">
+          前往購物車
+        </a>
       </div>
     </div>
   </div>
+</div>
 </template>
 
 <script>

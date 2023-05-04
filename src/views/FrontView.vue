@@ -1,7 +1,7 @@
 <template>
-  <FontNavbar />
-  <router-view/>
-  <FontFooter />
+<FontNavbar/>
+<router-view/>
+<FontFooter/>
 </template>
 
 <script>

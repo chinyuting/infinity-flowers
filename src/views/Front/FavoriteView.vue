@@ -1,5 +1,5 @@
 <template>
-  <LoadingOverlay :active="isLoading" />
+<LoadingOverlay :active="isLoading"/>
 <div class="container">
   <div v-if="favoriteList.length === 0 "
   class="position-absolute bottom-50 start-50 translate-middle text-center">
@@ -11,7 +11,7 @@
     <div class="row">
     <!-- 商品列表 -->
       <div class="col-sm-12 col-md-6 col-lg-4"
-        v-for="(item, key) in favoriteList" :key="key">
+      v-for="(item, key) in favoriteList" :key="key">
         <div class="card mt-1 mb-2 mx-auto productcard" >
           <a class="productcard-content" href="#" @click.prevent="goForDetail(item.id)">
             <div class="overflow-hidden text-light position-relative productcard-pic">
@@ -27,9 +27,9 @@
               <!-- 商品名稱 -->
               <h5 class="row overflow-hidden">
                 <div class="card-title col-10 overflow-hidden productcard-title"
-                  :title="item.title">
-                    {{ item.title }}
-                  </div>
+                :title="item.title">
+                  {{ item.title }}
+                </div>
                 <!-- 加入收藏 -->
                 <div class="mw-25 text-end col-2 add-favorite">
                   <a href="#" @click.stop.prevent="removefavorite(item)">

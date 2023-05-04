@@ -1,12 +1,12 @@
 <template>
-    <div class="PageNotFound text-center row align-items-center">
-        <div class="PageNotFoundText display-1">
-            <p>404</p>
-            <p>Page Not Found</p>
-            <button class="btn"
-            @click.prevent="$router.push('/')">回到 INFINITY FLOWERS 首頁</button>
-        </div>
-    </div>
+<div class="PageNotFound text-center row align-items-center">
+  <div class="PageNotFoundText display-1">
+    <p>404</p>
+    <p>Page Not Found</p>
+    <button class="btn"
+    @click.prevent="$router.push('/')">回到 INFINITY FLOWERS 首頁</button>
+  </div>
+</div>
 </template>
 
 <style>

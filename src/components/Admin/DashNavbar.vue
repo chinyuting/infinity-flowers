@@ -1,53 +1,53 @@
 <template>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#" @click.prevent="goToFirstPage">
-        <img alt="Infinity Flowers logo" src="@/assets/images/logo.png" width="100">{{ null }}
-      </a>
-      <button class="navbar-toggler" type="button"
-        data-bs-toggle="collapse" data-bs-target=".DashnavbarNav"
-        aria-controls="DashnavbarNav" aria-expanded="false"
-        aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse DashnavbarNav">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0 justify-content-center">
-          <li class="nav-item">
-            <router-link to="/dashboard/productmanage" class="nav-link dashnav-item"
-            :class="pageNow === 'productmanage' ? 'dashnav-active' : ''">
-              產品管理
-            </router-link>
-          </li>
-          <li class="nav-item">
-            <router-link to="/dashboard/ordermanage" class="nav-link dashnav-item"
-            :class="pageNow === 'ordermanage' ? 'dashnav-active' : ''">
-              訂單管理
-            </router-link>
-          </li>
-          <li class="nav-item">
-            <router-link to="/dashboard/couponmanage" class="nav-link dashnav-item"
-            :class="pageNow === 'couponmanage' ? 'dashnav-active' : ''">
-              優惠券管理
-            </router-link>
-          </li>
-        </ul>
-      </div>
-      <div class="collapse navbar-collapse DashnavbarNav dash-function">
-        <ul class="navbar-nav me-3 mb-2 mb-lg-0">
-          <li class="nav-item">
-            <router-link to="/" class="nav-link dashnav-item">
-              回到官網
-            </router-link>
-          </li>
-          <li class="nav-item">
-            <a @click.prevent="openModal"
-            class="nav-link dashnav-item" href="#">登出</a>
-          </li>
-        </ul>
-      </div>
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#" @click.prevent="goToFirstPage">
+      <img alt="Infinity Flowers logo" src="@/assets/images/logo.png" width="100">{{ null }}
+    </a>
+    <button class="navbar-toggler" type="button"
+    data-bs-toggle="collapse" data-bs-target=".DashnavbarNav"
+    aria-controls="DashnavbarNav" aria-expanded="false"
+    aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse DashnavbarNav">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0 justify-content-center">
+        <li class="nav-item">
+          <router-link to="/dashboard/productmanage" class="nav-link dashnav-item"
+          :class="pageNow === 'productmanage' ? 'dashnav-active' : ''">
+            產品管理
+          </router-link>
+        </li>
+        <li class="nav-item">
+          <router-link to="/dashboard/ordermanage" class="nav-link dashnav-item"
+          :class="pageNow === 'ordermanage' ? 'dashnav-active' : ''">
+            訂單管理
+          </router-link>
+        </li>
+        <li class="nav-item">
+          <router-link to="/dashboard/couponmanage" class="nav-link dashnav-item"
+          :class="pageNow === 'couponmanage' ? 'dashnav-active' : ''">
+            優惠券管理
+          </router-link>
+        </li>
+      </ul>
     </div>
-  </nav>
-  <DoubleCheckModal ref="checkModal" :dataStatus="'logout'" @logout-confirmed="logout" />
+    <div class="collapse navbar-collapse DashnavbarNav dash-function">
+      <ul class="navbar-nav me-3 mb-2 mb-lg-0">
+        <li class="nav-item">
+          <router-link to="/" class="nav-link dashnav-item">
+            回到官網
+          </router-link>
+        </li>
+        <li class="nav-item">
+          <a @click.prevent="openModal"
+          class="nav-link dashnav-item" href="#">登出</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<DoubleCheckModal ref="checkModal" :dataStatus="'logout'" @logout-confirmed="logout"/>
 </template>
 
 <script>

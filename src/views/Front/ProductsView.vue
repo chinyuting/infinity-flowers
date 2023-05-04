@@ -1,5 +1,5 @@
 <template>
-  <LoadingOverlay :active="isLoading" />
+<LoadingOverlay :active="isLoading" />
 <div class="container">
   <div class="row">
     <!-- 側邊分類 -->
@@ -63,8 +63,8 @@
               <p class="card-text">
                 <span class="text-decoration-line-through fs-6"
                 v-if="item.origin_price !== item.price">
-                NT${{ $filters.currency(item.origin_price) }}
-              </span>
+                  NT${{ $filters.currency(item.origin_price) }}
+                </span>
                 <span class="fs-5"> NT${{ $filters.currency(item.price) }}</span>
               </p>
             </div>
@@ -83,7 +83,7 @@
     </div>
   </div>
 </div>
-  <Pagination :pages="pagination" @emit-page="getProducts" class="my-4" />
+  <Pagination :pages="pagination" @emit-page="getProducts" class="my-4"/>
 </template>
 
 <script>

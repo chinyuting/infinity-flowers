@@ -7,10 +7,10 @@
     </a>
      <!-- toggle -->
     <button class="navbar-toggler" type="button"
-      data-bs-toggle="collapse" data-bs-target=".FontnavbarNav"
-      aria-controls="FontnavbarNav" aria-expanded="false"
-      aria-label="Toggle navigation" ref="navbarToggler"
-      @blur="closeNav" @click.prevent="openNav">
+    data-bs-toggle="collapse" data-bs-target=".FontnavbarNav"
+    aria-controls="FontnavbarNav" aria-expanded="false"
+    aria-label="Toggle navigation" ref="navbarToggler"
+    @blur="closeNav" @click.prevent="openNav">
       <span class="navbar-toggler-icon"></span>
     </button>
     <!-- nav list -->
@@ -65,13 +65,14 @@
             </a>
           </span>
           <span class="notice" :class="cartLength !== 0 ? 'cart-visible' : 'cart-hide'">
-            {{ cartLength }}</span>
+            {{ cartLength }}
+          </span>
         </li>
       </ul>
     </div>
   </div>
 </nav>
-  <CartModal ref="cart" />
+<CartModal ref="cart"/>
 </template>
 
 <script>

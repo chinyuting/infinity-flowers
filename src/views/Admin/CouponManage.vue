@@ -1,47 +1,47 @@
 <template>
-  <LoadingOverlay :active="isLoading" />
-  <div>
-    <button type="button" class="btn btn-secondary w-100"
-    @click.prevent="openModal(true)">+新增優惠券</button>
-  </div>
-  <div>
-    <table class="table mt-3 table-hover">
-      <thead>
-        <tr>
-          <th scope="col">名稱</th>
-          <th scope="col">折扣百分比</th>
-          <th scope="col">到期日</th>
-          <th scope="col">折扣碼</th>
-          <th scope="col">是否啟用</th>
-          <th scope="col"></th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr v-for="(item, key) in couponList" :key="key" class="align-middle">
-          <th scope="row">{{ item.title }}</th>
-          <td>{{ item.percent }}</td>
-          <td>{{ $filters.date(item.due_date) }}</td>
-          <td>{{ item.code }}</td>
-          <td>
-            <span v-if="item.is_enabled" class="text-success">已啟用</span>
-            <span v-else class="text-muted">未啟用</span>
-          </td>
-          <td>
-            <button type="button" class="btn btn-outline-secondary"
-              @click.prevent="openModal(false, item)">編輯</button>
-            <button type="button" class="btn btn-outline-danger ms-md-1"
-            @click.prevent="openCheckModal(item);">刪除</button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-  <CouponModal
-  ref="couponModal" :CouponItem="tempCoupon"
-  @update-coupon="updateCoupon" />
-  <DoubleCheckModal ref="checkModal" :dataStatus="tempCoupon" :fromPage="'Coupon'"
-  @delete-confirmed="deleteCoupon" />
-  <Pagination :pages="pagination" @emit-page="getCoupon" />
+<LoadingOverlay :active="isLoading" />
+<div>
+  <button type="button" class="btn btn-secondary w-100"
+  @click.prevent="openModal(true)">+新增優惠券</button>
+</div>
+<div>
+  <table class="table mt-3 table-hover">
+    <thead>
+      <tr>
+        <th scope="col">名稱</th>
+        <th scope="col">折扣百分比</th>
+        <th scope="col">到期日</th>
+        <th scope="col">折扣碼</th>
+        <th scope="col">是否啟用</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr v-for="(item, key) in couponList" :key="key" class="align-middle">
+        <th scope="row">{{ item.title }}</th>
+        <td>{{ item.percent }}</td>
+        <td>{{ $filters.date(item.due_date) }}</td>
+        <td>{{ item.code }}</td>
+        <td>
+          <span v-if="item.is_enabled" class="text-success">已啟用</span>
+          <span v-else class="text-muted">未啟用</span>
+        </td>
+        <td>
+          <button type="button" class="btn btn-outline-secondary"
+          @click.prevent="openModal(false, item)">編輯</button>
+          <button type="button" class="btn btn-outline-danger ms-md-1"
+          @click.prevent="openCheckModal(item);">刪除</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<CouponModal
+ref="couponModal" :CouponItem="tempCoupon"
+@update-coupon="updateCoupon"/>
+<DoubleCheckModal ref="checkModal" :dataStatus="tempCoupon" :fromPage="'Coupon'"
+@delete-confirmed="deleteCoupon"/>
+<Pagination :pages="pagination" @emit-page="getCoupon"/>
 </template>
 
 <script>

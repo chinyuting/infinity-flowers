@@ -1,52 +1,52 @@
 <template>
-  <LoadingOverlay :active="isLoading" />
-  <div>
-    <table class="table mt-3 table-hover">
-      <thead>
-        <tr>
-          <th scope="col">訂單建立時間</th>
-          <th scope="col">購買產品</th>
-          <th scope="col">總價</th>
-          <th scope="col">訂購人姓名</th>
-          <th scope="col">送件地址</th>
-          <th scope="col">付款狀態</th>
-          <th scope="col"></th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr v-for="(item, key) in orderList" :key="key" class="align-middle">
-          <th scope="row">{{ $filters.date(item.create_at) }}</th>
-          <td>
-            <ul class="mb-0">
-              <li v-for="(product, i) in item.products" :key="i">
-                {{ product.product.title }}<br>{{ product.qty }}
-                {{ product.product.unit }}
-              </li>
-            </ul>
-          </td>
-          <td>{{ item.total }}</td>
-          <td>{{ item.user.name }}</td>
-          <td>{{ item.user.address }}</td>
-          <td>
-            <span v-if="!item.is_paid" class="text-danger">未付款</span>
-            <span v-else class="text-success">完成付款</span>
-          </td>
-          <td>
-            <button type="button" class="btn btn-outline-secondary"
-              @click.prevent="openModal(item)">編輯</button>
-            <button type="button" class="btn btn-outline-danger ms-md-1"
-            @click.prevent="openCheckModal(item);">刪除</button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-  <OrderModal
-    ref="orderModal" :orderItem="tempOrder"
-    @update-order="updateOrder" />
-  <DoubleCheckModal ref="checkModal" :dataStatus="tempOrder" :fromPage="'Order'"
-  @delete-confirmed="deleteOrder" />
-  <Pagination :pages="pagination" @emit-page="getOrder" />
+<LoadingOverlay :active="isLoading" />
+<div>
+  <table class="table mt-3 table-hover">
+    <thead>
+      <tr>
+        <th scope="col">訂單建立時間</th>
+        <th scope="col">購買產品</th>
+        <th scope="col">總價</th>
+        <th scope="col">訂購人姓名</th>
+        <th scope="col">送件地址</th>
+        <th scope="col">付款狀態</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr v-for="(item, key) in orderList" :key="key" class="align-middle">
+        <th scope="row">{{ $filters.date(item.create_at) }}</th>
+        <td>
+          <ul class="mb-0">
+            <li v-for="(product, i) in item.products" :key="i">
+              {{ product.product.title }}<br>{{ product.qty }}
+              {{ product.product.unit }}
+            </li>
+          </ul>
+        </td>
+        <td>{{ item.total }}</td>
+        <td>{{ item.user.name }}</td>
+        <td>{{ item.user.address }}</td>
+        <td>
+          <span v-if="!item.is_paid" class="text-danger">未付款</span>
+          <span v-else class="text-success">完成付款</span>
+        </td>
+        <td>
+          <button type="button" class="btn btn-outline-secondary"
+          @click.prevent="openModal(item)">編輯</button>
+          <button type="button" class="btn btn-outline-danger ms-md-1"
+          @click.prevent="openCheckModal(item);">刪除</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<OrderModal
+ref="orderModal" :orderItem="tempOrder"
+@update-order="updateOrder"/>
+<DoubleCheckModal ref="checkModal" :dataStatus="tempOrder" :fromPage="'Order'"
+@delete-confirmed="deleteOrder"/>
+<Pagination :pages="pagination" @emit-page="getOrder"/>
 </template>
 
 <script>
