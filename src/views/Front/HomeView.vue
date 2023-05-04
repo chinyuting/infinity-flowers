@@ -21,10 +21,10 @@
       <button class="btn btn-danger btn-lg" @click.prevent="openModel">點擊領取優惠券</button>
     </div>
   <!-- 標語 -->
-    <div class="w-100 text-center">
+    <div class="w-100 text-center my-5">
       <h3 class="p-5 fst-italic fw-lighter">花藝對很多人而言，只是曇花一現的東西，只是一時的歡愉體驗</h3>
     </div>
-    <div class="slogan-bg row">
+    <div class="slogan-bg row my-5">
         <div class="col-md-6 p-0 order-1">
           <img src="@/assets/images/bouquet.jpg" alt="bouquet"
           class="rounded-3">
@@ -39,7 +39,7 @@
           </h3>
         </div>
     </div>
-    <div class="slogan-bg row mt-5">
+    <div class="slogan-bg row my-5">
       <div class="col-md-6 p-0 order-md-2">
         <img src="@/assets/images/AboutUs.jpg" alt="making-bouquet"
         class="rounded-3">
@@ -55,8 +55,8 @@
       </div>
     </div>
     <div class="w-100 text-center my-5 p-2">
-      <h3 class="p-3 fst-italic fw-lighter">讓永生花，成為你心中永恆的美麗。</h3>
-      <button class="btn mt-3 btn-lg button-lightcolor">
+      <h3 class="p-3 fst-italic fw-lighter my-5">讓永生花，成為你心中永恆的美麗。</h3>
+      <button class="btn mb-5 btn-lg button-lightcolor">
         <router-link to="/products"
         class="text-decoration-none text-deepcolor">
           馬上逛逛
@@ -66,14 +66,14 @@
     <!-- 新品上市 -->
     <div class="mt-4 row newItem-bg py-2">
       <div class="col-lg-3 newItem mt-md-0 py-md-2">
-        <h1 class="text-center">
+        <h1 class="text-center mt-lg-0 mt-4">
           <i class="bi bi-flower3 text-danger"></i>新品上市
         </h1>
       </div>
-      <div class="row col-lg-9 px-0 mx-auto justify-content-evenly">
+      <div class="row col-lg-9 px-0 mx-auto justify-content-evenly newItem-products">
         <div class="col-sm-12 col-md-4"
         v-for="(item, key) in newProductList" :key="key">
-          <div class="card mt-1 mb-2 mx-auto newItem-card">
+          <div class="card mt-1 mb-2 newItem-card mx-auto mx-lg-0">
             <a href="#" class="text-decoration-none"
             @click.prevent="goForDetail(item.id)">
               <!-- 商品圖片 -->
@@ -271,7 +271,7 @@ export default {
   }
   .slogan-content{
     color: #4F332D;
-    margin-top: 30px;
+    margin-top: 45px;
     z-index: 5;
   }
 }

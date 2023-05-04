@@ -5,8 +5,8 @@
     <!-- 側邊分類 -->
     <div class="side-bar col-lg-2">
       <ul class="nav d-flex flex-lg-column flex-row">
-        <li class="nav-item product-category">
-          <a class="nav-link rounded-pill" href="#"
+        <li class="nav-item">
+          <a class="nav-link rounded-pill product-category" href="#"
           :class="category === '' ? 'text-pastel' : 'text-deep'"
           aria-current="page"
           @click.prevent="category = ''">
@@ -14,7 +14,7 @@
             :class="category === '' ? 'category-visible' : 'category-hide'"></i> 全部商品
           </a>
         </li>
-        <li class="nav-item product-category" v-for="(item, key) in productCategory" :key="key">
+        <li class="nav-item" v-for="(item, key) in productCategory" :key="key">
           <a class="nav-link text-deep rounded-pill product-category" href="#"
           :class="category === item ? 'text-pastel' : 'text-deep'"
           @click.prevent="category = item">
