@@ -1,7 +1,7 @@
 <template>
   <router-view/>
-  <ToastList />
-  <BackToTop />
+  <ToastList/>
+  <BackToTop/>
 </template>
 
 <script>
