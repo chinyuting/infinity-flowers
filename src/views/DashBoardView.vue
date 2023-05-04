@@ -30,6 +30,13 @@ export default {
               title: '登入成功',
             });
           }
+        })
+        .catch((err) => {
+          this.emitter.emit('push-message', {
+            style: 'danger',
+            title: err.response.data,
+          });
+          this.$router.push('/login');
         });
     }
   },
