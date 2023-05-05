@@ -40,29 +40,31 @@
       <p>{{ product.description }}</p>
       <p class="detail-content">{{ product.content }}</p>
       <!-- 商品數量 -->
-      <div class="input-group">
-        <button class="btn btn-outline-secondary" type="button"
-        @click.prevent="refreshqty(-1)"
-        :disabled="product_qty === 1">-
-        </button>
-        <input type="number" class="form-control" placeholder="Recipient's username"
-        aria-label="qty" v-model="product_qty">
-        <button class="btn btn-outline-secondary" type="button"
-        @click.prevent="refreshqty(1)">+
-        </button>
-      </div>
-      <div>
-        <h3 class="text-end">
-          <span v-if="product.origin_price !== product.price"
-          class="text-decoration-line-through fs-6">
-            NT${{ $filters.currency(product.origin_price) }}
-          </span>
-          <span>NT${{ $filters.currency(product.price) }}</span>
-            / {{ product.unit }}
-        </h3>
+      <div class="row">
+        <div class="input-group col-lg-8 col-7 w-auto">
+          <button class="btn btn-outline-secondary" type="button"
+          @click.prevent="refreshqty(-1)"
+          :disabled="product_qty === 1">-
+          </button>
+          <input type="number" class="form-control" placeholder="Recipient's username"
+          aria-label="qty" v-model="product_qty">
+          <button class="btn btn-outline-secondary" type="button"
+          @click.prevent="refreshqty(1)">+
+          </button>
+        </div>
+        <div class="col-lg-4 col-5 ">
+          <h3 class="text-end">
+            <span v-if="product.origin_price !== product.price"
+            class="text-decoration-line-through fs-6">
+              NT${{ $filters.currency(product.origin_price) }}
+            </span>
+            <span>NT${{ $filters.currency(product.price) }}</span>
+              / {{ product.unit }}
+          </h3>
+        </div>
       </div>
       <!-- 加入收藏 -->
-      <div class="text-end">
+      <div>
         <button type="button" @click.prevent="updateFavorite(item)"
           class="btn btn-danger mt-2 me-2">
           <span v-if="idList.every((id) => productId !== id)">
