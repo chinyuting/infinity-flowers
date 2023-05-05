@@ -2,9 +2,9 @@
 <LoadingOverlay :active="isLoading"/>
 <div class="container">
   <div v-if="favoriteList.length === 0 "
-  class="position-absolute bottom-50 start-50 translate-middle text-center">
+  class="position-relative text-center my-5 py-5">
     <h2 class="text-nowrap">尚未收藏任何產品</h2>
-    <button type="button" class="btn btn-danger mt-2"
+    <button type="button" class="btn button-lightcolor mt-2"
     @click.prevent="$router.push('/products')">馬上逛逛</button>
   </div>
   <div v-else>
@@ -137,6 +137,7 @@ export default {
       this.idList.splice(this.idList.indexOf(item.id), 1);
       localStorage.setItem('favoriteItem', JSON.stringify(this.idList));
       this.getFavoriteProducts();
+      this.getFavorite();
       this.emitter.emit('push-message', {
         style: 'danger',
         title: '已取消收藏',

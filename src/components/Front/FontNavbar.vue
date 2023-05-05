@@ -15,7 +15,7 @@
     </button>
     <!-- nav list -->
     <div class="collapse navbar-collapse FontnavbarNav">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0 justify-content-center">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0 justify-content-center text-center">
         <li class="nav-item">
           <router-link to="/" class="nav-link homenav-item"
           :class="pageNow === 'home' ? 'homenav-active' : ''">
@@ -51,11 +51,14 @@
     </div>
     <div class="navbar align-middle member-function me-lg-3">
       <ul class="navbar-nav flex-row">
-        <li class="nav-item member-item">
+        <li class="nav-item">
           <span>
             <a href="#" title="收藏" @click.prevent="goToFavorites">
               <i class="bi bi-heart nav-icon"></i>{{ null }}
             </a>
+          </span>
+          <span class="notice" :class="favoriteLength !== 0 ? 'notice-visible' : 'notice-hide'">
+            {{ favoriteLength }}
           </span>
         </li>
         <li class="nav-item">
@@ -64,7 +67,7 @@
               <i class="bi bi-cart3 nav-icon"></i>{{ null }}
             </a>
           </span>
-          <span class="notice" :class="cartLength !== 0 ? 'cart-visible' : 'cart-hide'">
+          <span class="notice" :class="cartLength !== 0 ? 'notice-visible' : 'notice-hide'">
             {{ cartLength }}
           </span>
         </li>
@@ -78,6 +81,7 @@
 <script>
 import CartModal from '@/components/Front/CartModal.vue';
 import cartMixin from '@/mixins/GetCarts';
+import favoritesMixin from '@/mixins/GetFavorites';
 
 export default {
   data() {
@@ -112,14 +116,18 @@ export default {
       this.navOpen = true;
     },
   },
-  mixins: [cartMixin],
+  mixins: [cartMixin, favoritesMixin],
   created() {
     this.getCarts();
+    this.getFavorite();
   },
   mounted() {
     this.pageChange('home');
-    this.emitter.on('push-notice', (data) => {
+    this.emitter.on('push-Cartnotice', (data) => {
       this.cartLength = data.data;
+    });
+    this.emitter.on('push-Favnotice', (data) => {
+      this.favoriteLength = data.data;
     });
     this.emitter.on('page-change', (data) => {
       this.pageNow = data.data;
@@ -174,13 +182,13 @@ export default {
 .member-function {
   flex-grow:0;
 }
-.member-function .nav-item{
+/* .member-function .nav-item{
   margin-right:16px;
-}
-.cart-visible{
+} */
+.notice-visible{
   visibility:visible;
 }
-.cart-hide{
+.notice-hide{
   visibility:hidden;
 }
 @media only screen and (max-width: 991px) {
