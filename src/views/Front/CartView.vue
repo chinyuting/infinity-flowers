@@ -13,7 +13,7 @@
         <i class="bi bi-trash3"></i>全部刪除
       </button>
       <div class="row">
-        <div class="card col-md-7 cart-card">
+        <div class="card col-md-7 cart-card mb-lg-5">
           <div class="card-body" v-for="(item, key) in CartList.carts" :key="key">
             <blockquote class="blockquote mb-0 row">
               <button type="button" @click.prevent="deleteCart(item.id)"
@@ -54,7 +54,7 @@
       </div>
     </div>
     <div v-else
-    class="position-absolute bottom-50 start-50 translate-middle text-center">
+    class="position-relative text-center my-5 py-5">
       <h2>購物車沒有東西</h2>
       <button type="button" class="btn button-lightcolor mt-2"
       @click.prevent="$router.push('/products')">馬上逛逛</button>

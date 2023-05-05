@@ -11,7 +11,7 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse DashnavbarNav">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0 justify-content-center">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0 justify-content-center text-center">
         <li class="nav-item">
           <router-link to="/dashboard/productmanage" class="nav-link dashnav-item"
           :class="pageNow === 'productmanage' ? 'dashnav-active' : ''">
@@ -33,7 +33,7 @@
       </ul>
     </div>
     <div class="collapse navbar-collapse DashnavbarNav dash-function">
-      <ul class="navbar-nav me-3 mb-2 mb-lg-0">
+      <ul class="navbar-nav me-lg-3 me-auto mb-2 mb-lg-0 text-center">
         <li class="nav-item">
           <router-link to="/" class="nav-link dashnav-item">
             回到官網

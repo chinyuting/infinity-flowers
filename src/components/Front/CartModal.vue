@@ -12,12 +12,8 @@ ref="modal">
       </div>
       <div class="modal-body p-5 text-center" v-if="cartLength == 0 ">
         <h3>購物車目前沒有東西</h3> <br>
-        <button class="btn btn-danger mt-3">
-          <router-link to="/products" @click.prevent="hideModal"
-          class="text-light text-decoration-none">
-            馬上逛逛
-          </router-link>
-        </button>
+        <button type="button" class="btn button-lightcolor mt-3"
+        @click.prevent="toProductView">馬上逛逛</button>
       </div>
       <div class="modal-body" v-else>
         <div class="card mb-1" v-for="(item, key) in CartList.carts" :key="'cart'+key">
@@ -142,6 +138,10 @@ export default {
     },
     toCartView() {
       this.$router.push('/cart');
+      this.hideModal();
+    },
+    toProductView() {
+      this.$router.push('/products');
       this.hideModal();
     },
     showModal() {

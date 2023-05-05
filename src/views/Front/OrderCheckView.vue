@@ -23,13 +23,16 @@
           <tr v-for="(item, key) in orderList.products" :key="key">
             <th scope="row">{{ item.product.title }}</th>
             <td>{{ item.qty }}</td>
-            <td>{{ item.total }}</td>
+            <td>
+              <span class="text-success" v-if="item.coupon">{{ parseInt(item.final_total) }}</span>
+              <span v-else>{{ item.total }}</span>
+            </td>
           </tr>
         </tbody>
         <tfoot>
           <td colspan="1"></td>
           <td colspan="1" class="fs-5">總價</td>
-          <td class="fs-5">{{ orderList.total }}</td>
+          <td class="fs-5">{{ parseInt(orderList.total) }}</td>
         </tfoot>
       </table>
     </div>
@@ -63,7 +66,7 @@
         </tbody>
       </table>
     </div>
-    <div class="row justify-content-center ms-0 me-0">
+    <div class="row justify-content-center ms-0 me-0 mb-5">
       <button class="btn mt-3 col-5 me-1 button-deepcolor"
         @click.prevent="$router.push('/')">稍後進行付款</button>
       <button class="btn mt-3 col-5 ms-1 button-lightcolor" @click.prevent="payOrder">確認付款</button>

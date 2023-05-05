@@ -22,7 +22,7 @@
       </h2>
     </div>
   </div>
-  <div v-else-if="searchstate && filterOrder.length!==0">
+  <div v-else-if="searchstate && filterOrder.length!==0" class="mb-5">
     <table class="table table-hover">
       <thead class="searchThead">
         <tr>

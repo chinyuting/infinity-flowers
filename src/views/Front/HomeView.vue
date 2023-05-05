@@ -56,12 +56,8 @@
     </div>
     <div class="w-100 text-center my-5 p-2">
       <h3 class="p-3 fst-italic fw-lighter my-5">讓永生花，成為你心中永恆的美麗。</h3>
-      <button class="btn mb-5 btn-lg button-lightcolor">
-        <router-link to="/products"
-        class="text-decoration-none text-deepcolor">
-          馬上逛逛
-        </router-link>
-      </button>
+      <button type="button" class="btn button-lightcolor mb-5 btn-lg"
+      @click.prevent="$router.push('/products')">馬上逛逛</button>
     </div>
     <!-- 新品上市 -->
     <div class="mt-4 row newItem-bg py-5">

@@ -2,7 +2,7 @@
 <div class="container">
   <OrderNav :PageName="pageName" class="orderNav" />
   <div
-  class="position-absolute bottom-50 start-50 translate-middle text-center w-100">
+  class="position-relative text-center w-100 my-5 py-5">
     <h3>
       <i class="bi bi-flower3 text-lightcolor"></i>
       <span class="text-deepcolor">已完成付款</span>

@@ -66,7 +66,7 @@
       </div>
     </div>
   </div>
-  <div class="accordion mt-4" id="accordionExample">
+  <div class="accordion mt-4 mb-5" id="accordionExample">
     <h2>商品問題</h2>
     <div class="accordion-item">
       <p class="accordion-header" id="headingFour">
