@@ -13,17 +13,20 @@
         <i class="bi bi-trash3"></i>全部刪除
       </button>
       <div class="row">
-        <div class="card col-md-7 cart-card mb-lg-5">
-          <div class="card-body" v-for="(item, key) in CartList.carts" :key="key">
-            <blockquote class="blockquote mb-0 row">
+         <!-- 商品 -->
+        <div class="card col-md-8 col-lg-7 cart-card mb-md-5">
+          <div class="card-body justify-content-aroundr d-flex align-items-center"
+          v-for="(item, key) in CartList.carts" :key="key">
+            <div class="mb-0 row">
               <button type="button" @click.prevent="deleteCart(item.id)"
-              class="col-1 btn btn-light border-0 text-danger">
+              class="col-1 btn btn-light border-0 text-danger text-center p-0">
                 <i class="bi bi-x-lg"></i>
               </button>
-              <img :src="item.product.imageUrl" :alt="item.product.title" class="col-4">
+              <img :src="item.product.imageUrl" :alt="item.product.title"
+              class="col-4 flex-grow-1">
               <div class="col-7 align-items-center p-0">
-                <div class="">
-                  <p>{{ item.product.title }}</p>
+                <div class="w-100 fs-5">
+                  <p class="cartItem-name">{{ item.product.title }}</p>
                   <p>NT${{ item.product.price }}</p>
                   <div class="input-group">
                     <button class="btn btn-outline-secondary" type="button"
@@ -37,11 +40,11 @@
                   </div>
                 </div>
               </div>
-            </blockquote>
+            </div>
           </div>
         </div>
         <!-- 明細 -->
-        <div class="cart-info col-md-5 col-12">
+        <div class="cart-info col-md-4 col-lg-5 col-12 mb-sm-5">
           <div class="ps-md-5 mt-4">
             <h4>品項 {{ cartLength }} 個</h4>
             <h4>數量 {{ cartqty }} 個</h4>
@@ -161,6 +164,11 @@ export default {
 }
 .qty-input{
   width: 100px;
+}
+.cartItem-name{
+  max-width: 212px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 @media only screen and (max-width: 768px){
   .cart-card{

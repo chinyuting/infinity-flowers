@@ -67,7 +67,7 @@
         </h1>
       </div>
       <div class="row col-lg-9 px-0 mx-auto justify-content-evenly newItem-products">
-        <div class="col-sm-12 col-md-4"
+        <div class="col-sm-12 col-md-4 ps-0"
         v-for="(item, key) in newProductList" :key="key">
           <div class="card mt-1 mb-2 newItem-card mx-auto mx-lg-0">
             <a href="#" class="text-decoration-none"
