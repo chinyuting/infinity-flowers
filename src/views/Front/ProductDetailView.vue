@@ -35,13 +35,13 @@
       </button>
     </div>
     <!-- 商品介紹 -->
-    <div class="col-md-7">
-      <h1 class="col-10 overflow-hidden">{{ product.title }}</h1>
+    <div class="col-md-7 product-detail">
+      <h1 class="overflow-hidden mt-3">{{ product.title }}</h1>
       <p>{{ product.description }}</p>
       <p class="detail-content">{{ product.content }}</p>
       <!-- 商品數量 -->
-      <div class="row">
-        <div class="input-group col-lg-8 col-7 w-auto">
+      <div class="row mt-3">
+        <div class="input-group col-lg-7 col-md-6 w-auto">
           <button class="btn btn-outline-secondary" type="button"
           @click.prevent="refreshqty(-1)"
           :disabled="product_qty === 1">-
@@ -52,8 +52,8 @@
           @click.prevent="refreshqty(1)">+
           </button>
         </div>
-        <div class="col-lg-4 col-5 ">
-          <h3 class="text-end">
+        <div class="col-lg-5 col-md-6 mt-3 mt-lg-0 mx-25">
+          <h3 class="text-lg-end">
             <span v-if="product.origin_price !== product.price"
             class="text-decoration-line-through fs-6">
               NT${{ $filters.currency(product.origin_price) }}
@@ -81,17 +81,17 @@
           <i class="bi bi-cart-plus-fill" v-else></i> 加入購物車
         </button>
       </div>
-      <hr>
+    </div>
+  </div>
+  <hr>
       <!-- 產品說明與保養 -->
-      <p>
-        產品說明&保養<br>
+      <h3>產品說明及保養</h3>
+      <p class="mb-5">
         ＊保持乾燥避免潮濕、陽光直射，適合放置在冷氣房或於濕度20-65度之間的環境。<br>
         ＊永生花、不凋花是鮮花經特殊技術處理，能保有鮮花般色彩，可保持2-3年不等。<br>
         ＊乾燥花是鮮花自然風乾處理，可擺放約半年至1年，隨著時間會漸漸褪色為正常狀況。<br>
         ＊若有灰塵使用柔軟的刷子ｅｘ毛筆，輕輕刷拭。<br>
       </p>
-    </div>
-  </div>
 </div>
 </template>
 
