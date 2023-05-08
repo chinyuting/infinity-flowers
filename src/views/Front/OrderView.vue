@@ -18,7 +18,7 @@
         </h4>
           <div class="ms-2">
             <div class="input-group mb-3">
-              <span class="input-group-text input-required" id="basic-addon1">訂購人姓名</span>
+              <span class="input-group-text input-required">訂購人姓名</span>
               <v-field type="text" class="form-control" name="訂購人姓名"
               placeholder="Name" aria-label="Name" aria-describedby="basic-addon1"
               v-model="form.user.name"
@@ -26,7 +26,7 @@
               <error-message name="訂購人姓名" class="invalid-feedback"></error-message>
             </div>
             <div class="input-group mb-3">
-              <span class="input-group-text input-required" id="basic-addon1">訂購人信箱</span>
+              <span class="input-group-text input-required">訂購人信箱</span>
               <v-field type="text" class="form-control" name="訂購人信箱"
               placeholder="Email" aria-label="Email" aria-describedby="basic-addon1"
               v-model="form.user.email"
@@ -34,7 +34,7 @@
               <error-message name="訂購人信箱" class="invalid-feedback"></error-message>
             </div>
             <div class="input-group mb-3">
-              <span class="input-group-text input-required" id="basic-addon1">訂購人電話</span>
+              <span class="input-group-text input-required">訂購人電話</span>
               <v-field type="text" class="form-control" name="訂購人電話"
               placeholder="Tel" aria-label="Tel" aria-describedby="basic-addon1"
               v-model="form.user.tel" @click="tel = '訂購人'"
@@ -55,7 +55,7 @@
           </div>
           <div>
             <div class="input-group mb-3">
-              <span class="input-group-text input-required" id="basic-addon1">收件人姓名</span>
+              <span class="input-group-text input-required">收件人姓名</span>
               <v-field type="text" class="form-control" name="收件人姓名"
               placeholder="Name" aria-label="Name" aria-describedby="basic-addon1"
               v-model="form.addressee.name" :disabled=" sameData"
@@ -63,7 +63,7 @@
               <error-message name="收件人姓名" class="invalid-feedback"></error-message>
             </div>
             <div class="input-group mb-3">
-              <span class="input-group-text input-required" id="basic-addon1">收件人信箱</span>
+              <span class="input-group-text input-required">收件人信箱</span>
               <v-field type="text" class="form-control" name="收件人信箱"
               placeholder="Email" aria-label="Email" aria-describedby="basic-addon1"
               v-model="form.addressee.email" :disabled=" sameData"
@@ -71,7 +71,7 @@
               <error-message name="收件人信箱" class="invalid-feedback"></error-message>
             </div>
             <div class="input-group mb-3">
-              <span class="input-group-text input-required" id="basic-addon1">收件人電話</span>
+              <span class="input-group-text input-required">收件人電話</span>
               <v-field type="text" class="form-control" name="收件人電話"
               placeholder="Tel" aria-label="Tel" aria-describedby="basic-addon1"
               v-model="form.addressee.tel" :disabled=" sameData"
@@ -88,7 +88,7 @@
         <div class="ms-2">
         [僅提供宅配服務]
           <div class="input-group mb-3">
-            <span class="input-group-text input-required" id="basic-addon1">送件地址</span>
+            <span class="input-group-text input-required">送件地址</span>
             <v-field type="text" class="form-control" name="送件地址"
             placeholder="Address" aria-label="Address" aria-describedby="basic-addon1"
             v-model="form.user.address"
@@ -157,7 +157,8 @@
             <span>套用優惠券</span>
           </button>
       </div>
-      <button type="submit" class="btn w-100 mt-2 button-lightcolor">確認訂單</button>
+      <button type="submit" class="btn w-100 mt-2 button-lightcolor"
+      :disabled="Object.keys(errors).length > 0 || loadingState">確認訂單</button>
     </div>
   </v-form>
 </div>
@@ -172,6 +173,7 @@ export default {
     return {
       pageName: 'order',
       CartList: [],
+      loadingState: false,
       coupon: {
         couponCode: '',
         couponState: false,
@@ -234,6 +236,7 @@ export default {
         });
     },
     addCoupon() {
+      this.loadingState = true;
       const api = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/coupon`;
       const coupon = {
         code: this.coupon.couponCode,
@@ -242,6 +245,7 @@ export default {
         .then((res) => {
           if (res.data.success) {
             this.coupon.couponState = true;
+            this.loadingState = false;
             this.getCarts();
             this.emitter.emit('push-message', {
               style: 'success',
@@ -266,6 +270,10 @@ export default {
     goCart() {
       this.$router.push('/cart');
     },
+    // getInvalid() {
+    //   this.formDone = document.getElementsByClassName('is-invalid').length;
+    //   console.log(this.formDone);
+    // },
   },
   mixins: [cartMixin],
   created() {
@@ -284,6 +292,9 @@ export default {
 }
 .price-label{
   width: 65px;
+}
+button[disabled]{
+  cursor: not-allowed;
 }
   @media only screen and (max-width: 768px){
     .orderNav{
