@@ -13,7 +13,7 @@
       <div class="col-sm-12 col-md-6 col-lg-4"
       v-for="(item, key) in favoriteList" :key="key">
         <div class="card mt-1 mb-2 mx-auto productcard" >
-          <a class="productcard-content" href="#" @click.prevent="goForDetail(item.id)">
+          <a class="productcard-content" href="#" @click.prevent="goForDetail(item)">
             <div class="overflow-hidden text-light position-relative productcard-pic">
               <!-- 商品類別標示 -->
               <div class="position-absolute bg-secondary px-2 bottom-0 end-0 rounded m-2">
@@ -62,6 +62,7 @@
 <script>
 import cartMixin from '@/mixins/GetCarts';
 import favoritesMixin from '@/mixins/GetFavorites';
+import detailMixin from '@/mixins/GoDetail';
 
 export default {
   data() {
@@ -143,11 +144,8 @@ export default {
         title: '已取消收藏',
       });
     },
-    goForDetail(id) {
-      this.$router.push(`/products/${id}`);
-    },
   },
-  mixins: [cartMixin, favoritesMixin],
+  mixins: [cartMixin, favoritesMixin, detailMixin],
   created() {
     this.getFavoriteProducts();
     this.getFavorite();

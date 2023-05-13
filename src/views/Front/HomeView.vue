@@ -71,7 +71,7 @@
         v-for="(item, key) in newProductList" :key="key">
           <div class="card mt-1 mb-2 newItem-card mx-auto mx-lg-0">
             <a href="#" class="text-decoration-none"
-            @click.prevent="goForDetail(item.id)">
+            @click.prevent="goForDetail(item)">
               <!-- 商品圖片 -->
               <div
               class="overflow-hidden text-light position-relative border-bottom newItemt-pic">
@@ -100,6 +100,7 @@
 
 <script>
 import OnsaleModal from '@/components/Front/OnsaleModal.vue';
+import detailMixin from '@/mixins/GoDetail';
 
 export default {
   data() {
@@ -128,9 +129,6 @@ export default {
           });
         });
     },
-    goForDetail(id) {
-      this.$router.push(`/products/${id}`);
-    },
     openModel() {
       this.copyCode();
       this.$refs.sale.showModal();
@@ -146,6 +144,7 @@ export default {
       });
     },
   },
+  mixins: [detailMixin],
   created() {
     this.getNewProducts();
   },

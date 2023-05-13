@@ -30,7 +30,7 @@
       <div class="col-sm-12 col-md-6 col-lg-4"
         v-for="(item, key) in filterProduct[pagination.current_page-1]" :key="key">
         <div class="card mt-1 mb-2 mx-auto productcard">
-          <a class="productcard-content" href="#" @click.prevent="goForDetail(item.id)">
+          <a class="productcard-content" href="#" @click.prevent="goForDetail(item)">
             <div class="overflow-hidden text-light position-relative border-bottom productcard-pic">
               <!-- 商品類別標示 -->
               <div class="position-absolute bg-secondary px-2 bottom-0 end-0 rounded m-1">
@@ -90,6 +90,7 @@
 import Pagination from '@/components/PaginationComponent.vue';
 import cartMixin from '@/mixins/GetCarts';
 import favoriteMixin from '@/mixins/GetFavorites';
+import detailMixin from '@/mixins/GoDetail';
 
 export default {
   data() {
@@ -198,9 +199,6 @@ export default {
       }
       this.getFavorite();
     },
-    goForDetail(id) {
-      this.$router.push(`/products/${id}`);
-    },
   },
   computed: {
     filterProduct() {
@@ -222,7 +220,7 @@ export default {
       return resultData;
     },
   },
-  mixins: [cartMixin, favoriteMixin],
+  mixins: [cartMixin, favoriteMixin, detailMixin],
   created() {
     this.getProducts();
     this.getFavorite();
