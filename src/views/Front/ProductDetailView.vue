@@ -101,17 +101,17 @@
     <div class="mt-4 overflow-hidden position-relative viewedItem mx-auto">
       <!-- 左右按紐 -->
       <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark"
-      @click="sliderPrevious" :disabled="viewedSliderCount === 0"
+      @click="sliderPrevious"
+      :class="viewedSliderCount === 0? 'displayNone':'displayShow'"
       data-bs-slide="prev">
-        <!-- <span class="carousel-control-prev-icon" aria-hidden="true"></span> -->
         <span><i class="bi bi-chevron-left carousel-prev-icon text-deepcolor"></i></span>
         <span class="visually-hidden">Previous</span>
       </button>
       <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark"
       @click="sliderNext"
-      :disabled="viewedProducts.length === (viewedSliderCount+viewedItemLength)"
+      :class="viewedProducts.length <= (viewedSliderCount+viewedItemLength)?
+      'displayNone':'displayShow'"
       data-bs-slide="next">
-        <!-- <span class="carousel-control-next-icon" aria-hidden="true"></span> -->
         <span><i class="bi bi-chevron-right carousel-next-icon text-deepcolor"></i></span>
         <span class="visually-hidden">Next</span>
       </button>
@@ -337,13 +337,6 @@ max-height: 41.6px;
   font-weight: 500;
   text-shadow:0 0 6px white, 0 0 6px white, 0 0 6px white, 0 0 6px white
 }
-.carousel-control-prev:hover, .carousel-control-prev:focus,
-.carousel-control-next:hover, .carousel-control-next:focus {
-  color: #E79898;
-}
-button:disabled{
-  color: -internal-light-dark(rgba(16, 16, 16, 0.3), rgba(255, 255, 255, 0.3));
-}
 .viewedItem{
   width: 824px;
 }
@@ -363,6 +356,12 @@ button:disabled{
   max-width: 225px;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+.displayNone{
+  display: none;
+}
+.displayShow{
+  display: inline-block;
 }
 @media only screen and (max-width: 1024px){
   .viewedItem{
