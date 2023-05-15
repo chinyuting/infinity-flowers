@@ -103,20 +103,22 @@
       <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark"
       @click="sliderPrevious" :disabled="viewedSliderCount === 0"
       data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <!-- <span class="carousel-control-prev-icon" aria-hidden="true"></span> -->
+        <span><i class="bi bi-chevron-left carousel-prev-icon text-deepcolor"></i></span>
         <span class="visually-hidden">Previous</span>
       </button>
       <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark"
-      @click="sliderNext" :disabled="viewedProducts.length === (viewedSliderCount+viewedItemLength)"
+      @click="sliderNext"
+      :disabled="viewedProducts.length === (viewedSliderCount+viewedItemLength)"
       data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <!-- <span class="carousel-control-next-icon" aria-hidden="true"></span> -->
+        <span><i class="bi bi-chevron-right carousel-next-icon text-deepcolor"></i></span>
         <span class="visually-hidden">Next</span>
       </button>
       <div class="row flex-nowrap mx-auto justify-content-start">
         <!-- 商品列表 -->
         <div class="viewedItem-card ps-0" :data-slider="key"
         v-for="(item, key) in viewedProducts" :key="key">
-          <!-- <div class="card mt-1 mb-2 mx-auto mx-lg-0 viewedItem-item" data-slider="key"> -->
             <a href="#" class="text-decoration-none card mt-1 mb-2 mx-auto mx-lg-0 viewedItem-item"
             @click.prevent="goForDetail(item)">
               <div
@@ -136,7 +138,6 @@
                 <button class="btn btn-secondary w-100">查看商品</button>
               </div>
             </a>
-          <!-- </div> -->
         </div>
       </div>
     </div>
@@ -276,17 +277,19 @@ export default {
       if (this.viewedSliderCount < this.viewedList.length - 1) {
         this.viewedSliderCount += 1;
         const root = document.documentElement;
-        const viewedItemWidth = document.getElementsByClassName('viewedItem')[0].clientWidth;
-        if (viewedItemWidth >= 824) {
-          this.viewedItemLength = 3;
-        } else if (viewedItemWidth >= 544) {
-          this.viewedItemLength = 2;
-        } else {
-          this.viewedItemLength = 1;
-        }
         const cartWidth = document.getElementsByClassName('viewedItem-card')[0].clientWidth;
         const sliderDistance = -(cartWidth * this.viewedSliderCount);
         root.style.setProperty('--slider', `${sliderDistance}px`);
+      }
+    },
+    getViewedItemLength() {
+      const viewedItemWidth = document.getElementsByClassName('viewedItem')[0].clientWidth;
+      if (viewedItemWidth >= 824) {
+        this.viewedItemLength = 3;
+      } else if (viewedItemWidth >= 544) {
+        this.viewedItemLength = 2;
+      } else {
+        this.viewedItemLength = 1;
       }
     },
   },
@@ -299,6 +302,9 @@ export default {
     this.emitter.on('push-ProductDetail', (data) => {
       this.product = data.data;
     });
+  },
+  mounted() {
+    this.getViewedItemLength();
   },
 };
 </script>
@@ -326,9 +332,17 @@ max-height: 41.6px;
 .carousel-control-prev, .carousel-control-next{
   width: 50px;
 }
-.carousel-control-prev-icon, .carousel-control-next-icon {
-  width: 50px;
-  height: 50px;
+.carousel-prev-icon, .carousel-next-icon {
+  font-size: 3.5rem;
+  font-weight: 500;
+  text-shadow:0 0 6px white, 0 0 6px white, 0 0 6px white, 0 0 6px white
+}
+.carousel-control-prev:hover, .carousel-control-prev:focus,
+.carousel-control-next:hover, .carousel-control-next:focus {
+  color: #E79898;
+}
+button:disabled{
+  color: -internal-light-dark(rgba(16, 16, 16, 0.3), rgba(255, 255, 255, 0.3));
 }
 .viewedItem{
   width: 824px;
