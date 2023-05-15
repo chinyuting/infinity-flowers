@@ -86,7 +86,7 @@
                     {{ item.title }}
                   </div>
                 </h5>
-                <button class="btn btn-secondary w-100">查看商品</button>
+                <button class="btn w-100 button-lightcolor">查看商品</button>
               </div>
             </a>
           </div>
