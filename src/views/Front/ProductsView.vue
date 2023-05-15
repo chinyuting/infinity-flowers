@@ -83,7 +83,7 @@
     </div>
   </div>
 </div>
-  <Pagination :pages="pagination" @emit-page="getProducts" class="my-4"/>
+  <Pagination :pages="pagination" @emit-page="getProducts" class="my-5"/>
 </template>
 
 <script>
