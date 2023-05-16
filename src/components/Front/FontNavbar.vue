@@ -3,7 +3,7 @@
   <div class="container-fluid">
     <!-- logo -->
     <a class="navbar-bran" href="#">
-      <img alt="Infinity Flowers logo" src="@/assets/images/logo.png" width="100">{{ null }}
+      <img alt="Infinity Flowers logo" src="@/assets/images/logo.png" width="100">
     </a>
      <!-- toggle -->
     <button class="navbar-toggler" type="button"
@@ -202,7 +202,7 @@ export default {
   }
 }
 @keyframes show{
-  0% { length:0%;}
-  100% {length:100%;}
+  0% { length:0%; }
+  100% { length:100%; }
 }
 </style>
