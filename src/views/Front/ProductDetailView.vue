@@ -352,6 +352,13 @@ max-height: 41.6px;
   height: 345px;
   border-radius: 0.375rem 0.375rem 0 0;
 }
+.viewedItem-pic img{
+  transition: all 1s;
+  border-radius: 0.375rem 0.375rem 0 0;
+}
+.viewedItem-item:hover .viewedItem-pic img{
+  transform: scale(1.1);
+}
 .viewedItem-name{
   max-width: 225px;
   text-overflow: ellipsis;

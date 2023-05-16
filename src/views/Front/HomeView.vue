@@ -66,30 +66,28 @@
           <i class="bi bi-flower3 text-danger"></i>新品上市
         </h1>
       </div>
-      <div class="row col-lg-9 px-0 mx-auto justify-content-evenly newItem-products">
+      <div class="row col-lg-9 px-0 mx-auto justify-content-evenly">
         <div class="col-sm-12 col-md-4 ps-0"
         v-for="(item, key) in newProductList" :key="key">
-          <div class="card mt-1 mb-2 newItem-card mx-auto mx-lg-0">
-            <a href="#" class="text-decoration-none"
-            @click.prevent="goForDetail(item)">
-              <!-- 商品圖片 -->
-              <div
-              class="overflow-hidden text-light position-relative border-bottom newItemt-pic">
-                <img :src="item.imageUrl" :alt="item.title"
-                class="card-img-top d-block align-middle h-100 w-auto mx-auto">
-              </div>
-              <div class="card-body text-dark">
-                <!-- 商品名稱 -->
-                <h5 class="overflow-hidden">
-                  <div class="card-title overflow-hidden newItem-name"
-                  :title="item.title">
-                    {{ item.title }}
-                  </div>
-                </h5>
-                <button class="btn w-100 button-lightcolor">查看商品</button>
-              </div>
-            </a>
-          </div>
+          <a href="#" class="text-decoration-none card mt-1 mb-2 newItem-item mx-auto mx-lg-0"
+          @click.prevent="goForDetail(item)">
+            <!-- 商品圖片 -->
+            <div
+            class="overflow-hidden text-light position-relative border-bottom newItemt-pic">
+              <img :src="item.imageUrl" :alt="item.title"
+              class="card-img-top d-block align-middle h-100 w-auto mx-auto">
+            </div>
+            <div class="card-body text-dark">
+              <!-- 商品名稱 -->
+              <h5 class="overflow-hidden">
+                <div class="card-title overflow-hidden newItem-name"
+                :title="item.title">
+                  {{ item.title }}
+                </div>
+              </h5>
+              <button class="btn w-100 button-lightcolor">查看商品</button>
+            </div>
+          </a>
         </div>
       </div>
     </div>
@@ -233,12 +231,20 @@ export default {
 .newItem-bg {
   background:linear-gradient(135deg,rgba(231, 152, 152, 0.7) 30%,#e9ecef );
 }
-.newItem-card {
+.newItem-item {
   max-width: 276px;
 }
 .newItemt-pic {
   height: 345px;
   border-radius: 0.375rem 0.375rem 0 0;
+  position: relative;
+}
+.newItemt-pic img{
+  transition: all 1s;
+  scale: 1;
+}
+.newItem-item:hover .newItemt-pic img{
+  transform: scale(1.1);
 }
 .newItem-name{
   max-width: 225px;

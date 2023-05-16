@@ -43,6 +43,7 @@ body {
   background-color: rgb(42, 27, 24);
   color: rgb(231, 152, 152);
   font-weight: 500;
+  transition: all .3s linear;
 }
 .button-deepcolor:hover{
   background-color: rgba(42, 27, 24, .8);
@@ -52,6 +53,7 @@ body {
   background-color: rgb(231, 152, 152);
   color: #2A1B18;
   font-weight: 500;
+  transition: all .3s linear;
 }
 .button-lightcolor:hover{
   background-color: rgba(231, 152, 152, .8);

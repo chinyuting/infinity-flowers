@@ -30,7 +30,7 @@
       <div class="col-sm-12 col-md-6 col-lg-4"
         v-for="(item, key) in filterProduct[pagination.current_page-1]" :key="key">
         <div class="card mt-1 mb-2 mx-auto productcard">
-          <a class="productcard-content" href="#" @click.prevent="goForDetail(item)">
+          <a class="productcard-item" href="#" @click.prevent="goForDetail(item)">
             <div class="overflow-hidden text-light position-relative border-bottom productcard-pic">
               <!-- 商品類別標示 -->
               <div class="position-absolute bg-secondary px-2 bottom-0 end-0 rounded m-1">
@@ -257,23 +257,26 @@ export default {
 .add-favorite:hover{
   font-size: 23px;
 }
-.productcard{
+.productcard {
   max-width: 276px;
 }
-.productcard-content{
+.productcard-item{
   text-decoration: none;
-}
-.productcard-pic img{
-  transition: all 1s;
-  border-radius: 0.375rem 0.375rem 0 0;
-}
-.productcard-content:hover .productcard-pic img{
-  transform: scale(1.1);
 }
 .productcard-pic{
   height: 345px;
+  position: relative;
+  transition: all 1s;
 }
-.productcard-content .card-title{
+.productcard-pic img{
+  transition: all 1s;
+  scale: 1;
+  border-radius: 0.375rem 0.375rem 0 0;
+}
+.productcard-item:hover .productcard-pic img{
+  transform: scale(1.1);
+}
+.productcard-item .card-title{
   max-width: 225px;
   text-overflow: ellipsis;
   white-space: nowrap;
