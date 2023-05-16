@@ -5,43 +5,46 @@
       <img alt="Infinity Flowers logo" src="@/assets/images/logo.png" width="100">{{ null }}
     </a>
     <button class="navbar-toggler" type="button"
-    data-bs-toggle="collapse" data-bs-target=".DashnavbarNav"
-    aria-controls="DashnavbarNav" aria-expanded="false"
-    aria-label="Toggle navigation">
+    data-bs-toggle="collapse" data-bs-target=".DashNav"
+    aria-controls="DashNav" aria-expanded="false"
+    aria-label="Toggle navigation" ref="navbarToggler">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse DashnavbarNav">
+    <div class="collapse navbar-collapse DashNav">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0 justify-content-center text-center">
         <li class="nav-item">
-          <router-link to="/dashboard/productmanage" class="nav-link dashnav-item"
-          :class="pageNow === 'productmanage' ? 'dashnav-active' : ''">
+          <router-link to="/dashboard/productmanage" class="nav-link dashNav-item"
+          :class="pageNow === 'productmanage' ? 'dashNav-active' : ''"
+          @click.prevent="closeDashNav">
             產品管理
           </router-link>
         </li>
         <li class="nav-item">
-          <router-link to="/dashboard/ordermanage" class="nav-link dashnav-item"
-          :class="pageNow === 'ordermanage' ? 'dashnav-active' : ''">
+          <router-link to="/dashboard/ordermanage" class="nav-link dashNav-item"
+          :class="pageNow === 'ordermanage' ? 'dashNav-active' : ''"
+          @click.prevent="closeDashNav">
             訂單管理
           </router-link>
         </li>
         <li class="nav-item">
-          <router-link to="/dashboard/couponmanage" class="nav-link dashnav-item"
-          :class="pageNow === 'couponmanage' ? 'dashnav-active' : ''">
+          <router-link to="/dashboard/couponmanage" class="nav-link dashNav-item"
+          :class="pageNow === 'couponmanage' ? 'dashNav-active' : ''"
+          @click.prevent="closeDashNav">
             優惠券管理
           </router-link>
         </li>
       </ul>
     </div>
-    <div class="collapse navbar-collapse DashnavbarNav dash-function">
+    <div class="collapse navbar-collapse DashNav dash-function">
       <ul class="navbar-nav me-lg-3 me-auto mb-2 mb-lg-0 text-center">
         <li class="nav-item">
-          <router-link to="/" class="nav-link dashnav-item">
+          <router-link to="/" class="nav-link dashNav-item">
             回到官網
           </router-link>
         </li>
         <li class="nav-item">
           <a @click.prevent="openModal"
-          class="nav-link dashnav-item" href="#">登出</a>
+          class="nav-link dashNav-item" href="#">登出</a>
         </li>
       </ul>
     </div>
@@ -89,6 +92,9 @@ export default {
     pageChange(page) {
       this.pageNow = page;
     },
+    closeDashNav() {
+      this.$refs.navbarToggler.click();
+    },
   },
   mounted() {
     this.pageChange('productmanage');
@@ -100,18 +106,18 @@ export default {
 </script>
 
 <style>
-.dashnav-active{
+.dashNav-active{
   color: rgba(231, 152, 152, 1) !important;
   font-weight: 700;
 }
 .nav-link:focus{
   color: rgba(231, 152, 152, 1);
 }
-.dashnav-item{
+.dashNav-item{
   color: #4F332D;
   position: relative;
 }
-.dashnav-item::after{
+.dashNav-item::after{
   content: "";
   position: absolute;
   bottom: 0;
@@ -121,12 +127,18 @@ export default {
   background-color: #4F332D;
   transition: all .3s linear;
 }
-.dashnav-item:hover::after{
+.dashNav-item:hover::after{
   width: 100%;
-  /* border-bottom: #4F332D 1px solid;
-  animation:show 2s; */
 }
 .dash-function{
   flex-grow:0;
+}
+@media only screen and (max-width: 991px) {
+  .dashNav-item::after{
+    left: 40%;
+  }
+  .dashNav-item:hover::after{
+    width: 20%;
+  }
 }
 </style>

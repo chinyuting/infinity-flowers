@@ -3,8 +3,8 @@
 <div class="container">
   <OrderNav :PageName="pageName" class="orderNav" />
   <h3>
-    <i class="bi bi-flower3 text-lightcolor"></i>
-    <span class="text-deepcolor">訂單已建立</span>
+    <i class="bi bi-flower3 text-light-color"></i>
+    <span class="text-deep-color">訂單已建立</span>
   </h3>
   <div class="row mb-3 ">
     <div class="col-md-7 mt-2">
@@ -67,9 +67,9 @@
       </table>
     </div>
     <div class="row justify-content-center ms-0 me-0 mb-5">
-      <button class="btn mt-3 col-5 me-1 button-deepcolor"
+      <button class="btn mt-3 col-5 me-1 button-deep-color"
         @click.prevent="$router.push('/')">稍後進行付款</button>
-      <button class="btn mt-3 col-5 ms-1 button-lightcolor" @click.prevent="payOrder">確認付款</button>
+      <button class="btn mt-3 col-5 ms-1 button-light-color" @click.prevent="payOrder">確認付款</button>
     </div>
   </div>
 </div>
@@ -81,7 +81,7 @@ import OrderNav from '@/components/Front/OrderNav.vue';
 export default {
   data() {
     return {
-      pageName: 'orderchecked',
+      pageName: 'orderChecked',
       isLoading: false,
       orderId: '',
       orderList: {
@@ -130,7 +130,7 @@ export default {
   },
   created() {
     this.getOrder();
-    this.emitter.emit('judge-page', 'orderchecked');
+    this.emitter.emit('judge-page', 'orderChecked');
   },
 };
 </script>

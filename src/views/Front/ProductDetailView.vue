@@ -43,13 +43,13 @@
       <div class="row mt-3">
         <div class="input-group col-lg-7 col-md-6 w-auto detail-qty mt-auto">
           <button class="btn btn-outline-secondary" type="button"
-          @click.prevent="refreshqty(-1)"
+          @click.prevent="refreshQty(-1)"
           :disabled="product_qty === 1">-
           </button>
           <input type="number" class="form-control" placeholder="Recipient's username"
           aria-label="qty" v-model="product_qty">
           <button class="btn btn-outline-secondary" type="button"
-          @click.prevent="refreshqty(1)">+
+          @click.prevent="refreshQty(1)">+
           </button>
         </div>
         <div class="col-lg-5 col-md-6 mt-3 mt-lg-0 mx-25">
@@ -85,7 +85,7 @@
   </div>
   <hr>
     <!-- 產品說明與保養 -->
-  <div class="text-center m-5 text-deepcolor">
+  <div class="text-center m-5 text-deep-color">
     <h3>產品說明及保養</h3>
     <p class="mt-3">
       ＊保持乾燥避免潮濕、陽光直射，適合放置在冷氣房或於濕度20-65度之間的環境。<br>
@@ -96,7 +96,7 @@
   </div>
   <hr>
   <!-- 最近看過的產品 -->
-  <div class="text-center m-5 text-deepcolor">
+  <div class="text-center m-5 text-deep-color">
     <h3>最近看過的產品</h3>
     <div class="mt-4 overflow-hidden position-relative viewedItem mx-auto">
       <!-- 左右按紐 -->
@@ -104,7 +104,7 @@
       @click="sliderPrevious"
       :class="viewedSliderCount === 0? 'displayNone':'displayShow'"
       data-bs-slide="prev">
-        <span><i class="bi bi-chevron-left carousel-prev-icon text-deepcolor"></i></span>
+        <span><i class="bi bi-chevron-left carousel-prev-icon text-deep-color"></i></span>
         <span class="visually-hidden">Previous</span>
       </button>
       <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark"
@@ -112,7 +112,7 @@
       :class="viewedProducts.length <= (viewedSliderCount+viewedItemLength)?
       'displayNone':'displayShow'"
       data-bs-slide="next">
-        <span><i class="bi bi-chevron-right carousel-next-icon text-deepcolor"></i></span>
+        <span><i class="bi bi-chevron-right carousel-next-icon text-deep-color"></i></span>
         <span class="visually-hidden">Next</span>
       </button>
       <div class="row flex-nowrap mx-auto justify-content-start">
@@ -135,7 +135,7 @@
                     {{ item.title }}
                   </div>
                 </h5>
-                <button class="btn w-100 button-lightcolor">查看商品</button>
+                <button class="btn w-100 button-light-color">查看商品</button>
               </div>
             </a>
         </div>
@@ -253,7 +253,7 @@ export default {
           });
         });
     },
-    refreshqty(number) {
+    refreshQty(number) {
       this.product_qty += (number);
     },
     getViewedList() {

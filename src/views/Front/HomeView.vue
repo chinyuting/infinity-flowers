@@ -2,7 +2,7 @@
 <LoadingOverlay :active="isLoading" />
 <!-- banner -->
 <div class="home">
-  <div class="backgroundclip display-1 text-center row align-items-center">
+  <div class="background-clip display-1 text-center row align-items-center">
     <span>Infinity Flowers</span>
     <span class="fs-3 position-absolute banner-slogan">
       Beauty that lasts a lifetime
@@ -56,7 +56,7 @@
     </div>
     <div class="w-100 text-center my-5 p-2">
       <h3 class="p-3 fst-italic fw-lighter my-5">讓永生花，成為你心中永恆的美麗。</h3>
-      <button type="button" class="btn button-lightcolor mb-5 btn-lg"
+      <button type="button" class="btn button-light-color mb-5 btn-lg"
       @click.prevent="$router.push('/products')">馬上逛逛</button>
     </div>
     <!-- 新品上市 -->
@@ -73,7 +73,7 @@
           @click.prevent="goForDetail(item)">
             <!-- 商品圖片 -->
             <div
-            class="overflow-hidden text-light position-relative border-bottom newItemt-pic">
+            class="overflow-hidden text-light position-relative border-bottom newItem-pic">
               <img :src="item.imageUrl" :alt="item.title"
               class="card-img-top d-block align-middle h-100 w-auto mx-auto">
             </div>
@@ -85,7 +85,7 @@
                   {{ item.title }}
                 </div>
               </h5>
-              <button class="btn w-100 button-lightcolor">查看商品</button>
+              <button class="btn w-100 button-light-color">查看商品</button>
             </div>
           </a>
         </div>
@@ -162,7 +162,7 @@ export default {
   font-weight: bold;
 }
 /* banner */
-.backgroundclip{
+.background-clip{
   margin: 0;
   width: 100%;
   background-position:center;

@@ -14,7 +14,7 @@
       <error-message name="email" class="invalid-feedback"></error-message>
     </div>
   </v-form>
-  <div v-if="searchstate && filterOrder.length === 0">
+  <div v-if="searchState && filterOrder.length === 0">
     <div class="position-absolute bottom-50 start-50 translate-middle text-center text-deep">
       <p>訂購人Email : {{ email }}</p>
       <h2>
@@ -22,7 +22,7 @@
       </h2>
     </div>
   </div>
-  <div v-else-if="searchstate && filterOrder.length!==0" class="mb-5">
+  <div v-else-if="searchState && filterOrder.length!==0" class="mb-5">
     <table class="table table-hover">
       <thead class="searchThead">
         <tr>
@@ -51,7 +51,7 @@
             <span v-else class="text-danger">未付款</span>
           </td>
           <td>
-            <button class="btn w-100 button-lightcolor" :disabled="item.is_paid"
+            <button class="btn w-100 button-light-color" :disabled="item.is_paid"
             @click.prevent="payOrder(item.id)">前往付款</button>
           </td>
         </tr>
@@ -69,7 +69,7 @@ export default {
       pagination: {},
       searchEmail: '',
       filterOrder: {},
-      searchstate: false,
+      searchState: false,
       isLoading: false,
       email: '',
     };
@@ -100,7 +100,7 @@ export default {
     },
     searchOrder() {
       this.isLoading = true;
-      this.searchstate = true;
+      this.searchState = true;
       this.filterOrder = this.OrderList.filter((item) => item.user.email === this.searchEmail);
       this.isLoading = false;
       this.email = this.searchEmail;

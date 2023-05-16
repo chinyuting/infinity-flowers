@@ -3,8 +3,8 @@
 <div class="container">
   <OrderNav :PageName="pageName" class="orderNav" />
   <h3 class="orderNavDetail">
-    <i class="bi bi-flower3 text-lightcolor"></i>
-    <span class="text-deepcolor">購物車</span>
+    <i class="bi bi-flower3 text-light-color"></i>
+    <span class="text-deep-color">購物車</span>
   </h3>
   <div>
     <!-- 購物車 -->
@@ -15,7 +15,7 @@
       <div class="row">
          <!-- 商品 -->
         <div class="card col-md-8 col-lg-7 cart-card mb-md-5">
-          <div class="card-body justify-content-aroundr d-flex align-items-center"
+          <div class="card-body justify-content-around d-flex align-items-center"
           v-for="(item, key) in CartList.carts" :key="key">
             <div class="mb-0 row">
               <button type="button" @click.prevent="deleteCart(item.id)"
@@ -50,7 +50,7 @@
             <h4>數量 {{ cartqty }} 個</h4>
             <hr>
             <h3>總價 NT${{ CartList.total }}</h3>
-            <button type="submit" class="btn w-100 mt-2 button-lightcolor btn-lg"
+            <button type="submit" class="btn w-100 mt-2 button-light-color btn-lg"
             @click="toOrder">確認購買</button>
           </div>
         </div>

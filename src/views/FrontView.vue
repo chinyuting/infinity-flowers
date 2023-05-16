@@ -33,29 +33,29 @@ body {
 .icon-size{
   font-size: 2rem;
 }
-.text-deepcolor{
+.text-deep-color{
   color:#2A1B18;
 }
-.text-lightcolor{
+.text-light-color{
   color:rgb(231, 152, 152);
 }
-.button-deepcolor{
+.button-deep-color{
   background-color: rgb(42, 27, 24);
   color: rgb(231, 152, 152);
   font-weight: 500;
   transition: all .3s linear;
 }
-.button-deepcolor:hover{
+.button-deep-color:hover{
   background-color: rgba(42, 27, 24, .8);
   color: rgb(231, 152, 152);
 }
-.button-lightcolor{
+.button-light-color{
   background-color: rgb(231, 152, 152);
   color: #2A1B18;
   font-weight: 500;
   transition: all .3s linear;
 }
-.button-lightcolor:hover{
+.button-light-color:hover{
   background-color: rgba(231, 152, 152, .8);
   color: #2A1B18;
 }

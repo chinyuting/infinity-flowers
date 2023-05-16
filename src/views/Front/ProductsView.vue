@@ -29,9 +29,10 @@
     <div class="col-lg-10 row ms-0">
       <div class="col-sm-12 col-md-6 col-lg-4"
         v-for="(item, key) in filterProduct[pagination.current_page-1]" :key="key">
-        <div class="card mt-1 mb-2 mx-auto productcard">
-          <a class="productcard-item" href="#" @click.prevent="goForDetail(item)">
-            <div class="overflow-hidden text-light position-relative border-bottom productcard-pic">
+        <div class="card mt-1 mb-2 mx-auto product-card">
+          <a class="product-card-item" href="#" @click.prevent="goForDetail(item)">
+            <div
+            class="overflow-hidden text-light position-relative border-bottom product-card-pic">
               <!-- 商品類別標示 -->
               <div class="position-absolute bg-secondary px-2 bottom-0 end-0 rounded m-1">
                 <p class="card-text">{{ item.category }}</p>
@@ -44,7 +45,7 @@
               <div>
                 <h5 class="row overflow-hidden">
                   <!-- 商品名稱 -->
-                  <div class="card-title col-10 overflow-hidden productcard-title"
+                  <div class="card-title col-10 overflow-hidden product-card-title"
                   :title="item.title">
                     {{ item.title }}
                   </div>
@@ -257,26 +258,26 @@ export default {
 .add-favorite:hover{
   font-size: 23px;
 }
-.productcard {
+.product-card {
   max-width: 276px;
 }
-.productcard-item{
+.product-card-item{
   text-decoration: none;
 }
-.productcard-pic{
+.product-card-pic{
   height: 345px;
   position: relative;
   transition: all 1s;
 }
-.productcard-pic img{
+.product-card-pic img{
   transition: all 1s;
   scale: 1;
   border-radius: 0.375rem 0.375rem 0 0;
 }
-.productcard-item:hover .productcard-pic img{
+.product-card-item:hover .product-card-pic img{
   transform: scale(1.1);
 }
-.productcard-item .card-title{
+.product-card-item .card-title{
   max-width: 225px;
   text-overflow: ellipsis;
   white-space: nowrap;

@@ -1,10 +1,10 @@
 <template>
 <LoadingOverlay :active="isLoading"></LoadingOverlay>
-<div class="modal fade cartmodal" id="exampleModal" tabindex="-1"
+<div class="modal fade cartModal" id="exampleModal" tabindex="-1"
 aria-labelledby="exampleModalLabel" aria-hidden="true"
 ref="modal">
-  <div class="modal-dialog modal-dialog-scrollable cartmodal-dialog">
-    <div class="modal-content cartmodal-content">
+  <div class="modal-dialog modal-dialog-scrollable cartModal-dialog">
+    <div class="modal-content cartModal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">購物車</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal"
@@ -12,13 +12,13 @@ ref="modal">
       </div>
       <div class="modal-body p-5 text-center" v-if="cartLength == 0 ">
         <h3>購物車目前沒有東西</h3> <br>
-        <button type="button" class="btn button-lightcolor mt-3"
+        <button type="button" class="btn button-light-color mt-3"
         @click.prevent="toProductView">馬上逛逛</button>
       </div>
       <div class="modal-body" v-else>
         <div class="card mb-1" v-for="(item, key) in CartList.carts" :key="'cart'+key">
           <div class="d-flex">
-            <div class="cartcard-img me-1 ps-0">
+            <div class="cartCard-img me-1 ps-0">
               <img :src="item.product.imageUrl" class="card-img-top"
               :alt="item.product.title">
             </div>
@@ -93,13 +93,13 @@ export default {
     },
   },
   methods: {
-    refreshCart(item, itemqty) {
+    refreshCart(item, itemQty) {
       this.loadingStatus = true;
       this.updateCartId = item.product_id;
       const api = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/cart/${item.id}`;
       const cart = {
         product_id: item.product_id,
-        qty: itemqty,
+        qty: itemQty,
       };
       this.$http.put(api, { data: cart })
         .then((res) => {
@@ -160,10 +160,10 @@ export default {
 </script>
 
 <style>
-.cartmodal{
+.cartModal{
   --bs-modal-width:435px;
 }
-.cartmodal-dialog {
+.cartModal-dialog {
   margin: 0%;
   position: absolute;
   top: 0px;
@@ -174,12 +174,12 @@ export default {
   overflow-y: auto;
   height: 100%;
 }
-.cartmodal-content{
+.cartModal-content{
   height: 100%;
   border: 0;
   border-radius: 0;
 }
-.cartcard-img{
+.cartCard-img{
   width: 40%;
 }
 .cart-btn{

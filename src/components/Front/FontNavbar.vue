@@ -8,46 +8,46 @@
      <!-- toggle -->
     <button class="navbar-toggler" type="button"
     data-bs-toggle="collapse"
-    data-bs-target=".FontnavbarNav"
-    aria-controls="FontnavbarNav" aria-expanded="false"
+    data-bs-target=".FontNavbarNav"
+    aria-controls="FontNavbarNav" aria-expanded="false"
     aria-label="Toggle navigation" ref="navbarToggler">
       <span class="navbar-toggler-icon"></span>
     </button>
     <!-- nav list -->
-    <div class="collapse navbar-collapse FontnavbarNav">
+    <div class="collapse navbar-collapse FontNavbarNav">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0 justify-content-center text-center">
         <li class="nav-item">
-          <router-link to="/" class="nav-link homenav-item"
+          <router-link to="/" class="nav-link homeNav-item"
           @click.prevent="closeNav"
-          :class="pageNow === 'home' ? 'homenav-active' : ''">
+          :class="pageNow === 'home' ? 'homeNav-active' : ''">
             首頁
           </router-link>
         </li>
         <li class="nav-item">
-          <router-link to="/products" class="nav-link homenav-item"
+          <router-link to="/products" class="nav-link homeNav-item"
           @click.prevent="closeNav"
-          :class="pageNow === 'products' ? 'homenav-active' : ''">
+          :class="pageNow === 'products' ? 'homeNav-active' : ''">
             產品
           </router-link>
         </li>
         <li class="nav-item">
-          <router-link to="/orderSearch" class="nav-link homenav-item"
+          <router-link to="/orderSearch" class="nav-link homeNav-item"
           @click.prevent="closeNav"
           @click="pageChange('orderSearch')"
-          :class="pageNow === 'orderSearch' ? 'homenav-active' : ''">
+          :class="pageNow === 'orderSearch' ? 'homeNav-active' : ''">
             訂單查詢
           </router-link>
         </li>
         <li class="nav-item">
-          <router-link to="/QA" class="nav-link homenav-item"
+          <router-link to="/QA" class="nav-link homeNav-item"
           @click.prevent="closeNav"
           @click="pageChange('QA')"
-          :class="pageNow === 'QA' ? 'homenav-active' : ''">
+          :class="pageNow === 'QA' ? 'homeNav-active' : ''">
             常見問題
           </router-link>
         </li>
         <li class="nav-item">
-          <router-link to="/dashboard/productmanage" class="nav-link homenav-item"
+          <router-link to="/dashboard/productmanage" class="nav-link homeNav-item"
           @click.prevent="closeNav">
             管理員登入
           </router-link>
@@ -151,11 +151,11 @@ export default {
   top: -12px;
   right: 8px;
 }
-.homenav-item{
+.homeNav-item{
   color: #4F332D;
   position: relative;
 }
-.homenav-item::after{
+.homeNav-item::after{
   content: "";
   position: absolute;
   bottom: 0;
@@ -165,11 +165,11 @@ export default {
   background-color: #4F332D;
   transition: all .3s linear;
 }
-.homenav-item:hover::after{
+.homeNav-item:hover::after{
   width: 100%;
 }
 
-.homenav-active{
+.homeNav-active{
   color: rgba(231, 152, 152, 1);
   font-weight: 700;
 }
@@ -189,10 +189,10 @@ export default {
   visibility:hidden;
 }
 @media only screen and (max-width: 991px) {
-  .homenav-item::after{
+  .homeNav-item::after{
     left: 40%;
   }
-  .homenav-item:hover::after{
+  .homeNav-item:hover::after{
     width: 20%;
   }
   .member-function {

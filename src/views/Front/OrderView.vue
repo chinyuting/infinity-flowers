@@ -2,8 +2,8 @@
 <div class="container">
   <OrderNav :PageName="pageName" class="orderNav" />
   <h3 class="orderNavDetail">
-    <i class="bi bi-flower3 text-lightcolor"></i>
-    <span class="text-deepcolor">建立訂單</span>
+    <i class="bi bi-flower3 text-light-color"></i>
+    <span class="text-deep-color">建立訂單</span>
   </h3>
   <button class="btn btn-light" type="button"
     @click.prevent="goCart">
@@ -157,7 +157,7 @@
             <span>套用優惠券</span>
           </button>
       </div>
-      <button type="submit" class="btn w-100 mt-2 button-lightcolor"
+      <button type="submit" class="btn w-100 mt-2 button-light-color"
       :disabled="Object.keys(errors).length > 0 || loadingState">確認訂單</button>
     </div>
   </v-form>
