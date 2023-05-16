@@ -234,16 +234,16 @@ export default {
 .newItem-item {
   max-width: 276px;
 }
-.newItemt-pic {
+.newItem-pic {
   height: 345px;
   border-radius: 0.375rem 0.375rem 0 0;
   position: relative;
 }
-.newItemt-pic img{
+.newItem-pic img{
   transition: all 1s;
   scale: 1;
 }
-.newItem-item:hover .newItemt-pic img{
+.newItem-item:hover .newItem-pic img{
   transform: scale(1.1);
 }
 .newItem-name{
