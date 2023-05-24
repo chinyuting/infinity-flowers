@@ -9,7 +9,7 @@
       @click.prevent="goCart">
       <i class="bi bi-arrow-left"></i>返回購物車
     </button>
-    <v-form class="row mb-5" @submit="creatOrder" v-slot="{ errors }">
+    <VForm class="row mb-5" @submit="creatOrder" v-slot="{ errors }">
       <!-- 寄送資訊 -->
       <div class="col-lg-6 mt-4 mx-auto">
         <div class="card-body">
@@ -19,27 +19,27 @@
             <div class="ms-2">
               <div class="input-group mb-3">
                 <span class="input-group-text input-required">訂購人姓名</span>
-                <v-field type="text" class="form-control" name="訂購人姓名"
+                <VField type="text" class="form-control" name="訂購人姓名"
                   placeholder="Name" aria-label="Name" aria-describedby="basic-addon1"
                   v-model="form.user.name"
-                  :class="{ 'is-invalid': errors['訂購人姓名'] }" rules="required"></v-field>
-                <error-message name="訂購人姓名" class="invalid-feedback"></error-message>
+                  :class="{ 'is-invalid': errors['訂購人姓名'] }" rules="required"/>
+                <ErrorMessage name="訂購人姓名" class="invalid-feedback"/>
               </div>
               <div class="input-group mb-3">
                 <span class="input-group-text input-required">訂購人信箱</span>
-                <v-field type="text" class="form-control" name="訂購人信箱"
+                <VField type="text" class="form-control" name="訂購人信箱"
                   placeholder="Email" aria-label="Email" aria-describedby="basic-addon1"
                   v-model="form.user.email"
-                  :class="{ 'is-invalid': errors['訂購人信箱'] }" rules="email|required"></v-field>
-                <error-message name="訂購人信箱" class="invalid-feedback"></error-message>
+                  :class="{ 'is-invalid': errors['訂購人信箱'] }" rules="email|required"/>
+                <ErrorMessage name="訂購人信箱" class="invalid-feedback"/>
               </div>
               <div class="input-group mb-3">
                 <span class="input-group-text input-required">訂購人電話</span>
-                <v-field type="text" class="form-control" name="訂購人電話"
+                <VField type="text" class="form-control" name="訂購人電話"
                   placeholder="Tel" aria-label="Tel" aria-describedby="basic-addon1"
                   v-model="form.user.tel" @click="tel = '訂購人'"
-                  :class="{ 'is-invalid': errors['訂購人電話'] }" :rules="isPhone"></v-field>
-                <error-message name="訂購人電話" class="invalid-feedback"></error-message>
+                  :class="{ 'is-invalid': errors['訂購人電話'] }" :rules="isPhone"/>
+                <ErrorMessage name="訂購人電話" class="invalid-feedback"/>
               </div>
             </div>
           <hr>
@@ -56,28 +56,28 @@
             <div>
               <div class="input-group mb-3">
                 <span class="input-group-text input-required">收件人姓名</span>
-                <v-field type="text" class="form-control" name="收件人姓名"
+                <VField type="text" class="form-control" name="收件人姓名"
                   placeholder="Name" aria-label="Name" aria-describedby="basic-addon1"
                   v-model="form.addressee.name" :disabled=" sameData"
-                  :class="{ 'is-invalid': errors['收件人姓名'] }" rules="required"></v-field>
-                <error-message name="收件人姓名" class="invalid-feedback"></error-message>
+                  :class="{ 'is-invalid': errors['收件人姓名'] }" rules="required"/>
+                <ErrorMessage name="收件人姓名" class="invalid-feedback"/>
               </div>
               <div class="input-group mb-3">
                 <span class="input-group-text input-required">收件人信箱</span>
-                <v-field type="text" class="form-control" name="收件人信箱"
+                <VField type="text" class="form-control" name="收件人信箱"
                   placeholder="Email" aria-label="Email" aria-describedby="basic-addon1"
                   v-model="form.addressee.email" :disabled=" sameData"
-                  :class="{ 'is-invalid': errors['收件人信箱'] }" rules="email|required"></v-field>
-                <error-message name="收件人信箱" class="invalid-feedback"></error-message>
+                  :class="{ 'is-invalid': errors['收件人信箱'] }" rules="email|required"/>
+                <ErrorMessage name="收件人信箱" class="invalid-feedback"/>
               </div>
               <div class="input-group mb-3">
                 <span class="input-group-text input-required">收件人電話</span>
-                <v-field type="text" class="form-control" name="收件人電話"
+                <VField type="text" class="form-control" name="收件人電話"
                   placeholder="Tel" aria-label="Tel" aria-describedby="basic-addon1"
                   v-model="form.addressee.tel" :disabled=" sameData"
                   @click="tel = '收件人'"
-                  :class="{ 'is-invalid': errors['收件人電話'] }" :rules="isPhone"></v-field>
-                <error-message name="收件人電話" class="invalid-feedback"></error-message>
+                  :class="{ 'is-invalid': errors['收件人電話'] }" :rules="isPhone"/>
+                <ErrorMessage name="收件人電話" class="invalid-feedback"/>
               </div>
             </div>
           </div>
@@ -89,11 +89,11 @@
           [僅提供宅配服務]
             <div class="input-group mb-3">
               <span class="input-group-text input-required">送件地址</span>
-              <v-field type="text" class="form-control" name="送件地址"
+              <VField type="text" class="form-control" name="送件地址"
                 placeholder="Address" aria-label="Address" aria-describedby="basic-addon1"
                 v-model="form.user.address"
-                :class="{ 'is-invalid': errors['送件地址'] }" rules="required"></v-field>
-              <error-message name="送件地址" class="invalid-feedback"></error-message>
+                :class="{ 'is-invalid': errors['送件地址'] }" rules="required"/>
+              <ErrorMessage name="送件地址" class="invalid-feedback"/>
             </div>
           </div>
           <hr>
@@ -160,7 +160,7 @@
         <button type="submit" class="btn w-100 mt-2 button-light-color"
           :disabled="Object.keys(errors).length > 0 || loadingState">確認訂單</button>
       </div>
-    </v-form>
+    </VForm>
   </div>
 </template>
 
