@@ -1,7 +1,7 @@
 <template>
   <DashNavbar/>
   <div class="container">
-    <routerView/>
+    <router-view/>
   </div>
 </template>
 
