@@ -1,89 +1,90 @@
 <template>
-<LoadingOverlay :active="isLoading" />
-<div class="container">
-  <div class="row">
-    <!-- 側邊分類 -->
-    <div class="side-bar col-lg-2">
-      <ul class="nav d-flex flex-lg-column flex-row">
-        <li class="nav-item">
-          <a class="nav-link rounded-pill product-category" href="#"
-          :class="category === '' ? 'text-pastel' : 'text-deep'"
-          aria-current="page"
-          @click.prevent="category = ''">
-            <i class="bi bi-flower3 text-pastel"
-            :class="category === '' ? 'category-visible' : 'category-hide'"></i> 全部商品
-          </a>
-        </li>
-        <li class="nav-item" v-for="(item, key) in productCategory" :key="key">
-          <a class="nav-link text-deep rounded-pill product-category" href="#"
-          :class="category === item ? 'text-pastel' : 'text-deep'"
-          @click.prevent="category = item">
-            <i class="bi bi-flower3 text-pastel"
-            :class="category === item ? 'category-visible' : 'category-hide'"></i>
-            {{ item }}
-          </a>
-        </li>
-      </ul>
-    </div>
-    <!-- 商品列表 -->
-    <div class="col-lg-10 row ms-0">
-      <div class="col-sm-12 col-md-6 col-lg-4"
-        v-for="(item, key) in filterProduct[pagination.current_page-1]" :key="key">
-        <div class="card mt-1 mb-2 mx-auto product-card">
-          <a class="product-card-item" href="#" @click.prevent="goForDetail(item)">
-            <div
-            class="overflow-hidden text-light position-relative border-bottom product-card-pic">
-              <!-- 商品類別標示 -->
-              <div class="position-absolute bg-secondary px-2 bottom-0 end-0 rounded m-1">
-                <p class="card-text">{{ item.category }}</p>
-              </div>
-              <!-- 商品圖片 -->
-              <img :src="item.imageUrl" :alt="item.title"
-              class="card-img-top d-block align-middle w-100 h-100 w-auto mx-auto">
-            </div>
-            <div class="card-body text-dark">
-              <div>
-                <h5 class="row overflow-hidden">
-                  <!-- 商品名稱 -->
-                  <div class="card-title col-10 overflow-hidden product-card-title"
-                  :title="item.title">
-                    {{ item.title }}
-                  </div>
-                  <!-- 加入收藏 -->
-                  <div class="mw-25 text-end col-2 add-favorite">
-                    <a href="#" @click.stop.prevent="updateFavorite(item)">
-                      <i class="bi bi-heart text-danger" title="加入收藏"
-                      v-if="idList.every((id) => item.id !== id)"></i>
-                      <i class="bi bi-heart-fill text-danger" title="移除收藏"
-                      v-else></i>{{ null }}
-                    </a>
-                  </div>
-                </h5>
-              </div>
-              <!-- 商品資訊 -->
-              <p class="card-text">
-                <span class="text-decoration-line-through fs-6"
-                v-if="item.origin_price !== item.price">
-                  NT${{ $filters.currency(item.origin_price) }}
-                </span>
-                <span class="fs-5"> NT${{ $filters.currency(item.price) }}</span>
-              </p>
-            </div>
-          </a>
-          <div class="card-footer">
-            <a href="#" class="btn btn-danger w-100" @click.prevent="addCart(item)">
-              <div class="spinner-border spinner-border-sm text-light" role="status"
-                v-if="loadingStatus && item.id === tempCartId">
-                <span class="visually-hidden">Loading...</span>
-              </div>
-              <i class="bi bi-cart-plus" v-else></i>加入購物車
+  <LoadingOverlay :active="isLoading" />
+  <div class="container">
+    <div class="row">
+      <!-- 側邊分類 -->
+      <div class="side-bar col-lg-2">
+        <ul class="nav d-flex flex-lg-column flex-row">
+          <li class="nav-item">
+            <a class="nav-link rounded-pill product-category" href="#"
+              :class="category === '' ? 'text-pastel' : 'text-deep'"
+              aria-current="page"
+              @click.prevent="category = ''">
+              <i class="bi bi-flower3 text-pastel"
+                :class="category === '' ? 'category-visible' : 'category-hide'"></i> 全部商品
             </a>
+          </li>
+          <li class="nav-item" v-for="(item, key) in productCategory" :key="key">
+            <a class="nav-link text-deep rounded-pill product-category" href="#"
+              :class="category === item ? 'text-pastel' : 'text-deep'"
+              @click.prevent="category = item">
+              <i class="bi bi-flower3 text-pastel"
+                :class="category === item ? 'category-visible' : 'category-hide'"></i>
+                {{ item }}
+            </a>
+          </li>
+        </ul>
+      </div>
+      <!-- 商品列表 -->
+      <div class="col-lg-10 row ms-0">
+        <div class="col-sm-12 col-md-6 col-lg-4"
+          v-for="(item, key) in filterProduct[pagination.current_page-1]" :key="key">
+          <div class="card mt-1 mb-2 mx-auto product-card">
+            <a class="product-card-item" href="#" @click.prevent="goForDetail(item)">
+              <div
+                class="overflow-hidden text-light position-relative border-bottom product-card-pic">
+                <!-- 商品類別標示 -->
+                <div class="position-absolute bg-secondary px-2 bottom-0 end-0 rounded m-1">
+                  <p class="card-text">{{ item.category }}</p>
+                </div>
+                <!-- 商品圖片 -->
+                <img :src="item.imageUrl" :alt="item.title"
+                  class="card-img-top d-block align-middle w-100 h-100 w-auto mx-auto">
+              </div>
+              <div class="card-body text-dark">
+                <div>
+                  <h5 class="row overflow-hidden">
+                    <!-- 商品名稱 -->
+                    <div class="card-title col-10 overflow-hidden product-card-title"
+                      :title="item.title">
+                      {{ item.title }}
+                    </div>
+                    <!-- 加入收藏 -->
+                    <div class="mw-25 text-end col-2 add-favorite">
+                      <a href="#" @click.stop.prevent="updateFavorite(item)">
+                        <i class="bi bi-heart text-danger" title="加入收藏"
+                          v-if="idList.every((id) => item.id !== id)"></i>
+                        <i class="bi bi-heart-fill text-danger" title="移除收藏"
+                          v-else></i>{{ null }}
+                      </a>
+                    </div>
+                  </h5>
+                </div>
+                <!-- 商品資訊 -->
+                <p class="card-text">
+                  <span class="text-decoration-line-through fs-6"
+                    v-if="item.origin_price !== item.price">
+                    NT${{ $filters.currency(item.origin_price) }}
+                  </span>
+                  <span class="fs-5"> NT${{ $filters.currency(item.price) }}</span>
+                </p>
+              </div>
+            </a>
+            <div class="card-footer">
+              <button class="btn button-light-color w-100" type="button"
+                @click.prevent="addCart(item)">
+                <div class="spinner-border spinner-border-sm text-light" role="status"
+                  v-if="loadingStatus && item.id === tempCartId">
+                  <span class="visually-hidden">Loading...</span>
+                </div>
+                <i class="bi bi-cart-plus" v-else></i>加入購物車
+              </button>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-</div>
   <Pagination :pages="pagination" @emit-page="getProducts" class="my-5"/>
 </template>
 

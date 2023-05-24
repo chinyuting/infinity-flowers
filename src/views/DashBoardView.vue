@@ -1,8 +1,8 @@
 <template>
-<DashNavbar/>
-<div class="container">
-  <routerView/>
-</div>
+  <DashNavbar/>
+  <div class="container">
+    <routerView/>
+  </div>
 </template>
 
 <script>

@@ -1,148 +1,149 @@
 <template>
-<LoadingOverlay :active="isLoading" />
-  <!-- 麵包屑 -->
-<div class="container">
-  <nav aria-label="breadcrumb">
-    <ol class="breadcrumb">
-      <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">首頁</a></li>
-      <li class="breadcrumb-item"><a href="#/products" class="breadcrumb-link">產品</a></li>
-      <li class="breadcrumb-item active" aria-current="page">{{ product.title }}</li>
-    </ol>
-  </nav>
-  <div class="row">
-    <!-- 商品圖 -->
-    <div id="carouselExampleControls" class="carousel slide col-12 col-md-5"
-    data-bs-ride="carousel">
-      <div class="carousel-inner">
-        <div class="carousel-item active">
-          <img :src="product.imageUrl" class="d-block w-100" :alt="product.title">
-        </div>
-        <div v-if="product.imagesUrl">
-          <div class="carousel-item" v-for="(imgUrl, key) in product.imagesUrl" :key="key">
-            <img :src="imgUrl" :alt="product.title" class="d-block w-100">
+  <LoadingOverlay :active="isLoading" />
+    <!-- 麵包屑 -->
+  <div class="container">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">首頁</a></li>
+        <li class="breadcrumb-item"><a href="#/products" class="breadcrumb-link">產品</a></li>
+        <li class="breadcrumb-item active" aria-current="page">{{ product.title }}</li>
+      </ol>
+    </nav>
+    <div class="row">
+      <!-- 商品圖 -->
+      <div id="carouselExampleControls" class="carousel slide col-12 col-md-5"
+        data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img :src="product.imageUrl" class="d-block w-100" :alt="product.title">
+          </div>
+          <div v-if="product.imagesUrl">
+            <div class="carousel-item" v-for="(imgUrl, key) in product.imagesUrl" :key="key">
+              <img :src="imgUrl" :alt="product.title" class="d-block w-100">
+            </div>
           </div>
         </div>
+        <button class="carousel-control-prev" type="button" v-if="product.imagesUrl"
+          data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" v-if="product.imagesUrl"
+          data-bs-target="#carouselExampleControls" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
       </div>
-      <button class="carousel-control-prev" type="button" v-if="product.imagesUrl"
-      data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-      </button>
-      <button class="carousel-control-next" type="button" v-if="product.imagesUrl"
-      data-bs-target="#carouselExampleControls" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-      </button>
-    </div>
-    <!-- 商品介紹 -->
-    <div class="col-md-7 product-detail carousel-dark">
-      <h1 class="overflow-hidden mt-3">{{ product.title }}</h1>
-      <p>{{ product.description }}</p>
-      <p class="detail-content">{{ product.content }}</p>
-      <!-- 商品數量 -->
-      <div class="row mt-3">
-        <div class="input-group col-lg-7 col-md-6 w-auto detail-qty mt-auto">
-          <button class="btn btn-outline-secondary" type="button"
-          @click.prevent="refreshQty(-1)"
-          :disabled="product_qty === 1">-
-          </button>
-          <input type="number" class="form-control" placeholder="Recipient's username"
-          aria-label="qty" v-model="product_qty">
-          <button class="btn btn-outline-secondary" type="button"
-          @click.prevent="refreshQty(1)">+
-          </button>
+      <!-- 商品介紹 -->
+      <div class="col-md-7 product-detail carousel-dark">
+        <h1 class="overflow-hidden mt-3">{{ product.title }}</h1>
+        <p>{{ product.description }}</p>
+        <p class="detail-content">{{ product.content }}</p>
+        <!-- 商品數量 -->
+        <div class="row mt-3">
+          <div class="input-group col-lg-7 col-md-6 w-auto detail-qty mt-auto">
+            <button class="btn btn-outline-secondary" type="button"
+              @click.prevent="refreshQty(-1)"
+              :disabled="product_qty === 1">-
+            </button>
+            <input type="number" class="form-control" placeholder="Recipient's username"
+              aria-label="qty" v-model="product_qty">
+            <button class="btn btn-outline-secondary" type="button"
+              @click.prevent="refreshQty(1)">+
+            </button>
+          </div>
+          <div class="col-lg-5 col-md-6 mt-3 mt-lg-0 mx-25">
+            <h3 class="text-lg-end">
+              <span v-if="product.origin_price !== product.price"
+                class="text-decoration-line-through fs-6">
+                NT${{ $filters.currency(product.origin_price) }}<br>
+              </span>
+              <span>NT${{ $filters.currency(product.price) }}</span>
+                / {{ product.unit }}
+            </h3>
+          </div>
         </div>
-        <div class="col-lg-5 col-md-6 mt-3 mt-lg-0 mx-25">
-          <h3 class="text-lg-end">
-            <span v-if="product.origin_price !== product.price"
-            class="text-decoration-line-through fs-6">
-              NT${{ $filters.currency(product.origin_price) }}<br>
+        <!-- 加入收藏 -->
+        <div>
+          <button type="button" @click.prevent="updateFavorite(item)"
+            class="btn btn-danger mt-2 me-2">
+            <span v-if="idList.every((id) => productId !== id)">
+              <i class="bi bi-heart" title="加入收藏"></i> 加入收藏
             </span>
-            <span>NT${{ $filters.currency(product.price) }}</span>
-              / {{ product.unit }}
-          </h3>
+            <span v-else><i class="bi bi-heart-fill" title="加入收藏"></i> 取消收藏</span>
+          </button>
+          <button type="button" @click.prevent="addCart"
+            class="btn btn-danger mt-2" :disabled="loadingStatus">
+            <div class="spinner-border spinner-border-sm text-light" role="status"
+              v-if="loadingStatus">
+              <span class="visually-hidden">Loading...</span>
+            </div>
+            <i class="bi bi-cart-plus-fill" v-else></i> 加入購物車
+          </button>
         </div>
       </div>
-      <!-- 加入收藏 -->
-      <div>
-        <button type="button" @click.prevent="updateFavorite(item)"
-          class="btn btn-danger mt-2 me-2">
-          <span v-if="idList.every((id) => productId !== id)">
-            <i class="bi bi-heart" title="加入收藏"></i> 加入收藏
-          </span>
-          <span v-else><i class="bi bi-heart-fill" title="加入收藏"></i> 取消收藏</span>
+    </div>
+    <hr>
+      <!-- 產品說明與保養 -->
+    <div class="text-center m-5 text-deep-color">
+      <h3>產品說明及保養</h3>
+      <p class="mt-3">
+        ＊保持乾燥避免潮濕、陽光直射，適合放置在冷氣房或於濕度20-65度之間的環境。<br>
+        ＊永生花、不凋花是鮮花經特殊技術處理，能保有鮮花般色彩，可保持2-3年不等。<br>
+        ＊乾燥花是鮮花自然風乾處理，可擺放約半年至1年，隨著時間會漸漸褪色為正常狀況。<br>
+        ＊若有灰塵使用柔軟的刷子ｅｘ毛筆，輕輕刷拭。<br>
+      </p>
+    </div>
+    <hr>
+    <!-- 最近看過的產品 -->
+    <div class="text-center m-5 text-deep-color">
+      <h3>最近看過的產品</h3>
+      <div class="mt-4 overflow-hidden position-relative viewedItem mx-auto">
+        <!-- 左右按紐 -->
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark"
+          @click="sliderPrevious"
+          :class="viewedSliderCount === 0? 'displayNone':'displayShow'"
+          data-bs-slide="prev">
+          <span><i class="bi bi-chevron-left carousel-prev-icon text-deep-color"></i></span>
+          <span class="visually-hidden">Previous</span>
         </button>
-        <button type="button" @click.prevent="addCart"
-          class="btn btn-danger mt-2" :disabled="loadingStatus">
-          <div class="spinner-border spinner-border-sm text-light" role="status"
-          v-if="loadingStatus">
-            <span class="visually-hidden">Loading...</span>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark"
+          @click="sliderNext"
+          :class="viewedProducts.length <= (viewedSliderCount+viewedItemLength)?
+          'displayNone':'displayShow'"
+          data-bs-slide="next">
+          <span><i class="bi bi-chevron-right carousel-next-icon text-deep-color"></i></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+        <div class="row flex-nowrap mx-auto justify-content-start">
+          <!-- 商品列表 -->
+          <div class="viewedItem-card ps-0" :data-slider="key"
+            v-for="(item, key) in viewedProducts" :key="key">
+              <a href="#"
+                class="text-decoration-none card mt-1 mb-2 mx-auto mx-lg-0 viewedItem-item"
+                @click.prevent="goForDetail(item)">
+                <div
+                  class="overflow-hidden text-light position-relative border-bottom viewedItem-pic">
+                  <!-- 商品圖片 -->
+                  <img :src="item.imageUrl" :alt="item.title"
+                    class="card-img-top d-block align-middle h-100 w-auto mx-auto">
+                </div>
+                <div class="card-body text-dark">
+                  <!-- 商品名稱 -->
+                  <h5 class="overflow-hidden">
+                    <div class="card-title overflow-hidden viewedItem-name"
+                      :title="item.title">
+                      {{ item.title }}
+                    </div>
+                  </h5>
+                  <button class="btn w-100 button-light-color" type="button">查看商品</button>
+                </div>
+              </a>
           </div>
-          <i class="bi bi-cart-plus-fill" v-else></i> 加入購物車
-        </button>
-      </div>
-    </div>
-  </div>
-  <hr>
-    <!-- 產品說明與保養 -->
-  <div class="text-center m-5 text-deep-color">
-    <h3>產品說明及保養</h3>
-    <p class="mt-3">
-      ＊保持乾燥避免潮濕、陽光直射，適合放置在冷氣房或於濕度20-65度之間的環境。<br>
-      ＊永生花、不凋花是鮮花經特殊技術處理，能保有鮮花般色彩，可保持2-3年不等。<br>
-      ＊乾燥花是鮮花自然風乾處理，可擺放約半年至1年，隨著時間會漸漸褪色為正常狀況。<br>
-      ＊若有灰塵使用柔軟的刷子ｅｘ毛筆，輕輕刷拭。<br>
-    </p>
-  </div>
-  <hr>
-  <!-- 最近看過的產品 -->
-  <div class="text-center m-5 text-deep-color">
-    <h3>最近看過的產品</h3>
-    <div class="mt-4 overflow-hidden position-relative viewedItem mx-auto">
-      <!-- 左右按紐 -->
-      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark"
-      @click="sliderPrevious"
-      :class="viewedSliderCount === 0? 'displayNone':'displayShow'"
-      data-bs-slide="prev">
-        <span><i class="bi bi-chevron-left carousel-prev-icon text-deep-color"></i></span>
-        <span class="visually-hidden">Previous</span>
-      </button>
-      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark"
-      @click="sliderNext"
-      :class="viewedProducts.length <= (viewedSliderCount+viewedItemLength)?
-      'displayNone':'displayShow'"
-      data-bs-slide="next">
-        <span><i class="bi bi-chevron-right carousel-next-icon text-deep-color"></i></span>
-        <span class="visually-hidden">Next</span>
-      </button>
-      <div class="row flex-nowrap mx-auto justify-content-start">
-        <!-- 商品列表 -->
-        <div class="viewedItem-card ps-0" :data-slider="key"
-        v-for="(item, key) in viewedProducts" :key="key">
-            <a href="#" class="text-decoration-none card mt-1 mb-2 mx-auto mx-lg-0 viewedItem-item"
-            @click.prevent="goForDetail(item)">
-              <div
-              class="overflow-hidden text-light position-relative border-bottom viewedItem-pic">
-                <!-- 商品圖片 -->
-                <img :src="item.imageUrl" :alt="item.title"
-                class="card-img-top d-block align-middle h-100 w-auto mx-auto">
-              </div>
-              <div class="card-body text-dark">
-                <!-- 商品名稱 -->
-                <h5 class="overflow-hidden">
-                  <div class="card-title overflow-hidden viewedItem-name"
-                  :title="item.title">
-                    {{ item.title }}
-                  </div>
-                </h5>
-                <button class="btn w-100 button-light-color">查看商品</button>
-              </div>
-            </a>
         </div>
       </div>
     </div>
   </div>
-</div>
 </template>
 
 <script>
@@ -301,6 +302,7 @@ export default {
     this.getViewedList();
     this.emitter.on('push-ProductDetail', (data) => {
       this.product = data.data;
+      this.product_qty = data.qty;
     });
   },
   mounted() {

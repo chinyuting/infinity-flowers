@@ -1,7 +1,7 @@
 <template>
-<FontNavbar/>
-<router-view/>
-<FontFooter/>
+  <FontNavbar/>
+  <router-view/>
+  <FontFooter/>
 </template>
 
 <script>
@@ -17,14 +17,14 @@ export default {
 </script>
 
 <style>
-body {
+body{
   height: 100%;
 }
 .container{
   margin-top:90px ;
   min-height: calc(100vh - 170px);
 }
-.enphasis {
+.enphasis{
   background-image: linear-gradient(
     rgba(0, 0, 0, 0)70%,
     rgba(231, 152, 152)70%

@@ -1,56 +1,56 @@
 <template>
-<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#" @click.prevent="goToFirstPage">
-      <img alt="Infinity Flowers logo" src="@/assets/images/logo.png" width="100">{{ null }}
-    </a>
-    <button class="navbar-toggler" type="button"
-    data-bs-toggle="collapse" data-bs-target=".DashNav"
-    aria-controls="DashNav" aria-expanded="false"
-    aria-label="Toggle navigation" ref="navbarToggler">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse DashNav">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0 justify-content-center text-center">
-        <li class="nav-item">
-          <router-link to="/dashboard/productmanage" class="nav-link dashNav-item"
-          :class="pageNow === 'productmanage' ? 'dashNav-active' : ''"
-          @click.prevent="closeDashNav">
-            產品管理
-          </router-link>
-        </li>
-        <li class="nav-item">
-          <router-link to="/dashboard/ordermanage" class="nav-link dashNav-item"
-          :class="pageNow === 'ordermanage' ? 'dashNav-active' : ''"
-          @click.prevent="closeDashNav">
-            訂單管理
-          </router-link>
-        </li>
-        <li class="nav-item">
-          <router-link to="/dashboard/couponmanage" class="nav-link dashNav-item"
-          :class="pageNow === 'couponmanage' ? 'dashNav-active' : ''"
-          @click.prevent="closeDashNav">
-            優惠券管理
-          </router-link>
-        </li>
-      </ul>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#" @click.prevent="goToFirstPage">
+        <img alt="Infinity Flowers logo" src="@/assets/images/logo.png" width="100">{{ null }}
+      </a>
+      <button class="navbar-toggler" type="button"
+        data-bs-toggle="collapse" data-bs-target=".DashNav"
+        aria-controls="DashNav" aria-expanded="false"
+        aria-label="Toggle navigation" ref="navbarToggler">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse DashNav">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0 justify-content-center text-center">
+          <li class="nav-item">
+            <router-link to="/dashboard/productmanage" class="nav-link dashNav-item"
+              :class="pageNow === 'productmanage' ? 'dashNav-active' : ''"
+              @click.prevent="closeDashNav">
+              產品管理
+            </router-link>
+          </li>
+          <li class="nav-item">
+            <router-link to="/dashboard/ordermanage" class="nav-link dashNav-item"
+              :class="pageNow === 'ordermanage' ? 'dashNav-active' : ''"
+              @click.prevent="closeDashNav">
+              訂單管理
+            </router-link>
+          </li>
+          <li class="nav-item">
+            <router-link to="/dashboard/couponmanage" class="nav-link dashNav-item"
+              :class="pageNow === 'couponmanage' ? 'dashNav-active' : ''"
+              @click.prevent="closeDashNav">
+              優惠券管理
+            </router-link>
+          </li>
+        </ul>
+      </div>
+      <div class="collapse navbar-collapse DashNav dash-function">
+        <ul class="navbar-nav me-lg-3 me-auto mb-2 mb-lg-0 text-center">
+          <li class="nav-item">
+            <router-link to="/" class="nav-link dashNav-item">
+              回到官網
+            </router-link>
+          </li>
+          <li class="nav-item">
+            <a @click.prevent="openModal"
+              class="nav-link dashNav-item" href="#">登出</a>
+          </li>
+        </ul>
+      </div>
     </div>
-    <div class="collapse navbar-collapse DashNav dash-function">
-      <ul class="navbar-nav me-lg-3 me-auto mb-2 mb-lg-0 text-center">
-        <li class="nav-item">
-          <router-link to="/" class="nav-link dashNav-item">
-            回到官網
-          </router-link>
-        </li>
-        <li class="nav-item">
-          <a @click.prevent="openModal"
-          class="nav-link dashNav-item" href="#">登出</a>
-        </li>
-      </ul>
-    </div>
-  </div>
-</nav>
-<DoubleCheckModal ref="checkModal" :dataStatus="'logout'" @logout-confirmed="logout"/>
+  </nav>
+  <DoubleCheckModal ref="checkModal" :dataStatus="'logout'" @logout-confirmed="logout"/>
 </template>
 
 <script>

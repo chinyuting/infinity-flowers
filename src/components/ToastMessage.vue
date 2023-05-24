@@ -1,16 +1,16 @@
 <template>
-<div class="toast" role="alert" aria-live="assertive" aria-atomic="true" ref="toast">
-  <div class="toast-header rounded">
-    <span :class="`text-${msg.style}`" class="p-2">
-      <i class="bi bi-flower3 icon-size"></i>
-    </span>
-    <strong class="me-auto">{{ msg.title }}</strong>
-    <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+  <div class="toast" role="alert" aria-live="assertive" aria-atomic="true" ref="toast">
+    <div class="toast-header rounded">
+      <span :class="`text-${msg.style}`" class="p-2">
+        <i class="bi bi-flower3 icon-size"></i>
+      </span>
+      <strong class="me-auto">{{ msg.title }}</strong>
+      <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+    </div>
+    <div class="toast-body" v-if="msg.content">
+      {{ msg.content }}
+    </div>
   </div>
-  <div class="toast-body" v-if="msg.content">
-    {{ msg.content }}
-  </div>
-</div>
 </template>
 
 <script>

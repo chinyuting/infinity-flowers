@@ -1,167 +1,167 @@
 <template>
-<div class="container">
-  <OrderNav :PageName="pageName" class="orderNav" />
-  <h3 class="orderNavDetail">
-    <i class="bi bi-flower3 text-light-color"></i>
-    <span class="text-deep-color">建立訂單</span>
-  </h3>
-  <button class="btn btn-light" type="button"
-    @click.prevent="goCart">
-    <i class="bi bi-arrow-left"></i>返回購物車
-  </button>
-  <v-form class="row mb-5" @submit="creatOrder" v-slot="{ errors }">
-    <!-- 寄送資訊 -->
-    <div class="col-lg-6 mt-4 mx-auto">
-      <div class="card-body">
-        <h4>
-          <span class="enphasis">訂購人資料</span>
-        </h4>
+  <div class="container">
+    <OrderNav :PageName="pageName" class="orderNav" />
+    <h3 class="orderNavDetail">
+      <i class="bi bi-flower3 text-light-color"></i>
+      <span class="text-deep-color">建立訂單</span>
+    </h3>
+    <button class="btn btn-light" type="button"
+      @click.prevent="goCart">
+      <i class="bi bi-arrow-left"></i>返回購物車
+    </button>
+    <v-form class="row mb-5" @submit="creatOrder" v-slot="{ errors }">
+      <!-- 寄送資訊 -->
+      <div class="col-lg-6 mt-4 mx-auto">
+        <div class="card-body">
+          <h4>
+            <span class="enphasis">訂購人資料</span>
+          </h4>
+            <div class="ms-2">
+              <div class="input-group mb-3">
+                <span class="input-group-text input-required">訂購人姓名</span>
+                <v-field type="text" class="form-control" name="訂購人姓名"
+                  placeholder="Name" aria-label="Name" aria-describedby="basic-addon1"
+                  v-model="form.user.name"
+                  :class="{ 'is-invalid': errors['訂購人姓名'] }" rules="required"></v-field>
+                <error-message name="訂購人姓名" class="invalid-feedback"></error-message>
+              </div>
+              <div class="input-group mb-3">
+                <span class="input-group-text input-required">訂購人信箱</span>
+                <v-field type="text" class="form-control" name="訂購人信箱"
+                  placeholder="Email" aria-label="Email" aria-describedby="basic-addon1"
+                  v-model="form.user.email"
+                  :class="{ 'is-invalid': errors['訂購人信箱'] }" rules="email|required"></v-field>
+                <error-message name="訂購人信箱" class="invalid-feedback"></error-message>
+              </div>
+              <div class="input-group mb-3">
+                <span class="input-group-text input-required">訂購人電話</span>
+                <v-field type="text" class="form-control" name="訂購人電話"
+                  placeholder="Tel" aria-label="Tel" aria-describedby="basic-addon1"
+                  v-model="form.user.tel" @click="tel = '訂購人'"
+                  :class="{ 'is-invalid': errors['訂購人電話'] }" :rules="isPhone"></v-field>
+                <error-message name="訂購人電話" class="invalid-feedback"></error-message>
+              </div>
+            </div>
+          <hr>
+          <h4>
+            <span class="enphasis">收件人資料</span>
+          </h4>
           <div class="ms-2">
-            <div class="input-group mb-3">
-              <span class="input-group-text input-required">訂購人姓名</span>
-              <v-field type="text" class="form-control" name="訂購人姓名"
-              placeholder="Name" aria-label="Name" aria-describedby="basic-addon1"
-              v-model="form.user.name"
-              :class="{ 'is-invalid': errors['訂購人姓名'] }" rules="required"></v-field>
-              <error-message name="訂購人姓名" class="invalid-feedback"></error-message>
+            <div class="form-check">
+              <label class="form-check-label" for="flexSwitchCheckDefault">同訂購人資料
+                <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault"
+                v-model="sameData">
+              </label>
             </div>
-            <div class="input-group mb-3">
-              <span class="input-group-text input-required">訂購人信箱</span>
-              <v-field type="text" class="form-control" name="訂購人信箱"
-              placeholder="Email" aria-label="Email" aria-describedby="basic-addon1"
-              v-model="form.user.email"
-              :class="{ 'is-invalid': errors['訂購人信箱'] }" rules="email|required"></v-field>
-              <error-message name="訂購人信箱" class="invalid-feedback"></error-message>
-            </div>
-            <div class="input-group mb-3">
-              <span class="input-group-text input-required">訂購人電話</span>
-              <v-field type="text" class="form-control" name="訂購人電話"
-              placeholder="Tel" aria-label="Tel" aria-describedby="basic-addon1"
-              v-model="form.user.tel" @click="tel = '訂購人'"
-              :class="{ 'is-invalid': errors['訂購人電話'] }" :rules="isPhone"></v-field>
-              <error-message name="訂購人電話" class="invalid-feedback"></error-message>
-            </div>
-          </div>
-        <hr>
-        <h4>
-          <span class="enphasis">收件人資料</span>
-        </h4>
-        <div class="ms-2">
-          <div class="form-check">
-            <label class="form-check-label" for="flexSwitchCheckDefault">同訂購人資料
-              <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault"
-              v-model="sameData">
-            </label>
-          </div>
-          <div>
-            <div class="input-group mb-3">
-              <span class="input-group-text input-required">收件人姓名</span>
-              <v-field type="text" class="form-control" name="收件人姓名"
-              placeholder="Name" aria-label="Name" aria-describedby="basic-addon1"
-              v-model="form.addressee.name" :disabled=" sameData"
-              :class="{ 'is-invalid': errors['收件人姓名'] }" rules="required"></v-field>
-              <error-message name="收件人姓名" class="invalid-feedback"></error-message>
-            </div>
-            <div class="input-group mb-3">
-              <span class="input-group-text input-required">收件人信箱</span>
-              <v-field type="text" class="form-control" name="收件人信箱"
-              placeholder="Email" aria-label="Email" aria-describedby="basic-addon1"
-              v-model="form.addressee.email" :disabled=" sameData"
-              :class="{ 'is-invalid': errors['收件人信箱'] }" rules="email|required"></v-field>
-              <error-message name="收件人信箱" class="invalid-feedback"></error-message>
-            </div>
-            <div class="input-group mb-3">
-              <span class="input-group-text input-required">收件人電話</span>
-              <v-field type="text" class="form-control" name="收件人電話"
-              placeholder="Tel" aria-label="Tel" aria-describedby="basic-addon1"
-              v-model="form.addressee.tel" :disabled=" sameData"
-              @click="tel = '收件人'"
-              :class="{ 'is-invalid': errors['收件人電話'] }" :rules="isPhone"></v-field>
-              <error-message name="收件人電話" class="invalid-feedback"></error-message>
+            <div>
+              <div class="input-group mb-3">
+                <span class="input-group-text input-required">收件人姓名</span>
+                <v-field type="text" class="form-control" name="收件人姓名"
+                  placeholder="Name" aria-label="Name" aria-describedby="basic-addon1"
+                  v-model="form.addressee.name" :disabled=" sameData"
+                  :class="{ 'is-invalid': errors['收件人姓名'] }" rules="required"></v-field>
+                <error-message name="收件人姓名" class="invalid-feedback"></error-message>
+              </div>
+              <div class="input-group mb-3">
+                <span class="input-group-text input-required">收件人信箱</span>
+                <v-field type="text" class="form-control" name="收件人信箱"
+                  placeholder="Email" aria-label="Email" aria-describedby="basic-addon1"
+                  v-model="form.addressee.email" :disabled=" sameData"
+                  :class="{ 'is-invalid': errors['收件人信箱'] }" rules="email|required"></v-field>
+                <error-message name="收件人信箱" class="invalid-feedback"></error-message>
+              </div>
+              <div class="input-group mb-3">
+                <span class="input-group-text input-required">收件人電話</span>
+                <v-field type="text" class="form-control" name="收件人電話"
+                  placeholder="Tel" aria-label="Tel" aria-describedby="basic-addon1"
+                  v-model="form.addressee.tel" :disabled=" sameData"
+                  @click="tel = '收件人'"
+                  :class="{ 'is-invalid': errors['收件人電話'] }" :rules="isPhone"></v-field>
+                <error-message name="收件人電話" class="invalid-feedback"></error-message>
+              </div>
             </div>
           </div>
-        </div>
-        <hr>
-        <h4>
-          <span class="enphasis">送件資訊</span>
-        </h4>
-        <div class="ms-2">
-        [僅提供宅配服務]
-          <div class="input-group mb-3">
-            <span class="input-group-text input-required">送件地址</span>
-            <v-field type="text" class="form-control" name="送件地址"
-            placeholder="Address" aria-label="Address" aria-describedby="basic-addon1"
-            v-model="form.user.address"
-            :class="{ 'is-invalid': errors['送件地址'] }" rules="required"></v-field>
-            <error-message name="送件地址" class="invalid-feedback"></error-message>
+          <hr>
+          <h4>
+            <span class="enphasis">送件資訊</span>
+          </h4>
+          <div class="ms-2">
+          [僅提供宅配服務]
+            <div class="input-group mb-3">
+              <span class="input-group-text input-required">送件地址</span>
+              <v-field type="text" class="form-control" name="送件地址"
+                placeholder="Address" aria-label="Address" aria-describedby="basic-addon1"
+                v-model="form.user.address"
+                :class="{ 'is-invalid': errors['送件地址'] }" rules="required"></v-field>
+              <error-message name="送件地址" class="invalid-feedback"></error-message>
+            </div>
           </div>
-        </div>
-        <hr>
-        <h4>
-          <span class="enphasis">想對我們說的話</span>
-        </h4>
-        <div class="input-group ms-2">
-          <span class="input-group-text">留言給我們</span>
-          <textarea class="form-control" aria-label="With textarea"
-          v-model="form.message"></textarea>
+          <hr>
+          <h4>
+            <span class="enphasis">想對我們說的話</span>
+          </h4>
+          <div class="input-group ms-2">
+            <span class="input-group-text">留言給我們</span>
+            <textarea class="form-control" aria-label="With textarea"
+              v-model="form.message"></textarea>
+          </div>
         </div>
       </div>
-    </div>
-    <!-- 訂單資訊 -->
-    <div class="col-lg-5 mt-4 mx-auto">
-      <h4>
-        <span class="enphasis">訂單明細</span>
-      </h4>
-      <table class="table">
-        <thead>
-          <tr>
-            <th scope="col">商品</th>
-            <th scope="col">數量</th>
-            <th scope="col">價格</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr v-for="(item, key) in CartList.carts" :key="key">
-            <th scope="row">
-              <div>{{ item.product.title }}</div>
-              <div v-if="item.coupon" class="text-success">已使用優惠券</div>
-            </th>
-            <td class="align-middle">{{ item.qty }} /{{ item.product.unit }}</td>
-            <td class="align-middle">{{ item.total }}</td>
-          </tr>
-        </tbody>
-      </table>
-      <!-- 價格 -->
-      <h5 class="text-end">
-        <span class="d-inline-block price-label">總價</span>
-        <span class="w-25 d-inline-block">
-          {{ CartList.total }}
-        </span>
-      </h5>
-      <h5 v-if="CartList.final_total !== CartList.total"
-        class="text-success text-end">
-        <span class="d-inline-block price-label">優惠價</span>
-        <span class="w-25 d-inline-block">
-          {{ parseInt(CartList.final_total) }}
-        </span>
-      </h5>
-      <!-- 套用優惠券-->
-      <div class="input-group my-3">
+      <!-- 訂單資訊 -->
+      <div class="col-lg-5 mt-4 mx-auto">
+        <h4>
+          <span class="enphasis">訂單明細</span>
+        </h4>
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">商品</th>
+              <th scope="col">數量</th>
+              <th scope="col">價格</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr v-for="(item, key) in CartList.carts" :key="key">
+              <th scope="row">
+                <div>{{ item.product.title }}</div>
+                <div v-if="item.coupon" class="text-success">已使用優惠券</div>
+              </th>
+              <td class="align-middle">{{ item.qty }} /{{ item.product.unit }}</td>
+              <td class="align-middle">{{ item.total }}</td>
+            </tr>
+          </tbody>
+        </table>
+        <!-- 價格 -->
+        <h5 class="text-end">
+          <span class="d-inline-block price-label">總價</span>
+          <span class="w-25 d-inline-block">
+            {{ CartList.total }}
+          </span>
+        </h5>
+        <h5 v-if="CartList.final_total !== CartList.total"
+          class="text-success text-end">
+          <span class="d-inline-block price-label">優惠價</span>
+          <span class="w-25 d-inline-block">
+            {{ parseInt(CartList.final_total) }}
+          </span>
+        </h5>
+        <!-- 套用優惠券-->
+        <div class="input-group my-3">
           <input type="text" class="form-control"
-          placeholder="輸入優惠代碼" aria-label="Coupon" aria-describedby="basic-addon1"
-          v-model="coupon.couponCode">
+            placeholder="輸入優惠代碼" aria-label="Coupon" aria-describedby="basic-addon1"
+            v-model="coupon.couponCode">
           <button class="btn btn-outline-secondary"
-          type="button" id="button-addon2"
-          @click.prevent="addCoupon">
+            type="button" id="button-addon2"
+            @click.prevent="addCoupon">
             <i class="bi bi-flower3 text-warning"></i>
             <span>套用優惠券</span>
           </button>
+        </div>
+        <button type="submit" class="btn w-100 mt-2 button-light-color"
+          :disabled="Object.keys(errors).length > 0 || loadingState">確認訂單</button>
       </div>
-      <button type="submit" class="btn w-100 mt-2 button-light-color"
-      :disabled="Object.keys(errors).length > 0 || loadingState">確認訂單</button>
-    </div>
-  </v-form>
-</div>
+    </v-form>
+  </div>
 </template>
 
 <script>
@@ -252,6 +252,7 @@ export default {
               title: res.data.message,
             });
           } else {
+            this.loadingState = false;
             this.coupon.couponState = false;
             this.emitter.emit('push-message', {
               style: 'danger',

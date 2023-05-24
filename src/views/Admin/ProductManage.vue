@@ -1,46 +1,46 @@
 <template>
-<LoadingOverlay :active="isLoading" />
-<div>
-  <button type="button" class="btn btn-secondary w-100"
-  @click="openModal(true)">+新增商品</button>
-</div>
-<div>
-  <table class="table mt-3 table-hover">
-    <thead>
-      <tr>
-        <th scope="col">分類</th>
-        <th scope="col">名稱</th>
-        <th scope="col">價格</th>
-        <th scope="col">售價</th>
-        <th scope="col">是否啟用</th>
-        <th scope="col"></th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr v-for="item in productList" :key="item.id" class="align-middle">
-        <th scope="row">{{ item.category }}</th>
-        <td>{{ item.title }}</td>
-        <td>{{ $filters.currency(item.origin_price) }}</td>
-        <td>{{ $filters.currency(item.price) }}</td>
-        <td v-if="item.is_enabled" class="text-success">已啟用</td>
-        <td v-else class="text-muted">未啟用</td>
-        <td>
-          <button type="button" class="btn btn-outline-secondary"
-          @click.prevent="openModal(false, item)">編輯</button>
-          <button type="button" class="btn btn-outline-danger ms-md-1"
-          @click.prevent="openCheckModal(item);">刪除</button>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-</div>
-<ProductModal
-ref="productModal" :ProductItem="tempProduct"
-@update-product="updateProduct"
-@cancel-update="getProducts(pagination.current_page)"/>
-<DoubleCheckModal ref="checkModal" :dataStatus="tempProduct" :fromPage="'Product'"
-@delete-confirmed="deleteProduct"/>
-<Pagination :pages="pagination" @emit-page="getProducts"/>
+  <LoadingOverlay :active="isLoading" />
+  <div>
+    <button type="button" class="btn btn-secondary w-100"
+      @click="openModal(true)">+新增商品</button>
+  </div>
+  <div>
+    <table class="table mt-3 table-hover">
+      <thead>
+        <tr>
+          <th scope="col">分類</th>
+          <th scope="col">名稱</th>
+          <th scope="col">價格</th>
+          <th scope="col">售價</th>
+          <th scope="col">是否啟用</th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-for="item in productList" :key="item.id" class="align-middle">
+          <th scope="row">{{ item.category }}</th>
+          <td>{{ item.title }}</td>
+          <td>{{ $filters.currency(item.origin_price) }}</td>
+          <td>{{ $filters.currency(item.price) }}</td>
+          <td v-if="item.is_enabled" class="text-success">已啟用</td>
+          <td v-else class="text-muted">未啟用</td>
+          <td>
+            <button type="button" class="btn btn-outline-secondary"
+              @click.prevent="openModal(false, item)">編輯</button>
+            <button type="button" class="btn btn-outline-danger ms-md-1"
+              @click.prevent="openCheckModal(item);">刪除</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <ProductModal
+    ref="productModal" :ProductItem="tempProduct"
+    @update-product="updateProduct"
+    @cancel-update="getProducts(pagination.current_page)"/>
+  <DoubleCheckModal ref="checkModal" :dataStatus="tempProduct" :fromPage="'Product'"
+    @delete-confirmed="deleteProduct"/>
+  <Pagination :pages="pagination" @emit-page="getProducts"/>
 </template>
 
 <script>

@@ -1,7 +1,7 @@
 <template>
-<div class="toast-container pe-3 position-fixed top-0 end-0">
-  <ToastMessage v-for="(msg, key) in messages" :key="key" :msg="msg"/>
-</div>
+  <div class="toast-container pe-3 position-fixed top-0 end-0">
+    <ToastMessage v-for="(msg, key) in messages" :key="key" :msg="msg"/>
+  </div>
 </template>
 
 <script>
