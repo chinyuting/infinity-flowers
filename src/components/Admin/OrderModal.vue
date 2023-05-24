@@ -33,7 +33,7 @@
                       </tr>
                     </thead>
                     <tbody>
-                      <tr v-for="(product, key) in tempOrder.products" :key="key">
+                      <tr v-for="product in tempOrder.products" :key="product.id">
                         <td>{{ product.product.title }}</td>
                         <td>{{ product.qty }} / {{ product.product.unit }}</td>
                         <td>

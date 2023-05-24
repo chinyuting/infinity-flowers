@@ -18,7 +18,8 @@
             <img :src="product.imageUrl" class="d-block w-100" :alt="product.title">
           </div>
           <div v-if="product.imagesUrl">
-            <div class="carousel-item" v-for="(imgUrl, key) in product.imagesUrl" :key="key">
+            <div class="carousel-item" v-for="(imgUrl, key) in product.imagesUrl"
+              :key="'image' + key">
               <img :src="imgUrl" :alt="product.title" class="d-block w-100">
             </div>
           </div>
@@ -118,7 +119,7 @@
         <div class="row flex-nowrap mx-auto justify-content-start">
           <!-- 商品列表 -->
           <div class="viewedItem-card ps-0" :data-slider="key"
-            v-for="(item, key) in viewedProducts" :key="key">
+            v-for="item in viewedProducts" :key="item.id">
               <a href="#"
                 class="text-decoration-none card mt-1 mb-2 mx-auto mx-lg-0 viewedItem-item"
                 @click.prevent="goForDetail(item)">

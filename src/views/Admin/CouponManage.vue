@@ -17,7 +17,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr v-for="(item, key) in couponList" :key="key" class="align-middle">
+        <tr v-for="item in couponList" :key="item.id" class="align-middle">
           <th scope="row">{{ item.title }}</th>
           <td>{{ item.percent }}</td>
           <td>{{ $filters.date(item.due_date) }}</td>

@@ -20,7 +20,7 @@
             </tr>
           </thead>
           <tbody>
-            <tr v-for="(item, key) in orderList.products" :key="key">
+            <tr v-for="item in orderList.products" :key="item.product.id">
               <th scope="row">{{ item.product.title }}</th>
               <td>{{ item.qty }}</td>
               <td>

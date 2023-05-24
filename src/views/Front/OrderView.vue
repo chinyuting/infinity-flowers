@@ -121,7 +121,7 @@
             </tr>
           </thead>
           <tbody>
-            <tr v-for="(item, key) in CartList.carts" :key="key">
+            <tr v-for="item in CartList.carts" :key="item.product.id">
               <th scope="row">
                 <div>{{ item.product.title }}</div>
                 <div v-if="item.coupon" class="text-success">已使用優惠券</div>

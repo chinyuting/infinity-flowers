@@ -9,15 +9,17 @@
             data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body text-center">
-          <span class="p-2 onsale-icon">
+          <div class="p-2 doubleCheck-icon">
             <i class="bi bi-flower3 icon-size"></i>
-          </span>
-          <h4>Infinity Flower限時優惠</h4>
-          <h3>優惠券代碼 Infiity8</h3>
+          </div>
+          確認移除商品嗎？<br>
+          <span class="fw-lighter">(刪除後將無法恢復)</span>
         </div>
         <div class="modal-footer mx-auto">
+          <button type="button" class="btn button-deep-color"
+            @click.prevent="hideModal()">取消</button>
           <button type="button" class="btn button-light-color"
-            @click.prevent="goToProduct">馬上逛逛</button>
+            @click.prevent="deleteConfirmed()">刪除</button>
         </div>
       </div>
     </div>
@@ -35,9 +37,8 @@ export default {
     };
   },
   methods: {
-    goToProduct() {
-      this.hideModal();
-      this.$router.push('/products');
+    deleteConfirmed() {
+      this.$emit('cartDelete-confirmed');
     },
   },
   inject: ['emitter'],
@@ -49,7 +50,7 @@ export default {
 </script>
 
 <style>
-.onsale-icon{
+.doubleCheck-icon{
   color: rgb(231, 152, 152);
 }
 </style>

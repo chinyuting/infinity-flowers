@@ -9,18 +9,19 @@
     <div>
       <!-- 購物車 -->
       <div v-if="cartLength !== 0">
-        <button @click="deleteAllCart" class="mb-1 btn btn-outline-danger" type="button">
+        <button @click="openCheckModal('all')" class="mb-1 btn btn-outline-danger" type="button">
           <i class="bi bi-trash3"></i>全部刪除
         </button>
         <div class="row">
           <!-- 商品 -->
           <div class="card col-md-8 col-lg-7 cart-card mb-md-5">
             <div class="card-body justify-content-around d-flex align-items-center"
-            v-for="(item, key) in CartList.carts" :key="key">
+            v-for="item in CartList.carts" :key="item.id">
               <div class="mb-0 row">
-                <button type="button" @click.prevent="deleteCart(item.id)"
+                <button type="button" @click.prevent="openCheckModal(item.id)"
                   class="col-1 btn btn-light border-0 text-danger text-center p-0">
                   <i class="bi bi-x-lg"></i>
+                  <!-- deleteCart(item.id) -->
                 </button>
                 <img :src="item.product.imageUrl" :alt="item.product.title"
                   class="col-4 flex-grow-1">
@@ -64,10 +65,13 @@
       </div>
     </div>
   </div>
+  <FrontDoubleCheckModal ref="doubleCheckModal"
+    @cartDelete-confirmed="deleteCart"/>
 </template>
 
 <script>
 import OrderNav from '@/components/Front/OrderNav.vue';
+import FrontDoubleCheckModal from '@/components/Front/FontDoubleCheckModal.vue';
 import cartMixin from '@/mixins/GetCarts';
 
 export default {
@@ -75,6 +79,7 @@ export default {
     return {
       pageName: 'cart',
       isLoading: false,
+      deleteCartId: '',
       CartList: [],
       cartqty: 0,
       cartLength: 0,
@@ -82,6 +87,7 @@ export default {
   },
   components: {
     OrderNav,
+    FrontDoubleCheckModal,
   },
   inject: ['emitter'],
   methods: {
@@ -107,30 +113,20 @@ export default {
           });
         });
     },
-    deleteCart(id) {
-      const api = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/cart/${id}`;
-      this.$http.delete(api)
-        .then((res) => {
-          if (res.data.success) {
-            this.getCarts();
-            this.emitter.emit('push-message', {
-              style: 'danger',
-              title: res.data.message,
-            });
-          }
-        })
-        .catch((err) => {
-          this.emitter.emit('push-message', {
-            style: 'danger',
-            title: err.response.data,
-          });
-        });
+    openCheckModal(id) {
+      this.deleteCartId = id;
+      this.$refs.doubleCheckModal.showModal();
     },
-    deleteAllCart() {
-      const api = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/carts`;
+    deleteCart() {
+      this.isLoading = true;
+      let api = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/cart/${this.deleteCartId}`;
+      if (this.deleteCartId === 'all') {
+        api = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/carts`;
+      }
       this.$http.delete(api)
         .then((res) => {
           if (res.data.success) {
+            this.isLoading = false;
             this.getCarts();
             this.emitter.emit('push-message', {
               style: 'danger',
@@ -139,11 +135,13 @@ export default {
           }
         })
         .catch((err) => {
+          this.isLoading = false;
           this.emitter.emit('push-message', {
             style: 'danger',
             title: err.response.data,
           });
         });
+      this.$refs.doubleCheckModal.hideModal();
     },
   },
   mixins: [cartMixin],

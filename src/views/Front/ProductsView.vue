@@ -14,7 +14,7 @@
                 :class="category === '' ? 'category-visible' : 'category-hide'"></i> 全部商品
             </a>
           </li>
-          <li class="nav-item" v-for="(item, key) in productCategory" :key="key">
+          <li class="nav-item" v-for="(item, key) in productCategory" :key="'category' + key">
             <a class="nav-link text-deep rounded-pill product-category" href="#"
               :class="category === item ? 'text-pastel' : 'text-deep'"
               @click.prevent="category = item">
@@ -28,7 +28,7 @@
       <!-- 商品列表 -->
       <div class="col-lg-10 row ms-0">
         <div class="col-sm-12 col-md-6 col-lg-4"
-          v-for="(item, key) in filterProduct[pagination.current_page-1]" :key="key">
+          v-for="item in filterProduct[pagination.current_page-1]" :key="item.id">
           <div class="card mt-1 mb-2 mx-auto product-card">
             <a class="product-card-item" href="#" @click.prevent="goForDetail(item)">
               <div

@@ -11,7 +11,7 @@
       <div class="row">
       <!-- 商品列表 -->
         <div class="col-sm-12 col-md-6 col-lg-4"
-          v-for="(item, key) in favoriteList" :key="key">
+          v-for="item in favoriteList" :key="item.id">
           <div class="card mt-1 mb-2 mx-auto product-card" >
             <a class="product-card-content" href="#" @click.prevent="goForDetail(item)">
               <div class="overflow-hidden text-light position-relative product-card-pic">

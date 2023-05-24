@@ -33,13 +33,13 @@
             <th></th>
           </tr>
         </thead>
-        <tbody v-for="(item, key) in filterOrder" :key="key" class="searchTbody">
+        <tbody v-for="item in filterOrder" :key="item.id" class="searchTbody">
           <tr class="align-middle">
             <td scope="row" data-th="建立日期" class="fw-bolder">
               {{ $filters.date(item.create_at) }}</td>
             <td data-th="商品項目">
               <ul>
-                <li v-for="(product, i) in item.products" :key="i">
+                <li v-for="product in item.products" :key="product.id">
                   {{ product.product.title }}<br>數量：{{ product.qty }}
                   {{ product.product.unit }}
                 </li>

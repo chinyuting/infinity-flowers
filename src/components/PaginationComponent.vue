@@ -7,8 +7,7 @@
           @click.prevent="updatePage(tempPage.current_page-1)">上一頁</a>
       </li>
       <li class="page-item"
-        v-for="(item, key) in tempPage.total_pages"
-        :key="key">
+        v-for="item in tempPage.total_pages" :key="'page' + item">
         <a class="page-link page-deep" href="#"
           :class=" { 'active': item===tempPage.current_page } "
           @click.prevent="updatePage(item)">{{ item }}</a>

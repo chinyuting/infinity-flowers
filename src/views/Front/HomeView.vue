@@ -69,7 +69,7 @@
         </div>
         <div class="row col-lg-9 px-0 mx-auto justify-content-evenly">
           <div class="col-sm-12 col-md-4 ps-0"
-          v-for="(item, key) in newProductList" :key="key">
+          v-for="item in newProductList" :key="item.id">
             <a href="#" class="text-decoration-none card mt-1 mb-2 newItem-item mx-auto mx-lg-0"
               @click.prevent="goForDetail(item)">
               <!-- 商品圖片 -->

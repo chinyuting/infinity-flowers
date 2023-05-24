@@ -16,7 +16,7 @@
             @click.prevent="toProductView">馬上逛逛</button>
         </div>
         <div class="modal-body" v-else>
-          <div class="card mb-1" v-for="(item, key) in CartList.carts" :key="'cart'+key">
+          <div class="card mb-1" v-for="item in CartList.carts" :key="item.id">
             <div class="d-flex">
               <div class="cartCard-img me-1 ps-0">
                 <img :src="item.product.imageUrl" class="card-img-top"
@@ -50,7 +50,7 @@
                   </button>
                 </div>
                 <!-- 刪除按鈕 -->
-                <button class="btn btn-outline-danger w-50 mt-2 text-center" type="button"
+                <button class="btn btn-outline-danger w-100 mt-2 text-center" type="button"
                   title="刪除此項商品"
                   @click.prevent="deleteCart(item.id)">
                   <i class="bi bi-trash3-fill"></i>

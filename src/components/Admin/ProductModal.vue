@@ -42,7 +42,7 @@
                     <span>新增圖片</span>
                   </button>
                 </div>
-                <div v-for="(url, key) in tempProduct.imagesUrl" :key="key">
+                <div v-for="(url, key) in tempProduct.imagesUrl" :key="'image' + key">
                   <div class="overflow-hidden product-pic">
                     {{ url }}
                   </div>
