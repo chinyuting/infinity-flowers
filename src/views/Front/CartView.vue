@@ -14,7 +14,7 @@
         <div class="row">
           <div class="card col-md-8 col-lg-7 cart-card mb-md-5">
             <div class="card-body justify-content-around d-flex align-items-center"
-            v-for="item in CartList.carts" :key="item.id">
+              v-for="item in CartList.carts" :key="item.id">
               <div class="mb-0 row">
                 <button type="button" @click.prevent="openCheckModal(item.id)"
                   class="col-1 btn btn-light border-0 text-danger text-center p-0">
@@ -53,16 +53,14 @@
           </div>
         </div>
       </div>
-      <div v-else
-        class="position-relative text-center my-5 py-5">
+      <div v-else class="position-relative text-center my-5 py-5">
         <h2>購物車沒有東西</h2>
         <button type="button" class="btn button-light-color mt-2"
           @click.prevent="$router.push('/products')">馬上逛逛</button>
       </div>
     </div>
   </div>
-  <FrontDoubleCheckModal ref="doubleCheckModal"
-    @cartDelete-confirmed="deleteCart"/>
+  <FrontDoubleCheckModal ref="doubleCheckModal" @cartDelete-confirmed="deleteCart"/>
 </template>
 
 <script>

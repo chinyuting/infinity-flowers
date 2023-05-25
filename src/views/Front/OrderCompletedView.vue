@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <OrderNav :PageName="pageName" class="orderNav" />
+    <OrderNav :PageName="pageName" class="orderNav"/>
     <div class="position-relative text-center w-100 my-5 py-5">
       <h3>
         <i class="bi bi-flower3 text-light-color"></i>

@@ -4,8 +4,9 @@
       @submit.prevent="logIn">
       <div class="col-md-6 bg-light p-5 rounded-3 ">
         <button class="btn btn-lg btn-light btn-block" type="button">
-          <router-link class="nav-link active" aria-current="page"
-            to="/"><i class="bi bi-arrow-left"></i>回到官網</router-link>
+          <router-link class="nav-link active" aria-current="page" to="/">
+            <i class="bi bi-arrow-left"></i>回到官網
+          </router-link>
         </button>
         <div class="text-center">
           <h1 class="h3 mb-3 font-weight-normal">登入</h1>
@@ -18,7 +19,8 @@
               placeholder="Email address"
               aria-label="Email"
               required
-              v-model="user.username"/>
+              v-model="user.username"
+            />
           </div>
           <div class="input-group mb-2">
             <span class="input-group-text" id="basic-addon1">密碼</span>
@@ -29,7 +31,8 @@
               placeholder="Password"
               aria-label="Password"
               required
-              v-model="user.password"/>
+              v-model="user.password"
+            />
           </div>
         </div>
         <div class="text-end mt-4">

@@ -5,9 +5,8 @@
       <div class="side-bar col-lg-2">
         <ul class="nav d-flex flex-lg-column flex-row">
           <li class="nav-item">
-            <a class="nav-link rounded-pill product-category" href="#"
+            <a class="nav-link rounded-pill product-category" href="#" aria-current="page"
               :class="category === '' ? 'text-pastel' : 'text-deep'"
-              aria-current="page"
               @click.prevent="category = ''">
               <i class="bi bi-flower3 text-pastel"
                 :class="category === '' ? 'category-visible' : 'category-hide'"></i> 全部商品
@@ -35,7 +34,8 @@
                   <p class="card-text">{{ item.category }}</p>
                 </div>
                 <img :src="item.imageUrl" :alt="item.title"
-                  class="card-img-top d-block align-middle w-100 h-100 w-auto mx-auto">
+                  class="card-img-top d-block align-middle w-100 h-100 w-auto mx-auto"
+                >
               </div>
               <div class="card-body text-dark">
                 <div>

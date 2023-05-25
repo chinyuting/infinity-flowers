@@ -9,7 +9,7 @@
       @click.prevent="goCart">
       <i class="bi bi-arrow-left"></i>返回購物車
     </button>
-    <VForm class="row mb-5" @submit="creatOrder" v-slot="{ errors }">
+    <VForm class="row mb-5" @submit="createOrder" v-slot="{ errors }">
       <div class="col-lg-6 mt-4 mx-auto">
         <div class="card-body">
           <h4>
@@ -215,7 +215,7 @@ export default {
       }
       return true;
     },
-    creatOrder() {
+    createOrder() {
       const api = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/order`;
       this.$http.post(api, { data: this.form })
         .then((res) => {
@@ -267,10 +267,6 @@ export default {
     goCart() {
       this.$router.push('/cart');
     },
-    // getInvalid() {
-    //   this.formDone = document.getElementsByClassName('is-invalid').length;
-    //   console.log(this.formDone);
-    // },
   },
   mixins: [cartMixin],
   created() {

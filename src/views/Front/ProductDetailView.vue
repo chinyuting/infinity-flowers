@@ -346,7 +346,7 @@ max-height: 41.6px;
 .viewedItem-item{
   width: 262px;
   transition:all .3s ease-in-out;
-  transform:translateX(var(--slider));
+  transform:translateX( var(--slider) );
 }
 .viewedItem-pic {
   height: 345px;

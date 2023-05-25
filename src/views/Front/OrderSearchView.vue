@@ -2,18 +2,18 @@
   <LoadingOverlay :active="isLoading" />
   <div class="container">
     <h5 class="search-text">請輸入訂購人Email查詢訂單</h5>
-    <v-form v-slot="{ errors }"  @submit="searchOrder">
+    <VForm v-slot="{ errors }"  @submit="searchOrder">
       <div class="input-group mb-3">
-        <v-field type="text" class="form-control" placeholder="訂購人Email"
+        <VField type="text" class="form-control" placeholder="訂購人Email"
           aria-label="email" name="email" rules="email"
           :class="{ 'is-invalid' : errors['email'] }"
           aria-describedby="button-addon2" v-model="searchEmail"
-          @keyup.enter="searchOrder"></v-field>
-        <button class="btn btn-outline-secondary" type="submit" id="button-addon2"
-          >查詢</button>
-        <error-message name="email" class="invalid-feedback"></error-message>
+          @keyup.enter="searchOrder"
+        />
+        <button class="btn btn-outline-secondary" type="submit" id="button-addon2">查詢</button>
+        <ErrorMessage name="email" class="invalid-feedback"/>
       </div>
-    </v-form>
+    </VForm>
     <div v-if="searchState && filterOrder.length === 0">
       <div class="position-absolute bottom-50 start-50 translate-middle text-center text-deep">
         <p>訂購人Email : {{ email }}</p>
@@ -36,7 +36,8 @@
         <tbody v-for="item in filterOrder" :key="item.id" class="searchTbody">
           <tr class="align-middle">
             <td scope="row" data-th="建立日期" class="fw-bolder">
-              {{ $filters.date(item.create_at) }}</td>
+              {{ $filters.date(item.create_at) }}
+            </td>
             <td data-th="商品項目">
               <ul>
                 <li v-for="product in item.products" :key="product.id">

@@ -1,7 +1,7 @@
 <template>
   <LoadingOverlay :active="isLoading"/>
   <div class="container">
-    <div v-if="favoriteList.length === 0 "
+    <div v-if="favoriteList.length === 0"
       class="position-relative text-center my-5 py-5">
       <h2 class="text-nowrap">尚未收藏任何產品</h2>
       <button type="button" class="btn button-light-color mt-2"
