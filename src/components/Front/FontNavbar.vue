@@ -1,11 +1,9 @@
 <template>
   <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
     <div class="container-fluid">
-      <!-- logo -->
       <a class="navbar-bran" href="#">
         <img alt="Infinity Flowers logo" src="@/assets/images/logo.png" width="100">
       </a>
-      <!-- toggle -->
       <button class="navbar-toggler" type="button"
         data-bs-toggle="collapse"
         data-bs-target=".FontNavbarNav"
@@ -13,7 +11,6 @@
         aria-label="Toggle navigation" ref="navbarToggler">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <!-- nav list -->
       <div class="collapse navbar-collapse FontNavbarNav">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0 justify-content-center text-center">
           <li class="nav-item">

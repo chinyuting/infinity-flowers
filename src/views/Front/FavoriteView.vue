@@ -9,28 +9,23 @@
     </div>
     <div v-else>
       <div class="row">
-      <!-- 商品列表 -->
         <div class="col-sm-12 col-md-6 col-lg-4"
           v-for="item in favoriteList" :key="item.id">
           <div class="card mt-1 mb-2 mx-auto product-card" >
             <a class="product-card-content" href="#" @click.prevent="goForDetail(item)">
               <div class="overflow-hidden text-light position-relative product-card-pic">
-                <!-- 商品類別標示 -->
                 <div class="position-absolute bg-secondary px-2 bottom-0 end-0 rounded m-2">
                   <p class="card-text">{{ item.category }}</p>
                 </div>
-                <!-- 商品圖片 -->
                 <img :src="item.imageUrl" :alt="item.title"
                   class="card-img-top d-block mx-auto align-middle">
               </div>
               <div class="card-body text-dark">
-                <!-- 商品名稱 -->
                 <h5 class="row overflow-hidden">
                   <div class="card-title col-10 overflow-hidden product-card-title"
                     :title="item.title">
                     {{ item.title }}
                   </div>
-                  <!-- 加入收藏 -->
                   <div class="mw-25 text-end col-2 add-favorite">
                     <a href="#" @click.stop.prevent="removeFavorite(item)">
                       <i class="bi bi-heart text-danger"
@@ -40,7 +35,6 @@
                     </a>
                   </div>
                 </h5>
-                <!-- 商品資訊 -->
                 <p class="card-text">
                   <span class="text-decoration-line-through fs-6"
                     v-if="item.origin_price !== item.price"> NT${{ item.origin_price }}</span>

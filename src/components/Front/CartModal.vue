@@ -24,7 +24,6 @@
               </div>
               <div class="col-6 m-auto">
                 <h5 class="card-title">{{ item.product.title }}</h5>
-                <!-- 數輛調整 -->
                 <div class="input-group">
                   <button class="btn btn-outline-secondary" type="button"
                     @click.prevent="refreshCart(item, item.qty-1)"
@@ -49,7 +48,6 @@
                     <span v-else><i class="bi bi-plus"></i></span>
                   </button>
                 </div>
-                <!-- 刪除按鈕 -->
                 <button class="btn btn-outline-danger w-100 mt-2 text-center" type="button"
                   title="刪除此項商品"
                   @click.prevent="deleteCart(item.id)">

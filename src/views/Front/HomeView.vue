@@ -1,6 +1,5 @@
 <template>
   <LoadingOverlay :active="isLoading"/>
-  <!-- banner -->
   <div class="home">
     <div class="background-clip display-1 text-center row align-items-center">
       <span>Infinity Flowers</span>
@@ -11,7 +10,6 @@
         <div class="pb-2">scroll</div>
       </div>
     </div>
-    <!-- 限時優惠 -->
     <div class="mt-5 container-fluid">
       <div class="on-sale w-100 text-center p-5 rounded-3">
         <h2>
@@ -60,7 +58,6 @@
         <button type="button" class="btn button-light-color mb-5 btn-lg"
           @click.prevent="$router.push('/products')">馬上逛逛</button>
       </div>
-      <!-- 新品上市 -->
       <div class="mt-4 row newItem-bg py-5">
         <div class="col-lg-3 newItem mt-md-0 py-md-2">
           <h1 class="text-center mt-lg-0 mt-4">
@@ -72,14 +69,12 @@
           v-for="item in newProductList" :key="item.id">
             <a href="#" class="text-decoration-none card mt-1 mb-2 newItem-item mx-auto mx-lg-0"
               @click.prevent="goForDetail(item)">
-              <!-- 商品圖片 -->
               <div
                 class="overflow-hidden text-light position-relative border-bottom newItem-pic">
                 <img :src="item.imageUrl" :alt="item.title"
                   class="card-img-top d-block align-middle h-100 w-auto mx-auto">
               </div>
               <div class="card-body text-dark">
-                <!-- 商品名稱 -->
                 <h5 class="overflow-hidden">
                   <div class="card-title overflow-hidden newItem-name"
                     :title="item.title">

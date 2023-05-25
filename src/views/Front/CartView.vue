@@ -7,13 +7,11 @@
       <span class="text-deep-color">購物車</span>
     </h3>
     <div>
-      <!-- 購物車 -->
       <div v-if="cartLength !== 0">
         <button @click="openCheckModal('all')" class="mb-1 btn btn-outline-danger" type="button">
           <i class="bi bi-trash3"></i>全部刪除
         </button>
         <div class="row">
-          <!-- 商品 -->
           <div class="card col-md-8 col-lg-7 cart-card mb-md-5">
             <div class="card-body justify-content-around d-flex align-items-center"
             v-for="item in CartList.carts" :key="item.id">
@@ -21,7 +19,6 @@
                 <button type="button" @click.prevent="openCheckModal(item.id)"
                   class="col-1 btn btn-light border-0 text-danger text-center p-0">
                   <i class="bi bi-x-lg"></i>
-                  <!-- deleteCart(item.id) -->
                 </button>
                 <img :src="item.product.imageUrl" :alt="item.product.title"
                   class="col-4 flex-grow-1">
@@ -44,7 +41,6 @@
               </div>
             </div>
           </div>
-          <!-- 明細 -->
           <div class="cart-info col-md-4 col-lg-5 col-12 mb-sm-5">
             <div class="ps-md-5 mt-4">
               <h4>品項 {{ cartLength }} 個</h4>

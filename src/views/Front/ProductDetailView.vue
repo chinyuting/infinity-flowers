@@ -117,7 +117,6 @@
           <span class="visually-hidden">Next</span>
         </button>
         <div class="row flex-nowrap mx-auto justify-content-start">
-          <!-- 商品列表 -->
           <div class="viewedItem-card ps-0" :data-slider="key"
             v-for="item in viewedProducts" :key="item.id">
               <a href="#"
@@ -125,12 +124,10 @@
                 @click.prevent="goForDetail(item)">
                 <div
                   class="overflow-hidden text-light position-relative border-bottom viewedItem-pic">
-                  <!-- 商品圖片 -->
                   <img :src="item.imageUrl" :alt="item.title"
                     class="card-img-top d-block align-middle h-100 w-auto mx-auto">
                 </div>
                 <div class="card-body text-dark">
-                  <!-- 商品名稱 -->
                   <h5 class="overflow-hidden">
                     <div class="card-title overflow-hidden viewedItem-name"
                       :title="item.title">

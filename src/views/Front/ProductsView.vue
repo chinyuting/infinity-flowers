@@ -2,7 +2,6 @@
   <LoadingOverlay :active="isLoading" />
   <div class="container">
     <div class="row">
-      <!-- 側邊分類 -->
       <div class="side-bar col-lg-2">
         <ul class="nav d-flex flex-lg-column flex-row">
           <li class="nav-item">
@@ -25,7 +24,6 @@
           </li>
         </ul>
       </div>
-      <!-- 商品列表 -->
       <div class="col-lg-10 row ms-0">
         <div class="col-sm-12 col-md-6 col-lg-4"
           v-for="item in filterProduct[pagination.current_page-1]" :key="item.id">
@@ -33,23 +31,19 @@
             <a class="product-card-item" href="#" @click.prevent="goForDetail(item)">
               <div
                 class="overflow-hidden text-light position-relative border-bottom product-card-pic">
-                <!-- 商品類別標示 -->
                 <div class="position-absolute bg-secondary px-2 bottom-0 end-0 rounded m-1">
                   <p class="card-text">{{ item.category }}</p>
                 </div>
-                <!-- 商品圖片 -->
                 <img :src="item.imageUrl" :alt="item.title"
                   class="card-img-top d-block align-middle w-100 h-100 w-auto mx-auto">
               </div>
               <div class="card-body text-dark">
                 <div>
                   <h5 class="row overflow-hidden">
-                    <!-- 商品名稱 -->
                     <div class="card-title col-10 overflow-hidden product-card-title"
                       :title="item.title">
                       {{ item.title }}
                     </div>
-                    <!-- 加入收藏 -->
                     <div class="mw-25 text-end col-2 add-favorite">
                       <a href="#" @click.stop.prevent="updateFavorite(item)">
                         <i class="bi bi-heart text-danger" title="加入收藏"
@@ -60,7 +54,6 @@
                     </div>
                   </h5>
                 </div>
-                <!-- 商品資訊 -->
                 <p class="card-text">
                   <span class="text-decoration-line-through fs-6"
                     v-if="item.origin_price !== item.price">

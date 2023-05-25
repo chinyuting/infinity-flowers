@@ -10,7 +10,6 @@
       <i class="bi bi-arrow-left"></i>返回購物車
     </button>
     <VForm class="row mb-5" @submit="creatOrder" v-slot="{ errors }">
-      <!-- 寄送資訊 -->
       <div class="col-lg-6 mt-4 mx-auto">
         <div class="card-body">
           <h4>
@@ -107,7 +106,6 @@
           </div>
         </div>
       </div>
-      <!-- 訂單資訊 -->
       <div class="col-lg-5 mt-4 mx-auto">
         <h4>
           <span class="enphasis">訂單明細</span>
@@ -131,7 +129,6 @@
             </tr>
           </tbody>
         </table>
-        <!-- 價格 -->
         <h5 class="text-end">
           <span class="d-inline-block price-label">總價</span>
           <span class="w-25 d-inline-block">
@@ -145,7 +142,6 @@
             {{ parseInt(CartList.final_total) }}
           </span>
         </h5>
-        <!-- 套用優惠券-->
         <div class="input-group my-3">
           <input type="text" class="form-control"
             placeholder="輸入優惠代碼" aria-label="Coupon" aria-describedby="basic-addon1"
