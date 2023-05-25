@@ -52,7 +52,9 @@
                 <i class="bi bi-heart nav-icon text-deep-color"></i>{{ null }}
               </a>
             </span>
-            <span class="notice" :class="favoriteLength !== 0 ? 'notice-visible' : 'notice-hide'">
+            <span class="notice"
+              :class="favoriteLength !== 0 && favoriteLength !== 'undefined'?
+              'notice-visible' : 'notice-hide'">
               {{ favoriteLength }}
             </span>
           </li>
@@ -113,10 +115,10 @@ export default {
   },
   mounted() {
     this.pageChange('home');
-    this.emitter.on('push-Cartnotice', (data) => {
+    this.emitter.on('push-CartNotice', (data) => {
       this.cartLength = data.data;
     });
-    this.emitter.on('push-Favnotice', (data) => {
+    this.emitter.on('push-FavNotice', (data) => {
       this.favoriteLength = data.data;
     });
     this.emitter.on('page-change', (data) => {

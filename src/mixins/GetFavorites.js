@@ -1,5 +1,4 @@
 export default {
-  // inject: ['emitter'],
   methods: {
     getFavorite() {
       if (localStorage.getItem('favoriteItem')) {
@@ -8,10 +7,9 @@ export default {
         this.favoriteLength = this.idList.length;
       } else {
         this.idList = [];
-        this.cartLength = 0;
-        console.log(this.favoriteLength);
+        this.favoriteLength = 0;
       }
-      this.emitter.emit('push-Favnotice', {
+      this.emitter.emit('push-FavNotice', {
         data: this.favoriteLength,
         category: 'cart',
       });

@@ -209,8 +209,8 @@ export default {
         if (i % 9 === 0) {
           resultData.push([]);
         }
-        const pagenum = parseInt(i / 9, 9);
-        resultData[pagenum].push(item);
+        const pageNum = parseInt(i / 9, 9);
+        resultData[pageNum].push(item);
       });
       return resultData;
     },
