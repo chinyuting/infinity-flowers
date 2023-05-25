@@ -14,7 +14,7 @@ export default {
             res.data.data.carts.forEach((element) => {
               this.cartqty += element.qty;
             });
-            this.emitter.emit('push-Cartnotice', {
+            this.emitter.emit('push-CartNotice', {
               data: this.cartLength,
               category: 'cart',
             });
