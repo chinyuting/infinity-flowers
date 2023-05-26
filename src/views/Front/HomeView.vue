@@ -157,7 +157,6 @@ export default {
   color:#4F332D;
   font-weight: bold;
 }
-/* banner */
 .background-clip{
   margin: 0;
   width: 100%;
@@ -185,14 +184,12 @@ export default {
   height: 70px;
   background-color: rgb(247, 248, 249);
 }
-/* 優惠訊息 */
 .on-sale{
   background: url(@/assets/images/LoginBg.png);
   background-repeat: no-repeat;
   background-size: cover;
   background-position:center;
 }
-/* slogan */
 .slogan-title{
   position: absolute;
   width: 30%;
@@ -214,7 +211,6 @@ export default {
   display:block;
   margin:auto;
 }
-/* 新品上市 */
 .newItem{
   line-height: 100%;
   display: flex;
