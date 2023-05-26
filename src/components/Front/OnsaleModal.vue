@@ -13,7 +13,7 @@
             <i class="bi bi-flower3 icon-size"></i>
           </span>
           <h4>Infinity Flower限時優惠</h4>
-          <h3>優惠券代碼 Infiity8</h3>
+          <h3>優惠券代碼 Infinity8</h3>
         </div>
         <div class="modal-footer mx-auto">
           <button type="button" class="btn button-light-color"
