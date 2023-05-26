@@ -57,7 +57,7 @@ export default {
   },
   methods: {
     logIn() {
-      const api = `${process.env.VUE_APP_API}admin/signin`;
+      const api = `${process.env.VUE_APP_API}admin/signIn`;
       this.$http.post(api, this.user)
         .then((res) => {
           // 確認登入狀態
@@ -66,7 +66,7 @@ export default {
             const { token, expired } = res.data;
             document.cookie = `hexToken=${token}; expires=${new Date(expired)};
             SameSite=None; Secure`;
-            this.$router.push('/dashboard/productmanage');
+            this.$router.push('/dashboard/ProductManage');
           }
         })
         .catch((err) => {

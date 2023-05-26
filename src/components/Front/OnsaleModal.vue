@@ -9,7 +9,7 @@
             data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body text-center">
-          <span class="p-2 onsale-icon">
+          <span class="p-2 onSale-icon">
             <i class="bi bi-flower3 icon-size"></i>
           </span>
           <h4>Infinity Flower限時優惠</h4>
@@ -49,7 +49,7 @@ export default {
 </script>
 
 <style>
-.onsale-icon{
+.onSale-icon{
   color: rgb(231, 152, 152);
 }
 </style>

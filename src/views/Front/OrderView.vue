@@ -13,7 +13,7 @@
       <div class="col-lg-6 mt-4 mx-auto">
         <div class="card-body">
           <h4>
-            <span class="enphasis">訂購人資料</span>
+            <span class="emphasis">訂購人資料</span>
           </h4>
             <div class="ms-2">
               <div class="input-group mb-3">
@@ -43,7 +43,7 @@
             </div>
           <hr>
           <h4>
-            <span class="enphasis">收件人資料</span>
+            <span class="emphasis">收件人資料</span>
           </h4>
           <div class="ms-2">
             <div class="form-check">
@@ -82,7 +82,7 @@
           </div>
           <hr>
           <h4>
-            <span class="enphasis">送件資訊</span>
+            <span class="emphasis">送件資訊</span>
           </h4>
           <div class="ms-2">
           [僅提供宅配服務]
@@ -97,7 +97,7 @@
           </div>
           <hr>
           <h4>
-            <span class="enphasis">想對我們說的話</span>
+            <span class="emphasis">想對我們說的話</span>
           </h4>
           <div class="input-group ms-2">
             <span class="input-group-text">留言給我們</span>
@@ -108,7 +108,7 @@
       </div>
       <div class="col-lg-5 mt-4 mx-auto">
         <h4>
-          <span class="enphasis">訂單明細</span>
+          <span class="emphasis">訂單明細</span>
         </h4>
         <table class="table">
           <thead>

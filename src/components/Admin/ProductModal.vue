@@ -49,7 +49,7 @@
                   <div>
                     <button class="btn btn-outline-primary" type="button"
                       @click="showImages(url, key)"
-                      v-if="url === isShowurl &&isShow===true">
+                      v-if="url === isShowUrl &&isShow===true">
                       <span>隱藏</span>
                     </button>
                     <button class="btn btn-outline-primary" type="button"
@@ -64,7 +64,7 @@
                   </div>
                   <div>
                     <img :src="url" :alt="tempProduct.title+key" class="img-fluid"
-                      v-if="url === isShowurl && isShow">
+                      v-if="url === isShowUrl && isShow">
                   </div>
                 </div>
               </div>
@@ -161,7 +161,7 @@ export default {
     return {
       modal: {},
       tempImg: '',
-      isShowurl: '',
+      isShowUrl: '',
       isShow: false,
       tempProduct: {
         imagesUrl: [],
@@ -230,7 +230,7 @@ export default {
       this.tempProduct.imagesUrl.splice(ImgIndex, 1);
     },
     showImages(url) {
-      this.isShowurl = url;
+      this.isShowUrl = url;
       this.isShow = !this.isShow;
     },
   },

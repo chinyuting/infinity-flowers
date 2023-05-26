@@ -89,11 +89,11 @@
       </div>
     </div>
   </div>
-  <OnsaleModal ref="sale"/>
+  <OnSaleModal ref="sale"/>
 </template>
 
 <script>
-import OnsaleModal from '@/components/Front/OnsaleModal.vue';
+import OnSaleModal from '@/components/Front/OnSaleModal.vue';
 import detailMixin from '@/mixins/GoDetail';
 
 export default {
@@ -103,7 +103,7 @@ export default {
     };
   },
   components: {
-    OnsaleModal,
+    OnSaleModal,
   },
   inject: ['emitter'],
   methods: {
@@ -248,12 +248,6 @@ export default {
   white-space: nowrap;
 }
 @media only screen and (max-width: 768px){
-  .homepic{
-    width: 100%;
-    border-radius: 0px;
-    padding: 0;
-    position: relative;
-  }
   .slogan-bg {
     background:
     linear-gradient(transparent 15%,rgba(231, 152, 152, 1) 15%,

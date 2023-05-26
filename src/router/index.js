@@ -17,7 +17,7 @@ const routes = [
       },
       {
         path: 'products/:productId',
-        name: 'productdetail',
+        name: 'ProductDetail',
         component: () => import('../views/Front/ProductDetailView.vue'),
       },
       {
@@ -36,12 +36,12 @@ const routes = [
         component: () => import('../views/Front/OrderView.vue'),
       },
       {
-        path: 'order/:orderid',
-        name: 'ordercheck',
+        path: 'order/:orderId',
+        name: 'OrderCheck',
         component: () => import('../views/Front/OrderCheckView.vue'),
       },
       {
-        path: 'order/:orderid/paid',
+        path: 'order/:orderId/paid',
         name: 'orderPaid',
         component: () => import('../views/Front/OrderCompletedView.vue'),
       },
@@ -68,18 +68,18 @@ const routes = [
     component: () => import('../views/DashBoardView.vue'),
     children: [
       {
-        path: 'productmanage',
-        name: 'productmanage',
+        path: 'ProductManage',
+        name: 'ProductManage',
         component: () => import('../views/Admin/ProductManage.vue'),
       },
       {
-        path: 'ordermanage',
-        name: 'ordermanage',
+        path: 'OrderManage',
+        name: 'OrderManage',
         component: () => import('../views/Admin/OrderManage.vue'),
       },
       {
-        path: 'couponmanage',
-        name: 'couponmanage',
+        path: 'CouponManage',
+        name: 'CouponManage',
         component: () => import('../views/Admin/CouponManage.vue'),
       },
     ],

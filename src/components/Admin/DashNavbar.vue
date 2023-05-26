@@ -13,22 +13,22 @@
       <div class="collapse navbar-collapse DashNav">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0 justify-content-center text-center">
           <li class="nav-item">
-            <router-link to="/dashboard/productmanage" class="nav-link dashNav-item"
-              :class="pageNow === 'productmanage' ? 'dashNav-active' : ''"
+            <router-link to="/dashboard/ProductManage" class="nav-link dashNav-item"
+              :class="pageNow === 'ProductManage' ? 'dashNav-active' : ''"
               @click.prevent="closeDashNav">
               產品管理
             </router-link>
           </li>
           <li class="nav-item">
-            <router-link to="/dashboard/ordermanage" class="nav-link dashNav-item"
-              :class="pageNow === 'ordermanage' ? 'dashNav-active' : ''"
+            <router-link to="/dashboard/OrderManage" class="nav-link dashNav-item"
+              :class="pageNow === 'OrderManage' ? 'dashNav-active' : ''"
               @click.prevent="closeDashNav">
               訂單管理
             </router-link>
           </li>
           <li class="nav-item">
-            <router-link to="/dashboard/couponmanage" class="nav-link dashNav-item"
-              :class="pageNow === 'couponmanage' ? 'dashNav-active' : ''"
+            <router-link to="/dashboard/CouponManage" class="nav-link dashNav-item"
+              :class="pageNow === 'CouponManage' ? 'dashNav-active' : ''"
               @click.prevent="closeDashNav">
               優惠券管理
             </router-link>
@@ -87,7 +87,7 @@ export default {
       this.$refs.checkModal.showModal();
     },
     goToFirstPage() {
-      this.$router.push('/dashboard/productmanage');
+      this.$router.push('/dashboard/ProductManage');
     },
     pageChange(page) {
       this.pageNow = page;
@@ -97,7 +97,7 @@ export default {
     },
   },
   mounted() {
-    this.pageChange('productmanage');
+    this.pageChange('ProductManage');
     this.emitter.on('dash-change', (data) => {
       this.pageNow = data.data;
     });

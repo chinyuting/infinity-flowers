@@ -118,7 +118,7 @@
         </button>
         <div class="row flex-nowrap mx-auto justify-content-start">
           <div class="viewedItem-card ps-0" :data-slider="key"
-            v-for="item in viewedProducts" :key="item.id">
+            v-for="(item, key) in viewedProducts" :key="item.id">
               <a href="#"
                 class="text-decoration-none card mt-1 mb-2 mx-auto mx-lg-0 viewedItem-item"
                 @click.prevent="goForDetail(item)">

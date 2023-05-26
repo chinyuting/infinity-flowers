@@ -161,7 +161,7 @@ export default {
   },
   mounted() {
     this.emitter.emit('dash-change', {
-      data: 'productmanage',
+      data: 'ProductManage',
     });
   },
 };

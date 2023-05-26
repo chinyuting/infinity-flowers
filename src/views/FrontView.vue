@@ -24,7 +24,7 @@ body{
   margin-top:90px ;
   min-height: calc(100vh - 170px);
 }
-.enphasis{
+.emphasis{
   background-image: linear-gradient(
     rgba(0, 0, 0, 0)70%,
     rgba(231, 152, 152)70%

@@ -155,7 +155,7 @@ export default {
   },
   mounted() {
     this.emitter.emit('dash-change', {
-      data: 'ordermanage',
+      data: 'OrderManage',
     });
   },
 };

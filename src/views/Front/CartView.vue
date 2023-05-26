@@ -44,7 +44,7 @@
           <div class="cart-info col-md-4 col-lg-5 col-12 mb-sm-5">
             <div class="ps-md-5 mt-4">
               <h4>品項 {{ cartLength }} 個</h4>
-              <h4>數量 {{ cartqty }} 個</h4>
+              <h4>數量 {{ cartQty }} 個</h4>
               <hr>
               <h3>總價 NT${{ CartList.total }}</h3>
               <button type="submit" class="btn w-100 mt-2 button-light-color btn-lg"
@@ -75,7 +75,7 @@ export default {
       isLoading: false,
       deleteCartId: '',
       CartList: [],
-      cartqty: 0,
+      cartQty: 0,
       cartLength: 0,
     };
   },
@@ -88,11 +88,11 @@ export default {
     toOrder() {
       this.$router.push('/order');
     },
-    refreshCart(item, itemqty) {
+    refreshCart(item, itemQty) {
       const api = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/cart/${item.id}`;
       const cart = {
         product_id: item.product_id,
-        qty: itemqty,
+        qty: itemQty,
       };
       this.$http.put(api, { data: cart })
         .then((res) => {

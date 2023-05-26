@@ -37,7 +37,7 @@
             </router-link>
           </li>
           <li class="nav-item">
-            <router-link to="/dashboard/productmanage" class="nav-link homeNav-item"
+            <router-link to="/dashboard/ProductManage" class="nav-link homeNav-item"
               @click.prevent="closeNav">
               管理員登入
             </router-link>
@@ -61,7 +61,7 @@
           <li class="nav-item">
             <span>
               <a href="#" title="購物車" @click.prevent="openCart">
-                <i class="bi bi-cart3 nav-icon text-deep-color"></i>{{ null }}
+              <i class="bi bi-cart3 nav-icon text-deep-color"></i>{{ null }}
               </a>
             </span>
             <span class="notice" :class="cartLength !== 0 ? 'notice-visible' : 'notice-hide'">

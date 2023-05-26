@@ -9,7 +9,7 @@
     <div class="row mb-3 ">
       <div class="col-md-7 mt-2">
         <h4>
-          <span class="enphasis">訂單明細</span>
+          <span class="emphasis">訂單明細</span>
         </h4>
         <table class="table table-striped">
           <thead>
@@ -40,7 +40,7 @@
       </div>
       <div class="col-md-5 mt-2">
         <h4>
-          <span class="enphasis">訂購人資料</span>
+          <span class="emphasis">訂購人資料</span>
         </h4>
         <table class="table">
           <tbody>
@@ -104,7 +104,7 @@ export default {
   methods: {
     getOrder() {
       this.isLoading = true;
-      this.orderId = this.$route.params.orderid;
+      this.orderId = this.$route.params.orderId;
       const api = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/order/${this.orderId}`;
       this.$http.get(api)
         .then((res) => {
