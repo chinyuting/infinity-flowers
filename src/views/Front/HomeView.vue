@@ -93,8 +93,8 @@
 </template>
 
 <script>
-import OnSaleModal from '@/components/Front/OnSaleModal.vue';
 import detailMixin from '@/mixins/GoDetail';
+import OnSaleModal from '@/components/Front/OnSaleModal.vue';
 
 export default {
   data() {
