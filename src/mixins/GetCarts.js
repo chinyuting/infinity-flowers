@@ -7,12 +7,12 @@ export default {
       this.$http.get(api)
         .then((res) => {
           if (res.data.success) {
-            this.cartqty = 0;
+            this.cartQty = 0;
             this.isLoading = false;
             this.CartList = res.data.data;
             this.cartLength = res.data.data.carts.length;
             res.data.data.carts.forEach((element) => {
-              this.cartqty += element.qty;
+              this.cartQty += element.qty;
             });
             this.emitter.emit('push-CartNotice', {
               data: this.cartLength,
