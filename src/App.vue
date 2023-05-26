@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import emitter from '@/methods/emiter';
+import emitter from '@/methods/emitter';
 import ToastList from '@/components/ToastList.vue';
 import 'bootstrap/dist/js/bootstrap.bundle';
 import BackToTop from '@/components/BackToTop.vue';
