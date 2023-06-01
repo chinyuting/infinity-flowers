@@ -18,7 +18,7 @@
         <div class="modal-footer mx-auto">
           <button type="button" class="btn button-deep-color"
             @click.prevent="hideModal()">取消</button>
-          <button type="button" class="btn button-light-color"
+          <button type="button" class="btn btn-danger"
             @click.prevent="deleteConfirmed()">刪除</button>
         </div>
       </div>
